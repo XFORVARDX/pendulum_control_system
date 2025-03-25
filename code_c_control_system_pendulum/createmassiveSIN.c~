@@ -1,0 +1,21 @@
+#include "createmassiveSIN.h"
+
+int fix16_sin[256];
+
+int generSin() {
+
+
+    for (int i = 0; i < 256; i++) {
+        // Преобразуем i в радианы
+        double x = (2 * M_PI * i) / 256; // x от 0 до 2?
+        // Вычисляем синус и масштабируем в fix16
+        fix16_sin[i] = (int)(sin(x) * FIX16_SCALE);
+    }
+
+    // Выводим массив для проверки
+    for (int i = 0; i < 256; i++) {
+        printf("%d, ", fix16_sin[i]);
+    }
+
+    return 0;
+}

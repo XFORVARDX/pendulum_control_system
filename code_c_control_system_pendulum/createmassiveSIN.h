@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdint.h> // Для int32_t
+
+#define FIX16_SCALE 32768 // Для представления фиксированной точки с 16 битами
+#define MI_P 3.14159265358979323846
+#define samls 252
+#define MAXugol 400
+int fix16_sin[samls];
+int i = 0;
+float x = 0;
+int sin_ugol[MAXugol];
+
+
+int generSin() {
+
+
+    for (i = 0; i < samls; i++) {
+        // Преобразуем i в радианы
+        x = 2*(3.14 * i) / samls; // x от -1 до 1
+        // Вычисляем синус и масштабируем в fix16
+        fix16_sin[i] = (int)(sin(x) * FIX16_SCALE);
+    }                                               
+
+
+    return 0;
+}
+
+int k = 0;
+int generSinUgol() {
+
+
+    for (k = 0; k < MAXugol; k++) {
+        // Преобразуем i в радианы
+        x = ((k-MAXugol>>1)*0.9*3.14) / 180; // x от -1 до 1
+        // Вычисляем синус и масштабируем в fix16
+        sin_ugol[k] = (int)(sin(x) * FIX16_SCALE );     
+        
+        
+    }                                               
+
+
+    return 0;
+}
