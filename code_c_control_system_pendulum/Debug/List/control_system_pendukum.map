@@ -39,8 +39,9 @@ generSin                                                                        
 generSinUgol                                                                      0x000DB     47
 my_abs                                                                            0x0010A     10
 ext_int0_isr                                                                      0x00114     24
-timer0_ovf_isr                                                                    0x0012C     25
-main                                                                              0x00145    303
-ftrunc                                                                            0x00274     48
-floor                                                                             0x002A4     22
-sin                                                                               0x002BA    101
+timer0_ovf_isr                                                                    0x0012C     56
+main                                                                              0x00164    299
+putchar                                                                           0x0028F     10
+ftrunc                                                                            0x00299     48
+floor                                                                             0x002C9     22
+sin                                                                               0x002DF    101

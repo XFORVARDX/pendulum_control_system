@@ -84,20 +84,20 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
 //sprintf(buffer, "%d", ugol);
 //                    
 //        puts(buffer);   
-       
-//        byte1 = (ugol >> 8) & 0xFF;
-//        byte2 = ugol & 0xFF;  
-//        putchar(0x1c);
-//        putchar(byte1);   
-//        putchar(byte2);        
-//        byte1 = (pwm_value >> 8) & 0xFF;
-//        byte2 = pwm_value & 0xFF; 
-//        putchar(0x2d); 
-//        putchar(byte1);   
-//        putchar(byte2);       
+        PORTB |= (1 << PORTB5); // Установка высокого уровня на PB5
+        byte1 = (ugol >> 8) & 0xFF;
+        byte2 = ugol & 0xFF;  
+        putchar(0x1c);
+        putchar(byte1);   
+        putchar(byte2);        
+        byte1 = (pwm_value >> 8) & 0xFF;
+        byte2 = pwm_value & 0xFF; 
+        putchar(0x2d); 
+        putchar(byte1);   
+        putchar(byte2);       
         time12++; 
-        if(time12>16128)time12 = 0;
-        TCNT0=0;
+        if(time12>16128)time12 = 0;      
+        PORTB &= ~(1 << PORTB5);    
 }
 // Declare your global variables here
 
@@ -116,7 +116,7 @@ CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
 // Input/Output Ports initialization
 // Port B initialization
 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
-DDRB=(0<<DDB7) | (0<<DDB6) | (1<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (1<<DDB1) | (0<<DDB0);
+DDRB=(0<<DDB7) | (0<<DDB6) | (1<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (1<<DDB1) | (1<<DDB0);
 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
 
@@ -240,10 +240,10 @@ while (1)
             PORTD.7 = 0;  
             PIND.6=1;    
             if(Y <= 65535){      
-               #asm("cli")
+               //#asm("cli")
                OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
                OCR1AL = 65535 & 0xFF; // Нижний байт  
-               #asm("sei")     
+               //#asm("sei")     
             }  
         }
             else if((error>1) && (flagPWM == 1)){    
@@ -251,10 +251,10 @@ while (1)
             PORTD.7 = 1;  
             PIND.6 = 0; 
             if(Y <= 65535) {  
-                #asm("cli")
+                //#asm("cli")
                 OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
                 OCR1AL = 65535 & 0xFF; // Нижний байт   
-                #asm("sei")      
+                //#asm("sei")      
             } 
             else {
                 //OCR1BH = 0; 
