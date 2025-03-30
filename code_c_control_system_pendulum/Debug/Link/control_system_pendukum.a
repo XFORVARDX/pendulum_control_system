@@ -144,320 +144,323 @@
 ;PCODE: $00000076 VOL: 0
 ;PCODE: $00000077 VOL: 0
 ; 0000 0046 {
-; 0000 0047 ugol++;
+; 0000 0047 //ugol++;
+; 0000 0048 
+; 0000 0049 }
+; 0000 004A else
 ;PCODE: $00000078 VOL: 0
 ;PCODE: $00000079 VOL: 0
+; 0000 004B {
+; 0000 004C //ugol--;
+; 0000 004D }
 ;PCODE: $0000007A VOL: 0
+; 0000 004E 
+; 0000 004F }
 ;PCODE: $0000007B VOL: 0
-; 0000 0048 }
-; 0000 0049 else
 ;PCODE: $0000007C VOL: 0
 ;PCODE: $0000007D VOL: 0
-; 0000 004A {
-; 0000 004B ugol--;
+;interrupt [17] void timer0_ovf_isr(void)
+; 0000 0052 
+; 0000 0053 {
 ;PCODE: $0000007E VOL: 0
 ;PCODE: $0000007F VOL: 0
+; 0000 0054 
+; 0000 0055 //sprintf(buffer, "%d", ugol);
+; 0000 0056 //
+; 0000 0057 //        puts(buffer);
+; 0000 0058 
+; 0000 0059 byte1 = (ugol >> 8) & 0xFF;
 ;PCODE: $00000080 VOL: 0
 ;PCODE: $00000081 VOL: 0
-; 0000 004C }
 ;PCODE: $00000082 VOL: 0
-; 0000 004D 
-; 0000 004E }
 ;PCODE: $00000083 VOL: 0
+; 0000 005A byte2 = ugol & 0xFF;
 ;PCODE: $00000084 VOL: 0
 ;PCODE: $00000085 VOL: 0
-;interrupt [17] void timer0_ovf_isr(void)
-; 0000 0051 
-; 0000 0052 {
 ;PCODE: $00000086 VOL: 0
+; 0000 005B putchar(0x1c);
 ;PCODE: $00000087 VOL: 0
-; 0000 0053 
-; 0000 0054 //sprintf(buffer, "%d", ugol);
-; 0000 0055 //
-; 0000 0056 //        puts(buffer);
-; 0000 0057 //        PORTB |= (1 << PORTB5); // Установка высокого уровня на PB5
-; 0000 0058 byte1 = (ugol >> 8) & 0xFF;
 ;PCODE: $00000088 VOL: 0
+; 0000 005C putchar(byte1);
 ;PCODE: $00000089 VOL: 0
 ;PCODE: $0000008A VOL: 0
+; 0000 005D putchar(byte2);
 ;PCODE: $0000008B VOL: 0
-; 0000 0059 byte2 = ugol & 0xFF;
 ;PCODE: $0000008C VOL: 0
+; 0000 005E byte1 = (pwm_value >> 8) & 0xFF;
 ;PCODE: $0000008D VOL: 0
 ;PCODE: $0000008E VOL: 0
-; 0000 005A putchar(0x1c);
+; 0000 005F byte2 = pwm_value & 0xFF;
 ;PCODE: $0000008F VOL: 0
 ;PCODE: $00000090 VOL: 0
-; 0000 005B putchar(byte1);
 ;PCODE: $00000091 VOL: 0
+; 0000 0060 putchar(0x2d);
 ;PCODE: $00000092 VOL: 0
-; 0000 005C putchar(byte2);
 ;PCODE: $00000093 VOL: 0
+; 0000 0061 putchar(byte1);
 ;PCODE: $00000094 VOL: 0
-; 0000 005D byte1 = (pwm_value >> 8) & 0xFF;
 ;PCODE: $00000095 VOL: 0
+; 0000 0062 putchar(byte2);
 ;PCODE: $00000096 VOL: 0
-; 0000 005E byte2 = pwm_value & 0xFF;
 ;PCODE: $00000097 VOL: 0
+; 0000 0063 byte4 = (error >> 24) & 0xFF;
 ;PCODE: $00000098 VOL: 0
 ;PCODE: $00000099 VOL: 0
-; 0000 005F putchar(0x2d);
 ;PCODE: $0000009A VOL: 0
 ;PCODE: $0000009B VOL: 0
-; 0000 0060 putchar(byte1);
 ;PCODE: $0000009C VOL: 0
+; 0000 0064 byte3 = (error >> 16) & 0xFF;
 ;PCODE: $0000009D VOL: 0
-; 0000 0061 putchar(byte2);
 ;PCODE: $0000009E VOL: 0
 ;PCODE: $0000009F VOL: 0
-; 0000 0062 time12++;
 ;PCODE: $000000A0 VOL: 0
 ;PCODE: $000000A1 VOL: 0
+; 0000 0065 byte1 = (error >> 8) & 0xFF;
 ;PCODE: $000000A2 VOL: 0
 ;PCODE: $000000A3 VOL: 0
-; 0000 0063 if(time12>16128)time12 = 0;
 ;PCODE: $000000A4 VOL: 0
 ;PCODE: $000000A5 VOL: 0
 ;PCODE: $000000A6 VOL: 0
+; 0000 0066 byte2 = error & 0xFF;
 ;PCODE: $000000A7 VOL: 0
 ;PCODE: $000000A8 VOL: 0
-; 0000 0064 //       PORTB &= ~(1 << PORTB5);
-; 0000 0065 }
 ;PCODE: $000000A9 VOL: 0
+; 0000 0067 putchar(0x2c);
 ;PCODE: $000000AA VOL: 0
 ;PCODE: $000000AB VOL: 0
+; 0000 0068 putchar(byte4);
 ;PCODE: $000000AC VOL: 0
-;void main(void)
-; 0000 0069 {
 ;PCODE: $000000AD VOL: 0
-; 0000 006A // Declare your local variables here
-; 0000 006B 
-; 0000 006C // Crystal Oscillator division factor: 1
-; 0000 006D #pragma optsize-
-; 0000 006E CLKPR=(1<<CLKPCE);
+; 0000 0069 putchar(byte3);
 ;PCODE: $000000AE VOL: 0
 ;PCODE: $000000AF VOL: 0
-; 0000 006F CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
+; 0000 006A putchar(byte1);
 ;PCODE: $000000B0 VOL: 0
 ;PCODE: $000000B1 VOL: 0
-; 0000 0070 #ifdef _OPTIMIZE_SIZE_
-; 0000 0071 #pragma optsize+
-; 0000 0072 #endif
-; 0000 0073 
-; 0000 0074 // Input/Output Ports initialization
-; 0000 0075 // Port B initialization
-; 0000 0076 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 0077 DDRB=(0<<DDB7) | (0<<DDB6) | (1<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (1<<DDB1) | (1<<DDB0);
+; 0000 006B putchar(byte2);
 ;PCODE: $000000B2 VOL: 0
 ;PCODE: $000000B3 VOL: 0
-; 0000 0078 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 0079 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+; 0000 006C time12=time12+100;
 ;PCODE: $000000B4 VOL: 0
 ;PCODE: $000000B5 VOL: 0
-; 0000 007A 
-; 0000 007B // Port C initialization
-; 0000 007C // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 007D DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<<DDC0);
 ;PCODE: $000000B6 VOL: 0
+; 0000 006D if(time12>16128)time12 = 0;
 ;PCODE: $000000B7 VOL: 0
-; 0000 007E // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 007F PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
 ;PCODE: $000000B8 VOL: 0
 ;PCODE: $000000B9 VOL: 0
-; 0000 0080 
-; 0000 0081 // Port D initialization
-; 0000 0082 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-; 0000 0083 DDRD=(1<<DDD7) | (1<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
 ;PCODE: $000000BA VOL: 0
 ;PCODE: $000000BB VOL: 0
-; 0000 0084 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-; 0000 0085 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+; 0000 006E //PORTB &= ~(1 << PORTB5);
+; 0000 006F }
 ;PCODE: $000000BC VOL: 0
 ;PCODE: $000000BD VOL: 0
-; 0000 0086 
-; 0000 0087 // Timer/Counter 0 initialization
-; 0000 0088 // Clock source: System Clock
-; 0000 0089 // Clock value: 15,625 kHz
-; 0000 008A // Mode: Normal top=0xFF
-; 0000 008B // OC0A output: Disconnected
-; 0000 008C // OC0B output: Disconnected
-; 0000 008D // Timer Period: 16,384 ms
-; 0000 008E TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
 ;PCODE: $000000BE VOL: 0
 ;PCODE: $000000BF VOL: 0
-; 0000 008F TCCR0B=(0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+;void main(void)
+; 0000 0073 {
 ;PCODE: $000000C0 VOL: 0
+; 0000 0074 // Declare your local variables here
+; 0000 0075 
+; 0000 0076 // Crystal Oscillator division factor: 1
+; 0000 0077 #pragma optsize-
+; 0000 0078 CLKPR=(1<<CLKPCE);
 ;PCODE: $000000C1 VOL: 0
-; 0000 0090 TCNT0=0x00;
 ;PCODE: $000000C2 VOL: 0
+; 0000 0079 CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
 ;PCODE: $000000C3 VOL: 0
-; 0000 0091 OCR0A=0x00;
 ;PCODE: $000000C4 VOL: 0
+; 0000 007A #ifdef _OPTIMIZE_SIZE_
+; 0000 007B #pragma optsize+
+; 0000 007C #endif
+; 0000 007D 
+; 0000 007E // Input/Output Ports initialization
+; 0000 007F // Port B initialization
+; 0000 0080 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 0081 DDRB=(0<<DDB7) | (0<<DDB6) | (1<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (1<<DDB1) | (1<<DDB0);
 ;PCODE: $000000C5 VOL: 0
-; 0000 0092 OCR0B=0x00;
 ;PCODE: $000000C6 VOL: 0
+; 0000 0082 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0083 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
 ;PCODE: $000000C7 VOL: 0
-; 0000 0093 
-; 0000 0094 
-; 0000 0095 // Timer/Counter 0 Interrupt(s) initialization
-; 0000 0096 TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
 ;PCODE: $000000C8 VOL: 0
+; 0000 0084 
+; 0000 0085 // Port C initialization
+; 0000 0086 // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 0087 DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<<DDC0);
 ;PCODE: $000000C9 VOL: 0
-; 0000 0097 
-; 0000 0098 
-; 0000 0099 // External Interrupt(s) initialization
-; 0000 009A // INT0: On
-; 0000 009B // INT0 Mode: Rising Edge
-; 0000 009C // INT1: Off
-; 0000 009D // Interrupt on any change on pins PCINT0-7: Off
-; 0000 009E // Interrupt on any change on pins PCINT8-14: Off
-; 0000 009F // Interrupt on any change on pins PCINT16-23: Off
-; 0000 00A0 EICRA=(0<<ISC11) | (0<<ISC10) | (1<<ISC01) | (1<<ISC00);
 ;PCODE: $000000CA VOL: 0
+; 0000 0088 // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 0089 PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
 ;PCODE: $000000CB VOL: 0
-; 0000 00A1 EIMSK=(0<<INT1) | (1<<INT0);
 ;PCODE: $000000CC VOL: 0
+; 0000 008A 
+; 0000 008B // Port D initialization
+; 0000 008C // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+; 0000 008D DDRD=(1<<DDD7) | (1<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
 ;PCODE: $000000CD VOL: 0
-; 0000 00A2 EIFR=(0<<INTF1) | (1<<INTF0);
 ;PCODE: $000000CE VOL: 0
+; 0000 008E // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+; 0000 008F PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
 ;PCODE: $000000CF VOL: 0
-; 0000 00A3 PCICR=(0<<PCIE2) | (0<<PCIE1) | (0<<PCIE0);
 ;PCODE: $000000D0 VOL: 0
+; 0000 0090 
+; 0000 0091 // Timer/Counter 0 initialization
+; 0000 0092 // Clock source: System Clock
+; 0000 0093 // Clock value: 15,625 kHz
+; 0000 0094 // Mode: Normal top=0xFF
+; 0000 0095 // OC0A output: Disconnected
+; 0000 0096 // OC0B output: Disconnected
+; 0000 0097 // Timer Period: 16,384 ms
+; 0000 0098 TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
 ;PCODE: $000000D1 VOL: 0
-; 0000 00A4 
-; 0000 00A5 // USART initialization
-; 0000 00A6 // Communication Parameters: 8 Data, 1 Stop, No Parity
-; 0000 00A7 // USART Receiver: Off
-; 0000 00A8 // USART Transmitter: On
-; 0000 00A9 // USART Mode: Asynchronous
-; 0000 00AA // USART Baud Rate: 38400
-; 0000 00AB UCSR0A=(0<<RXC0) | (0<<TXC0) | (0<<UDRE0) | (0<<FE0) | (0<<DOR0) | (0<<UPE0) | (0<<U2X0) | (0<<MPCM0);
 ;PCODE: $000000D2 VOL: 0
+; 0000 0099 TCCR0B=(0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
 ;PCODE: $000000D3 VOL: 0
-; 0000 00AC UCSR0B=(0<<RXCIE0) | (0<<TXCIE0) | (0<<UDRIE0) | (0<<RXEN0) | (1<<TXEN0) | (0<<UCSZ02) | (0<<RXB80) | (0<<TXB80);
 ;PCODE: $000000D4 VOL: 0
+; 0000 009A TCNT0=0x00;
 ;PCODE: $000000D5 VOL: 0
-; 0000 00AD UCSR0C=(0<<UMSEL01) | (0<<UMSEL00) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UCSZ00) | (0<<UCPOL0);
 ;PCODE: $000000D6 VOL: 0
+; 0000 009B OCR0A=0x00;
 ;PCODE: $000000D7 VOL: 0
-; 0000 00AE UBRR0H=0x00;
 ;PCODE: $000000D8 VOL: 0
+; 0000 009C OCR0B=0x00;
 ;PCODE: $000000D9 VOL: 0
-; 0000 00AF UBRR0L=0x19;
 ;PCODE: $000000DA VOL: 0
+; 0000 009D 
+; 0000 009E 
+; 0000 009F // Timer/Counter 0 Interrupt(s) initialization
+; 0000 00A0 TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
 ;PCODE: $000000DB VOL: 0
-; 0000 00B0 
-; 0000 00B1 // Timer/Counter 1 initialization
-; 0000 00B2 // Clock source: System Clock
-; 0000 00B3 // Clock value: 2000,000 kHz
-; 0000 00B4 // Mode: Ph. correct PWM top=0x00FF
-; 0000 00B5 // OC1A output: Non-Inverted PWM
-; 0000 00B6 // OC1B output: Disconnected
-; 0000 00B7 // Noise Canceler: Off
-; 0000 00B8 // Input Capture on Falling Edge
-; 0000 00B9 // Timer Period: 0,255 ms
-; 0000 00BA // Output Pulse(s):
-; 0000 00BB // OC1A Period: 0,255 ms Width: 0,127 ms
-; 0000 00BC // Timer1 Overflow Interrupt: Off
-; 0000 00BD // Input Capture Interrupt: Off
-; 0000 00BE // Compare A Match Interrupt: Off
-; 0000 00BF // Compare B Match Interrupt: Off
-; 0000 00C0 TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (1<<WGM11) | (1<<WGM10);
 ;PCODE: $000000DC VOL: 0
+; 0000 00A1 
+; 0000 00A2 
+; 0000 00A3 // External Interrupt(s) initialization
+; 0000 00A4 // INT0: On
+; 0000 00A5 // INT0 Mode: Rising Edge
+; 0000 00A6 // INT1: Off
+; 0000 00A7 // Interrupt on any change on pins PCINT0-7: Off
+; 0000 00A8 // Interrupt on any change on pins PCINT8-14: Off
+; 0000 00A9 // Interrupt on any change on pins PCINT16-23: Off
+; 0000 00AA EICRA=(0<<ISC11) | (0<<ISC10) | (1<<ISC01) | (1<<ISC00);
 ;PCODE: $000000DD VOL: 0
-; 0000 00C1 TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (1<<CS11) | (0<<CS10);
 ;PCODE: $000000DE VOL: 0
+; 0000 00AB EIMSK=(0<<INT1) | (1<<INT0);
 ;PCODE: $000000DF VOL: 0
-; 0000 00C2 TCNT1H=0x00;
 ;PCODE: $000000E0 VOL: 0
+; 0000 00AC EIFR=(0<<INTF1) | (1<<INTF0);
 ;PCODE: $000000E1 VOL: 0
-; 0000 00C3 TCNT1L=0x00;
 ;PCODE: $000000E2 VOL: 0
+; 0000 00AD PCICR=(0<<PCIE2) | (0<<PCIE1) | (0<<PCIE0);
 ;PCODE: $000000E3 VOL: 0
-; 0000 00C4 ICR1H=0x00;
 ;PCODE: $000000E4 VOL: 0
+; 0000 00AE 
+; 0000 00AF // USART initialization
+; 0000 00B0 // Communication Parameters: 8 Data, 1 Stop, No Parity
+; 0000 00B1 // USART Receiver: Off
+; 0000 00B2 // USART Transmitter: On
+; 0000 00B3 // USART Mode: Asynchronous
+; 0000 00B4 // USART Baud Rate: 38400
+; 0000 00B5 UCSR0A=(0<<RXC0) | (0<<TXC0) | (0<<UDRE0) | (0<<FE0) | (0<<DOR0) | (0<<UPE0) | (0<<U2X0) | (0<<MPCM0);
 ;PCODE: $000000E5 VOL: 0
-; 0000 00C5 ICR1L=0x00;
 ;PCODE: $000000E6 VOL: 0
+; 0000 00B6 UCSR0B=(0<<RXCIE0) | (0<<TXCIE0) | (0<<UDRIE0) | (0<<RXEN0) | (1<<TXEN0) | (0<<UCSZ02) | (0<<RXB80) | (0<<TXB80);
 ;PCODE: $000000E7 VOL: 0
-; 0000 00C6 OCR1AH=0xFF;
 ;PCODE: $000000E8 VOL: 0
+; 0000 00B7 UCSR0C=(0<<UMSEL01) | (0<<UMSEL00) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UCSZ00) | (0<<UCPOL0);
 ;PCODE: $000000E9 VOL: 0
-; 0000 00C7 OCR1AL=0xFA;
 ;PCODE: $000000EA VOL: 0
+; 0000 00B8 UBRR0H=0x00;
 ;PCODE: $000000EB VOL: 0
-; 0000 00C8 OCR1BH=0x00;
 ;PCODE: $000000EC VOL: 0
+; 0000 00B9 UBRR0L=0x19;
 ;PCODE: $000000ED VOL: 0
-; 0000 00C9 OCR1BL=0x00;
 ;PCODE: $000000EE VOL: 0
+; 0000 00BA 
+; 0000 00BB // Timer/Counter 1 initialization
+; 0000 00BC // Clock source: System Clock
+; 0000 00BD // Clock value: 2000,000 kHz
+; 0000 00BE // Mode: Ph. correct PWM top=0x00FF
+; 0000 00BF // OC1A output: Non-Inverted PWM
+; 0000 00C0 // OC1B output: Disconnected
+; 0000 00C1 // Noise Canceler: Off
+; 0000 00C2 // Input Capture on Falling Edge
+; 0000 00C3 // Timer Period: 0,255 ms
+; 0000 00C4 // Output Pulse(s):
+; 0000 00C5 // OC1A Period: 0,255 ms Width: 0,127 ms
+; 0000 00C6 // Timer1 Overflow Interrupt: Off
+; 0000 00C7 // Input Capture Interrupt: Off
+; 0000 00C8 // Compare A Match Interrupt: Off
+; 0000 00C9 // Compare B Match Interrupt: Off
+; 0000 00CA TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (1<<WGM11) | (1<<WGM10);
 ;PCODE: $000000EF VOL: 0
-; 0000 00CA // Timer/Counter 1 Interrupt(s) initialization
-; 0000 00CB TIMSK1=(0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (0<<TOIE1);
 ;PCODE: $000000F0 VOL: 0
+; 0000 00CB TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (1<<CS11) | (0<<CS10);
 ;PCODE: $000000F1 VOL: 0
-; 0000 00CC #asm("sei")
 ;PCODE: $000000F2 VOL: 0
-; 0000 00CD PIND.6=0;
+; 0000 00CC TCNT1H=0x00;
 ;PCODE: $000000F3 VOL: 0
 ;PCODE: $000000F4 VOL: 0
-; 0000 00CE PORTB.5 = 1;
+; 0000 00CD TCNT1L=0x00;
 ;PCODE: $000000F5 VOL: 0
 ;PCODE: $000000F6 VOL: 0
-; 0000 00CF PORTD.7 = 0;
+; 0000 00CE ICR1H=0x00;
 ;PCODE: $000000F7 VOL: 0
 ;PCODE: $000000F8 VOL: 0
-; 0000 00D0 PORTB.1 = 1;
+; 0000 00CF ICR1L=0x00;
 ;PCODE: $000000F9 VOL: 0
 ;PCODE: $000000FA VOL: 0
-; 0000 00D1 //сделай график управления в режиме реального времени
-; 0000 00D2 generSin();
+; 0000 00D0 OCR1AH=0xFF;
 ;PCODE: $000000FB VOL: 0
-; 0000 00D3 generSinUgol();
 ;PCODE: $000000FC VOL: 0
-; 0000 00D4 
-; 0000 00D5 
-; 0000 00D6 while (1)
+; 0000 00D1 OCR1AL=0xFA;
 ;PCODE: $000000FD VOL: 0
-; 0000 00D7 {
-; 0000 00D8 // result =A*datay[5];
-; 0000 00D9 if(time12>16128)time12 =0;
 ;PCODE: $000000FE VOL: 0
+; 0000 00D2 OCR1BH=0x00;
 ;PCODE: $000000FF VOL: 0
 ;PCODE: $00000100 VOL: 0
+; 0000 00D3 OCR1BL=0x00;
 ;PCODE: $00000101 VOL: 0
 ;PCODE: $00000102 VOL: 0
-; 0000 00DA result = A*(int)(fix16_sin[(time12>>6)]>>2);
+; 0000 00D4 // Timer/Counter 1 Interrupt(s) initialization
+; 0000 00D5 TIMSK1=(0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (0<<TOIE1);
 ;PCODE: $00000103 VOL: 0
 ;PCODE: $00000104 VOL: 0
+; 0000 00D6 #asm("sei")
 ;PCODE: $00000105 VOL: 0
+; 0000 00D7 PIND.6=0;
 ;PCODE: $00000106 VOL: 0
 ;PCODE: $00000107 VOL: 0
+; 0000 00D8 PORTB.5 = 1;
 ;PCODE: $00000108 VOL: 0
 ;PCODE: $00000109 VOL: 0
+; 0000 00D9 PORTD.7 = 0;
 ;PCODE: $0000010A VOL: 0
 ;PCODE: $0000010B VOL: 0
+; 0000 00DA PORTB.1 = 1;
 ;PCODE: $0000010C VOL: 0
 ;PCODE: $0000010D VOL: 0
+; 0000 00DB //сделай график управления в режиме реального времени
+; 0000 00DC generSin();
 ;PCODE: $0000010E VOL: 0
-; 0000 00DB //result = 1966080;
-; 0000 00DC //result =  A*sin(0.016384*T*time12*2*PI);
-; 0000 00DD error = (A*(int)((sin_ugol[ugol>>1]>>2)) -  result);
+; 0000 00DD generSinUgol();
 ;PCODE: $0000010F VOL: 0
+; 0000 00DE 
+; 0000 00DF 
+; 0000 00E0 while (1)
 ;PCODE: $00000110 VOL: 0
+; 0000 00E1 {
+; 0000 00E2 // result =A*datay[5];
+; 0000 00E3 if(time12>16128)time12 =0;
 ;PCODE: $00000111 VOL: 0
 ;PCODE: $00000112 VOL: 0
 ;PCODE: $00000113 VOL: 0
 ;PCODE: $00000114 VOL: 0
 ;PCODE: $00000115 VOL: 0
+; 0000 00E4 result = A*(fix16_sin[(time12>>6)]);
 ;PCODE: $00000116 VOL: 0
 ;PCODE: $00000117 VOL: 0
 ;PCODE: $00000118 VOL: 0
 ;PCODE: $00000119 VOL: 0
-; 0000 00DE //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
-; 0000 00DF //error = (int16_t)(error>>2);
-; 0000 00E0 // Вычисление интегральной составляющей
-; 0000 00E1 integral += error * dt;
 ;PCODE: $0000011A VOL: 0
 ;PCODE: $0000011B VOL: 0
 ;PCODE: $0000011C VOL: 0
@@ -465,15 +468,15 @@
 ;PCODE: $0000011E VOL: 0
 ;PCODE: $0000011F VOL: 0
 ;PCODE: $00000120 VOL: 0
-; 0000 00E2 // Вычисление дифференциальной составляющей
-; 0000 00E3 derivative = error - previous_error;
 ;PCODE: $00000121 VOL: 0
+; 0000 00E5 //result = 1966080;
+; 0000 00E6 //result =  A*sin(0.016384*T*time12*2*PI);
+; 0000 00E7 error = (A*((sin_ugol[ugol>>1])) -  result)/100;
 ;PCODE: $00000122 VOL: 0
 ;PCODE: $00000123 VOL: 0
 ;PCODE: $00000124 VOL: 0
 ;PCODE: $00000125 VOL: 0
 ;PCODE: $00000126 VOL: 0
-; 0000 00E4 Y = (uint16_t)(my_abs(Kp * error + Ki * integral + Kd * derivative));
 ;PCODE: $00000127 VOL: 0
 ;PCODE: $00000128 VOL: 0
 ;PCODE: $00000129 VOL: 0
@@ -484,6 +487,10 @@
 ;PCODE: $0000012E VOL: 0
 ;PCODE: $0000012F VOL: 0
 ;PCODE: $00000130 VOL: 0
+; 0000 00E8 //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
+; 0000 00E9 //error = (int16_t)(error>>2);
+; 0000 00EA // Вычисление интегральной составляющей
+; 0000 00EB integral += error * dt;
 ;PCODE: $00000131 VOL: 0
 ;PCODE: $00000132 VOL: 0
 ;PCODE: $00000133 VOL: 0
@@ -491,34 +498,27 @@
 ;PCODE: $00000135 VOL: 0
 ;PCODE: $00000136 VOL: 0
 ;PCODE: $00000137 VOL: 0
+; 0000 00EC // Вычисление дифференциальной составляющей
+; 0000 00ED derivative = error - previous_error;
 ;PCODE: $00000138 VOL: 0
 ;PCODE: $00000139 VOL: 0
 ;PCODE: $0000013A VOL: 0
 ;PCODE: $0000013B VOL: 0
 ;PCODE: $0000013C VOL: 0
 ;PCODE: $0000013D VOL: 0
+; 0000 00EE Y = (uint16_t)(my_abs(Kp * error + Ki * integral + Kd * derivative));
 ;PCODE: $0000013E VOL: 0
 ;PCODE: $0000013F VOL: 0
-; 0000 00E5 pwm_value = (Y); // Преобразование float в uint16_t
 ;PCODE: $00000140 VOL: 0
 ;PCODE: $00000141 VOL: 0
 ;PCODE: $00000142 VOL: 0
 ;PCODE: $00000143 VOL: 0
-; 0000 00E6 //error = 1;
-; 0000 00E7 //OCR1AH = 0xFF; // Высший байт
-; 0000 00E8 
-; 0000 00E9 //OCR1AL = 254;
-; 0000 00EA if (Y > 65535) {
 ;PCODE: $00000144 VOL: 0
 ;PCODE: $00000145 VOL: 0
 ;PCODE: $00000146 VOL: 0
 ;PCODE: $00000147 VOL: 0
-; 0000 00EB Y = 65535;
 ;PCODE: $00000148 VOL: 0
 ;PCODE: $00000149 VOL: 0
-; 0000 00EC 
-; 0000 00ED }
-; 0000 00EE if ((error<-1) && (flagPWM == 0)){
 ;PCODE: $0000014A VOL: 0
 ;PCODE: $0000014B VOL: 0
 ;PCODE: $0000014C VOL: 0
@@ -530,32 +530,31 @@
 ;PCODE: $00000152 VOL: 0
 ;PCODE: $00000153 VOL: 0
 ;PCODE: $00000154 VOL: 0
-; 0000 00EF flagPWM = 1;
 ;PCODE: $00000155 VOL: 0
 ;PCODE: $00000156 VOL: 0
-; 0000 00F0 PORTD.7 = 0;
 ;PCODE: $00000157 VOL: 0
+; 0000 00EF pwm_value = (Y); // Преобразование float в uint16_t
 ;PCODE: $00000158 VOL: 0
-; 0000 00F1 PIND.6=1;
 ;PCODE: $00000159 VOL: 0
 ;PCODE: $0000015A VOL: 0
-; 0000 00F2 if(Y <= 65535){
 ;PCODE: $0000015B VOL: 0
+; 0000 00F0 //error = 1;
+; 0000 00F1 //OCR1AH = 0xFF; // Высший байт
+; 0000 00F2 
+; 0000 00F3 //OCR1AL = 254;
+; 0000 00F4 if (Y > 65535) {
 ;PCODE: $0000015C VOL: 0
 ;PCODE: $0000015D VOL: 0
 ;PCODE: $0000015E VOL: 0
-; 0000 00F3 //#asm("cli")
-; 0000 00F4 OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
 ;PCODE: $0000015F VOL: 0
+; 0000 00F5 Y = 65535;
 ;PCODE: $00000160 VOL: 0
-; 0000 00F5 OCR1AL = 65535 & 0xFF; // Нижний байт
 ;PCODE: $00000161 VOL: 0
-;PCODE: $00000162 VOL: 0
-; 0000 00F6 //#asm("sei")
+; 0000 00F6 
 ; 0000 00F7 }
-; 0000 00F8 }
+; 0000 00F8 if ((error<-1) && (flagPWM == 0)){
+;PCODE: $00000162 VOL: 0
 ;PCODE: $00000163 VOL: 0
-; 0000 00F9 else if((error>1) && (flagPWM == 1)){
 ;PCODE: $00000164 VOL: 0
 ;PCODE: $00000165 VOL: 0
 ;PCODE: $00000166 VOL: 0
@@ -565,56 +564,91 @@
 ;PCODE: $0000016A VOL: 0
 ;PCODE: $0000016B VOL: 0
 ;PCODE: $0000016C VOL: 0
+; 0000 00F9 flagPWM = 1;
 ;PCODE: $0000016D VOL: 0
 ;PCODE: $0000016E VOL: 0
+; 0000 00FA PORTD.7 = 0;
 ;PCODE: $0000016F VOL: 0
-; 0000 00FA flagPWM = 0;
 ;PCODE: $00000170 VOL: 0
+; 0000 00FB PIND.6=1;
 ;PCODE: $00000171 VOL: 0
-; 0000 00FB PORTD.7 = 1;
 ;PCODE: $00000172 VOL: 0
+; 0000 00FC if(Y <= 65535){
 ;PCODE: $00000173 VOL: 0
-; 0000 00FC PIND.6 = 0;
 ;PCODE: $00000174 VOL: 0
 ;PCODE: $00000175 VOL: 0
-; 0000 00FD if(Y <= 65535) {
 ;PCODE: $00000176 VOL: 0
+; 0000 00FD //#asm("cli")
+; 0000 00FE OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
 ;PCODE: $00000177 VOL: 0
 ;PCODE: $00000178 VOL: 0
+; 0000 00FF OCR1AL = 65535 & 0xFF; // Нижний байт
 ;PCODE: $00000179 VOL: 0
-; 0000 00FE //#asm("cli")
-; 0000 00FF OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
 ;PCODE: $0000017A VOL: 0
+; 0000 0100 //#asm("sei")
+; 0000 0101 }
+; 0000 0102 }
 ;PCODE: $0000017B VOL: 0
-; 0000 0100 OCR1AL = 65535 & 0xFF; // Нижний байт
+; 0000 0103 else if((error>1) && (flagPWM == 1)){
 ;PCODE: $0000017C VOL: 0
 ;PCODE: $0000017D VOL: 0
-; 0000 0101 //#asm("sei")
-; 0000 0102 }
-; 0000 0103 else {
 ;PCODE: $0000017E VOL: 0
 ;PCODE: $0000017F VOL: 0
-; 0000 0104 //OCR1BH = 0;
-; 0000 0105 //OCR1BL = 0;
-; 0000 0106 previous_error = 0;
 ;PCODE: $00000180 VOL: 0
 ;PCODE: $00000181 VOL: 0
-; 0000 0107 }
 ;PCODE: $00000182 VOL: 0
-; 0000 0108 }
-; 0000 0109 previous_error =  error;
 ;PCODE: $00000183 VOL: 0
 ;PCODE: $00000184 VOL: 0
 ;PCODE: $00000185 VOL: 0
 ;PCODE: $00000186 VOL: 0
 ;PCODE: $00000187 VOL: 0
+; 0000 0104 flagPWM = 0;
 ;PCODE: $00000188 VOL: 0
-; 0000 010A // OCR1AH = 0;
-; 0000 010B 
-; 0000 010C }
 ;PCODE: $00000189 VOL: 0
+; 0000 0105 PORTD.7 = 1;
 ;PCODE: $0000018A VOL: 0
-; 0000 010D }
 ;PCODE: $0000018B VOL: 0
+; 0000 0106 PIND.6 = 0;
 ;PCODE: $0000018C VOL: 0
 ;PCODE: $0000018D VOL: 0
+; 0000 0107 if(Y <= 65535) {
+;PCODE: $0000018E VOL: 0
+;PCODE: $0000018F VOL: 0
+;PCODE: $00000190 VOL: 0
+;PCODE: $00000191 VOL: 0
+; 0000 0108 //#asm("cli")
+; 0000 0109 OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
+;PCODE: $00000192 VOL: 0
+;PCODE: $00000193 VOL: 0
+; 0000 010A OCR1AL = 65535 & 0xFF; // Нижний байт
+;PCODE: $00000194 VOL: 0
+;PCODE: $00000195 VOL: 0
+; 0000 010B //#asm("sei")
+; 0000 010C }
+; 0000 010D else {
+;PCODE: $00000196 VOL: 0
+;PCODE: $00000197 VOL: 0
+; 0000 010E //OCR1BH = 0;
+; 0000 010F //OCR1BL = 0;
+; 0000 0110 previous_error = 0;
+;PCODE: $00000198 VOL: 0
+;PCODE: $00000199 VOL: 0
+; 0000 0111 }
+;PCODE: $0000019A VOL: 0
+; 0000 0112 }
+; 0000 0113 previous_error =  error;
+;PCODE: $0000019B VOL: 0
+;PCODE: $0000019C VOL: 0
+;PCODE: $0000019D VOL: 0
+;PCODE: $0000019E VOL: 0
+;PCODE: $0000019F VOL: 0
+;PCODE: $000001A0 VOL: 0
+; 0000 0114 // OCR1AH = 0;
+; 0000 0115 
+; 0000 0116 }
+;PCODE: $000001A1 VOL: 0
+;PCODE: $000001A2 VOL: 0
+; 0000 0117 }
+;PCODE: $000001A3 VOL: 0
+;PCODE: $000001A4 VOL: 0
+;PCODE: $000001A5 VOL: 0

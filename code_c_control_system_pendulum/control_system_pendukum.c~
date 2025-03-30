@@ -30,12 +30,12 @@ Data Stack size         : 512
 
 
 int ugol = 0;
-unsigned char byte1,byte2 ;
-int result = 0;    // результат функции 
+unsigned char byte1,byte2,byte3,byte4 ;
+int32_t result = 0;    // результат функции 
 //задаем параметры функции синуса(из которой будем получать ошибку) y = A*sin(T*t)
-int A = 60 ;//амплитуда , потом будем задавать матлабом 
+int32_t A = 60 ;//амплитуда , потом будем задавать матлабом 
 int T = 1 ; // период , потом будем принимать с матлаба 
-int error = 0;// для расчета ошибки 
+int32_t error = 0;// для расчета ошибки 
 int time12 = 0;
 int flag = 0;
 
@@ -68,11 +68,12 @@ interrupt [EXT_INT0] void ext_int0_isr(void)
 {
 if (PINB.4 == 1)
 {     
-  ugol++;
+  //ugol++;    
+  
 }
 else
 {
-  ugol--;
+  //ugol--;
 }
 
 }
@@ -84,7 +85,7 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
 //sprintf(buffer, "%d", ugol);
 //                    
 //        puts(buffer);   
-        PORTB |= (1 << PORTB5); // Установка высокого уровня на PB5
+
         byte1 = (ugol >> 8) & 0xFF;
         byte2 = ugol & 0xFF;  
         putchar(0x1c);
@@ -94,10 +95,19 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
         byte2 = pwm_value & 0xFF; 
         putchar(0x2d); 
         putchar(byte1);   
-        putchar(byte2);       
-        time12++; 
+        putchar(byte2);
+        byte4 = (error >> 24) & 0xFF;      
+        byte3 = (error >> 16) & 0xFF;
+        byte1 = (error >> 8) & 0xFF;
+        byte2 = error & 0xFF; 
+        putchar(0x2c);   
+        putchar(byte4);    
+        putchar(byte3);
+        putchar(byte1);   
+        putchar(byte2);    
+        time12=time12+10; 
         if(time12>16128)time12 = 0;      
-        PORTB &= ~(1 << PORTB5);    
+        //PORTB &= ~(1 << PORTB5);    
 }
 // Declare your global variables here
 
@@ -215,10 +225,10 @@ while (1)
     {  
     // result =A*datay[5];          
     if(time12>16128)time12 =0;
-    result = A*(int)(fix16_sin[(time12>>6)]>>2);  
+    result = A*(fix16_sin[(time12>>6)]);  
     //result = 1966080;
     //result =  A*sin(0.016384*T*time12*2*PI);   
-    error = (A*(int)((sin_ugol[ugol>>1]>>2)) -  result);
+    error = (A*((sin_ugol[ugol>>1])) -  result);
     //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
     //error = (int16_t)(error>>2);    
     // Вычисление интегральной составляющей
