@@ -1,7 +1,7 @@
-main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"control_system_pendukum.c" LINE:114
+main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"control_system_pendukum.c" LINE:169
 generSin DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"createmassiveSIN.h" LINE:15
 sin DSTACK_USAGE:9 DSTACK_LEVEL:9 FILE:"C:\cvavreval\lib\math.lib" LINE:764
 floor DSTACK_USAGE:4 DSTACK_LEVEL:13 FILE:"C:\cvavreval\lib\math.lib" LINE:667
 ftrunc DSTACK_USAGE:4 DSTACK_LEVEL:17 FILE:"C:\cvavreval\lib\math.lib" LINE:550
-timer0_ovf_isr DSTACK_USAGE:12 DSTACK_LEVEL:29 FILE:"control_system_pendukum.c" LINE:81
+timer0_ovf_isr DSTACK_USAGE:12 DSTACK_LEVEL:29 FILE:"control_system_pendukum.c" LINE:78
 putchar DSTACK_USAGE:2 DSTACK_LEVEL:31 FILE:"" LINE:262

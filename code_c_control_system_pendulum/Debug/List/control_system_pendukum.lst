@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.1.30  C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm Sun Mar 30 15:49:24 2025
+AVRASM ver. 2.1.30  C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm Mon Mar 31 09:17:15 2025
 
 C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1421): warning: Register r3 already defined by the .DEF directive
 C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1422): warning: Register r4 already defined by the .DEF directive
@@ -1457,8 +1457,8 @@ C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_penduku
                  __START_OF_CODE:
                  
                  ;INTERRUPT VECTORS
-000000 940c 0086 	JMP  __RESET
-000002 940c 0117 	JMP  _ext_int0_isr
+000000 940c 005c 	JMP  __RESET
+000002 940c 00ed 	JMP  _ext_int0_isr
 000004 940c 0000 	JMP  0x00
 000006 940c 0000 	JMP  0x00
 000008 940c 0000 	JMP  0x00
@@ -1473,9 +1473,9 @@ C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_penduku
 00001a 940c 0000 	JMP  0x00
 00001c 940c 0000 	JMP  0x00
 00001e 940c 0000 	JMP  0x00
-000020 940c 0118 	JMP  _timer0_ovf_isr
+000020 940c 00ee 	JMP  _timer0_ovf_isr
 000022 940c 0000 	JMP  0x00
-000024 940c 0000 	JMP  0x00
+000024 940c 013f 	JMP  _usartRX_data
 000026 940c 0000 	JMP  0x00
 000028 940c 0000 	JMP  0x00
 00002a 940c 0000 	JMP  0x00
@@ -1513,159 +1513,113 @@ C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_penduku
 000044 00c8      	.DB  0xC8
                  _0xB:
 C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1488): warning: .cseg .db misalignment - padding zero byte
-000045 0014      	.DB  0x14
-                 _0xC:
-C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1490): warning: .cseg .db misalignment - padding zero byte
-000046 0032      	.DB  0x32
-                 _0xD:
-000047 0000
-000048 0054
-000049 005b
-00004a 000e      	.DB  0x0,0x0,0x54,0x0,0x5B,0x0,0xE,0x0
-00004b ffb4
-00004c ffa0
-00004d ffe4
-00004e 0042      	.DB  0xB4,0xFF,0xA0,0xFF,0xE4,0xFF,0x42,0x0
-00004f 0063
-000050 0029
-000051 ffca
-000052 ffac      	.DB  0x63,0x0,0x29,0x0,0xCA,0xFF,0xAC,0xFF
-000053 ffca
-000054 002a
-000055 0063
-000056 0041      	.DB  0xCA,0xFF,0x2A,0x0,0x63,0x0,0x41,0x0
-000057 ffe6
-000058 ffa0
-000059 ffac
-00005a ffff      	.DB  0xE6,0xFF,0xA0,0xFF,0xAC,0xFF,0xFF,0xFF
-00005b 005b
-00005c 0054
-00005d ffe6
-00005e ffbf      	.DB  0x5B,0x0,0x54,0x0,0xE6,0xFF,0xBF,0xFF
-00005f ff9d
-000060 ffd6
-000061 0036
-000062 0054      	.DB  0x9D,0xFF,0xD6,0xFF,0x36,0x0,0x54,0x0
-000063 0036
-000064 ffd7
-000065 ff9d
-000066 ffbe      	.DB  0x36,0x0,0xD7,0xFF,0x9D,0xFF,0xBE,0xFF
-000067 001c
-000068 0060
-000069 004c
-00006a fff2      	.DB  0x1C,0x0,0x60,0x0,0x4C,0x0,0xF2,0xFF
-00006b ffa5
-00006c ffac      	.DB  0xA5,0xFF,0xAC,0xFF
+000045 0001      	.DB  0x1
                  _0x2080060:
-C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1503): warning: .cseg .db misalignment - padding zero byte
-00006d 0001      	.DB  0x1
+C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1490): warning: .cseg .db misalignment - padding zero byte
+000046 0001      	.DB  0x1
                  _0x2080000:
-00006e 4e2d
-00006f 4e41
-000070 4900
-000071 464e      	.DB  0x2D,0x4E,0x41,0x4E,0x0,0x49,0x4E,0x46
-C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1506): warning: .cseg .db misalignment - padding zero byte
-000072 0000      	.DB  0x0
+000047 4e2d
+000048 4e41
+000049 4900
+00004a 464e      	.DB  0x2D,0x4E,0x41,0x4E,0x0,0x49,0x4E,0x46
+C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_pendukum.asm(1493): warning: .cseg .db misalignment - padding zero byte
+00004b 0000      	.DB  0x0
                  
                  __GLOBAL_INI_TBL:
-000073 000c      	.DW  0x0C
-000074 0003      	.DW  0x03
-000075 007a      	.DW  __REG_VARS*2
+00004c 000c      	.DW  0x0C
+00004d 0003      	.DW  0x03
+00004e 007a      	.DW  __REG_VARS*2
                  
-000076 0001      	.DW  0x01
-000077 0820      	.DW  _A
-000078 0086      	.DW  _0x9*2
+00004f 0001      	.DW  0x01
+000050 0820      	.DW  _A
+000051 0086      	.DW  _0x9*2
                  
-000079 0001      	.DW  0x01
-00007a 0836      	.DW  _Kp
-00007b 0088      	.DW  _0xA*2
+000052 0001      	.DW  0x01
+000053 0838      	.DW  _Kp
+000054 0088      	.DW  _0xA*2
                  
-00007c 0001      	.DW  0x01
-00007d 0838      	.DW  _Ki
-00007e 008a      	.DW  _0xB*2
+000055 0001      	.DW  0x01
+000056 083c      	.DW  _Kd
+000057 008a      	.DW  _0xB*2
                  
-00007f 0001      	.DW  0x01
-000080 083a      	.DW  _Kd
-000081 008c      	.DW  _0xC*2
-                 
-000082 0001      	.DW  0x01
-000083 0843      	.DW  __seed_G104
-000084 00da      	.DW  _0x2080060*2
+000058 0001      	.DW  0x01
+000059 0848      	.DW  __seed_G104
+00005a 008c      	.DW  _0x2080060*2
                  
                  _0xFFFFFFFF:
-000085 0000      	.DW  0
+00005b 0000      	.DW  0
                  
                  #define __GLOBAL_INI_TBL_PRESENT 1
                  
                  __RESET:
-000086 94f8      	CLI
+00005c 94f8      	CLI
                  
-000087 27ee      	CLR  R30
-000088 bbef      	OUT  EECR,R30
+00005d 27ee      	CLR  R30
+00005e bbef      	OUT  EECR,R30
                  
                  ;INTERRUPT VECTORS ARE PLACED
                  ;AT THE START OF FLASH
-000089 e0f1      	LDI  R31,1
-00008a bff5      	OUT  MCUCR,R31
-00008b bfe5      	OUT  MCUCR,R30
+00005f e0f1      	LDI  R31,1
+000060 bff5      	OUT  MCUCR,R31
+000061 bfe5      	OUT  MCUCR,R30
                  
                  ;CLEAR R2-R14
-00008c e08d      	LDI  R24,(14-2)+1
-00008d e0a2      	LDI  R26,2
-00008e 27bb      	CLR  R27
+000062 e08d      	LDI  R24,(14-2)+1
+000063 e0a2      	LDI  R26,2
+000064 27bb      	CLR  R27
                  __CLEAR_REG:
-00008f 93ed      	ST   X+,R30
-000090 958a      	DEC  R24
-000091 f7e9      	BRNE __CLEAR_REG
+000065 93ed      	ST   X+,R30
+000066 958a      	DEC  R24
+000067 f7e9      	BRNE __CLEAR_REG
                  
                  ;CLEAR SRAM
-000092 e080      	LDI  R24,LOW(__CLEAR_SRAM_SIZE)
-000093 e098      	LDI  R25,HIGH(__CLEAR_SRAM_SIZE)
-000094 e0a0      	LDI  R26,LOW(__SRAM_START)
-000095 e0b1      	LDI  R27,HIGH(__SRAM_START)
+000068 e080      	LDI  R24,LOW(__CLEAR_SRAM_SIZE)
+000069 e098      	LDI  R25,HIGH(__CLEAR_SRAM_SIZE)
+00006a e0a0      	LDI  R26,LOW(__SRAM_START)
+00006b e0b1      	LDI  R27,HIGH(__SRAM_START)
                  __CLEAR_SRAM:
-000096 93ed      	ST   X+,R30
-000097 9701      	SBIW R24,1
-000098 f7e9      	BRNE __CLEAR_SRAM
+00006c 93ed      	ST   X+,R30
+00006d 9701      	SBIW R24,1
+00006e f7e9      	BRNE __CLEAR_SRAM
                  
                  ;GLOBAL VARIABLES INITIALIZATION
-000099 eee6      	LDI  R30,LOW(__GLOBAL_INI_TBL*2)
-00009a e0f0      	LDI  R31,HIGH(__GLOBAL_INI_TBL*2)
+00006f e9e8      	LDI  R30,LOW(__GLOBAL_INI_TBL*2)
+000070 e0f0      	LDI  R31,HIGH(__GLOBAL_INI_TBL*2)
                  __GLOBAL_INI_NEXT:
-00009b 9185      	LPM  R24,Z+
-00009c 9195      	LPM  R25,Z+
-00009d 9700      	SBIW R24,0
-00009e f061      	BREQ __GLOBAL_INI_END
-00009f 91a5      	LPM  R26,Z+
-0000a0 91b5      	LPM  R27,Z+
-0000a1 9005      	LPM  R0,Z+
-0000a2 9015      	LPM  R1,Z+
-0000a3 01bf      	MOVW R22,R30
-0000a4 01f0      	MOVW R30,R0
+000071 9185      	LPM  R24,Z+
+000072 9195      	LPM  R25,Z+
+000073 9700      	SBIW R24,0
+000074 f061      	BREQ __GLOBAL_INI_END
+000075 91a5      	LPM  R26,Z+
+000076 91b5      	LPM  R27,Z+
+000077 9005      	LPM  R0,Z+
+000078 9015      	LPM  R1,Z+
+000079 01bf      	MOVW R22,R30
+00007a 01f0      	MOVW R30,R0
                  __GLOBAL_INI_LOOP:
-0000a5 9005      	LPM  R0,Z+
-0000a6 920d      	ST   X+,R0
-0000a7 9701      	SBIW R24,1
-0000a8 f7e1      	BRNE __GLOBAL_INI_LOOP
-0000a9 01fb      	MOVW R30,R22
-0000aa cff0      	RJMP __GLOBAL_INI_NEXT
+00007b 9005      	LPM  R0,Z+
+00007c 920d      	ST   X+,R0
+00007d 9701      	SBIW R24,1
+00007e f7e1      	BRNE __GLOBAL_INI_LOOP
+00007f 01fb      	MOVW R30,R22
+000080 cff0      	RJMP __GLOBAL_INI_NEXT
                  __GLOBAL_INI_END:
                  
                  ;GPIOR0 INITIALIZATION
-0000ab e0e0      	LDI  R30,__GPIOR0_INIT
-0000ac bbee      	OUT  GPIOR0,R30
+000081 e0e0      	LDI  R30,__GPIOR0_INIT
+000082 bbee      	OUT  GPIOR0,R30
                  
                  ;HARDWARE STACK POINTER INITIALIZATION
-0000ad efef      	LDI  R30,LOW(__SRAM_END-__HEAP_SIZE)
-0000ae bfed      	OUT  SPL,R30
-0000af e0e8      	LDI  R30,HIGH(__SRAM_END-__HEAP_SIZE)
-0000b0 bfee      	OUT  SPH,R30
+000083 efef      	LDI  R30,LOW(__SRAM_END-__HEAP_SIZE)
+000084 bfed      	OUT  SPL,R30
+000085 e0e8      	LDI  R30,HIGH(__SRAM_END-__HEAP_SIZE)
+000086 bfee      	OUT  SPH,R30
                  
                  ;DATA STACK POINTER INITIALIZATION
-0000b1 e0c0      	LDI  R28,LOW(__SRAM_START+__DSTACK_SIZE)
-0000b2 e0d3      	LDI  R29,HIGH(__SRAM_START+__DSTACK_SIZE)
+000087 e0c0      	LDI  R28,LOW(__SRAM_START+__DSTACK_SIZE)
+000088 e0d3      	LDI  R29,HIGH(__SRAM_START+__DSTACK_SIZE)
                  
-0000b3 940c 0168 	JMP  _main
+000089 940c 01de 	JMP  _main
                  
                  	.ESEG
                  	.ORG 0x00
@@ -1689,734 +1643,938 @@ C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_penduku
                  	.CSEG
                  _generSin:
                  ; .FSTART _generSin
-0000b5 2433      	CLR  R3
-0000b6 2444      	CLR  R4
+00008b 2433      	CLR  R3
+00008c 2444      	CLR  R4
                  _0x4:
-0000b7 efec      	LDI  R30,LOW(252)
-0000b8 e0f0      	LDI  R31,HIGH(252)
-0000b9 163e      	CP   R3,R30
-0000ba 064f      	CPC  R4,R31
-0000bb f50c      	BRGE _0x5
+00008d efec      	LDI  R30,LOW(252)
+00008e e0f0      	LDI  R31,HIGH(252)
+00008f 163e      	CP   R3,R30
+000090 064f      	CPC  R4,R31
+000091 f50c      	BRGE _0x5
                 +
-0000bc 2de3     +MOV R30 , R3
-0000bd 2df4     +MOV R31 , R4
+000092 2de3     +MOV R30 , R3
+000093 2df4     +MOV R31 , R4
                  	__GETW1R 3,4
-0000be d2b4      	RCALL SUBOPT_0x0
-0000bf d2b9      	RCALL SUBOPT_0x1
+000094 d338      	RCALL SUBOPT_0x0
+000095 d33d      	RCALL SUBOPT_0x1
                 +
-0000c0 e0a0     +LDI R26 , LOW ( 0x40000000 )
-0000c1 e0b0     +LDI R27 , HIGH ( 0x40000000 )
-0000c2 e080     +LDI R24 , BYTE3 ( 0x40000000 )
-0000c3 e490     +LDI R25 , BYTE4 ( 0x40000000 )
+000096 e0a0     +LDI R26 , LOW ( 0x40000000 )
+000097 e0b0     +LDI R27 , HIGH ( 0x40000000 )
+000098 e080     +LDI R24 , BYTE3 ( 0x40000000 )
+000099 e490     +LDI R25 , BYTE4 ( 0x40000000 )
                  	__GETD2N 0x40000000
-0000c4 d4fc      	RCALL __MULF12
-0000c5 01df      	MOVW R26,R30
-0000c6 01cb      	MOVW R24,R22
+00009a d5c5      	RCALL __MULF12
+00009b 01df      	MOVW R26,R30
+00009c 01cb      	MOVW R24,R22
                 +
-0000c7 e0e0     +LDI R30 , LOW ( 0x437C0000 )
-0000c8 e0f0     +LDI R31 , HIGH ( 0x437C0000 )
-0000c9 e76c     +LDI R22 , BYTE3 ( 0x437C0000 )
-0000ca e473     +LDI R23 , BYTE4 ( 0x437C0000 )
+00009d e0e0     +LDI R30 , LOW ( 0x437C0000 )
+00009e e0f0     +LDI R31 , HIGH ( 0x437C0000 )
+00009f e76c     +LDI R22 , BYTE3 ( 0x437C0000 )
+0000a0 e473     +LDI R23 , BYTE4 ( 0x437C0000 )
                  	__GETD1N 0x437C0000
-0000cb d2b3      	RCALL SUBOPT_0x2
+0000a1 d337      	RCALL SUBOPT_0x2
                 +
-0000cc 2de3     +MOV R30 , R3
-0000cd 2df4     +MOV R31 , R4
+0000a2 2de3     +MOV R30 , R3
+0000a3 2df4     +MOV R31 , R4
                  	__GETW1R 3,4
-0000ce d2ba      	RCALL SUBOPT_0x3
-0000cf 0fea      	ADD  R30,R26
-0000d0 1ffb      	ADC  R31,R27
-0000d1 93ff      	PUSH R31
-0000d2 93ef      	PUSH R30
-0000d3 d2ba      	RCALL SUBOPT_0x4
-0000d4 91af      	POP  R26
-0000d5 91bf      	POP  R27
-0000d6 93ed      	ST   X+,R30
-0000d7 93fc      	ST   X,R31
-0000d8 e0e1      	LDI  R30,LOW(1)
-0000d9 e0f0      	LDI  R31,HIGH(1)
+0000a4 d33e      	RCALL SUBOPT_0x3
+0000a5 0fea      	ADD  R30,R26
+0000a6 1ffb      	ADC  R31,R27
+0000a7 93ff      	PUSH R31
+0000a8 93ef      	PUSH R30
+0000a9 d33e      	RCALL SUBOPT_0x4
+0000aa 91af      	POP  R26
+0000ab 91bf      	POP  R27
+0000ac 93ed      	ST   X+,R30
+0000ad 93fc      	ST   X,R31
+0000ae e0e1      	LDI  R30,LOW(1)
+0000af e0f0      	LDI  R31,HIGH(1)
                 +
-0000da 0e3e     +ADD R3 , R30
-0000db 1e4f     +ADC R4 , R31
+0000b0 0e3e     +ADD R3 , R30
+0000b1 1e4f     +ADC R4 , R31
                  	__ADDWRR 3,4,30,31
-0000dc cfda      	RJMP _0x4
+0000b2 cfda      	RJMP _0x4
                  _0x5:
-0000dd c02c      	RJMP _0x20A0002
+0000b3 c02c      	RJMP _0x20A0002
                  ; .FEND
                  _generSinUgol:
                  ; .FSTART _generSinUgol
-0000de 2455      	CLR  R5
-0000df 2466      	CLR  R6
+0000b4 2455      	CLR  R5
+0000b5 2466      	CLR  R6
                  _0x7:
-0000e0 e9e0      	LDI  R30,LOW(400)
-0000e1 e0f1      	LDI  R31,HIGH(400)
-0000e2 165e      	CP   R5,R30
-0000e3 066f      	CPC  R6,R31
-0000e4 f52c      	BRGE _0x8
+0000b6 e9e0      	LDI  R30,LOW(400)
+0000b7 e0f1      	LDI  R31,HIGH(400)
+0000b8 165e      	CP   R5,R30
+0000b9 066f      	CPC  R6,R31
+0000ba f52c      	BRGE _0x8
                 +
-0000e5 2de5     +MOV R30 , R5
-0000e6 2df6     +MOV R31 , R6
+0000bb 2de5     +MOV R30 , R5
+0000bc 2df6     +MOV R31 , R6
                  	__GETW1R 5,6
-0000e7 59e0      	SUBI R30,LOW(400)
-0000e8 40f1      	SBCI R31,HIGH(400)
-0000e9 95f5      	ASR  R31
-0000ea 95e7      	ROR  R30
-0000eb d287      	RCALL SUBOPT_0x0
+0000bd 59e0      	SUBI R30,LOW(400)
+0000be 40f1      	SBCI R31,HIGH(400)
+0000bf 95f5      	ASR  R31
+0000c0 95e7      	ROR  R30
+0000c1 d30b      	RCALL SUBOPT_0x0
                 +
-0000ec e6a6     +LDI R26 , LOW ( 0x3F666666 )
-0000ed e6b6     +LDI R27 , HIGH ( 0x3F666666 )
-0000ee e686     +LDI R24 , BYTE3 ( 0x3F666666 )
-0000ef e39f     +LDI R25 , BYTE4 ( 0x3F666666 )
+0000c2 e6a6     +LDI R26 , LOW ( 0x3F666666 )
+0000c3 e6b6     +LDI R27 , HIGH ( 0x3F666666 )
+0000c4 e686     +LDI R24 , BYTE3 ( 0x3F666666 )
+0000c5 e39f     +LDI R25 , BYTE4 ( 0x3F666666 )
                  	__GETD2N 0x3F666666
-0000f0 d4d0      	RCALL __MULF12
-0000f1 d287      	RCALL SUBOPT_0x1
-0000f2 01df      	MOVW R26,R30
-0000f3 01cb      	MOVW R24,R22
+0000c6 d599      	RCALL __MULF12
+0000c7 d30b      	RCALL SUBOPT_0x1
+0000c8 01df      	MOVW R26,R30
+0000c9 01cb      	MOVW R24,R22
                 +
-0000f4 e0e0     +LDI R30 , LOW ( 0x43340000 )
-0000f5 e0f0     +LDI R31 , HIGH ( 0x43340000 )
-0000f6 e364     +LDI R22 , BYTE3 ( 0x43340000 )
-0000f7 e473     +LDI R23 , BYTE4 ( 0x43340000 )
+0000ca e0e0     +LDI R30 , LOW ( 0x43340000 )
+0000cb e0f0     +LDI R31 , HIGH ( 0x43340000 )
+0000cc e364     +LDI R22 , BYTE3 ( 0x43340000 )
+0000cd e473     +LDI R23 , BYTE4 ( 0x43340000 )
                  	__GETD1N 0x43340000
-0000f8 d286      	RCALL SUBOPT_0x2
+0000ce d30a      	RCALL SUBOPT_0x2
                 +
-0000f9 2de5     +MOV R30 , R5
-0000fa 2df6     +MOV R31 , R6
+0000cf 2de5     +MOV R30 , R5
+0000d0 2df6     +MOV R31 , R6
                  	__GETW1R 5,6
-0000fb d2a2      	RCALL SUBOPT_0x5
-0000fc 0fea      	ADD  R30,R26
-0000fd 1ffb      	ADC  R31,R27
-0000fe 93ff      	PUSH R31
-0000ff 93ef      	PUSH R30
-000100 d28d      	RCALL SUBOPT_0x4
-000101 91af      	POP  R26
-000102 91bf      	POP  R27
-000103 93ed      	ST   X+,R30
-000104 93fc      	ST   X,R31
-000105 e0e1      	LDI  R30,LOW(1)
-000106 e0f0      	LDI  R31,HIGH(1)
+0000d1 d326      	RCALL SUBOPT_0x5
+0000d2 0fea      	ADD  R30,R26
+0000d3 1ffb      	ADC  R31,R27
+0000d4 93ff      	PUSH R31
+0000d5 93ef      	PUSH R30
+0000d6 d311      	RCALL SUBOPT_0x4
+0000d7 91af      	POP  R26
+0000d8 91bf      	POP  R27
+0000d9 93ed      	ST   X+,R30
+0000da 93fc      	ST   X,R31
+0000db e0e1      	LDI  R30,LOW(1)
+0000dc e0f0      	LDI  R31,HIGH(1)
                 +
-000107 0e5e     +ADD R5 , R30
-000108 1e6f     +ADC R6 , R31
+0000dd 0e5e     +ADD R5 , R30
+0000de 1e6f     +ADC R6 , R31
                  	__ADDWRR 5,6,30,31
-000109 cfd6      	RJMP _0x7
+0000df cfd6      	RJMP _0x7
                  _0x8:
                  _0x20A0002:
-00010a e0e0      	LDI  R30,LOW(0)
-00010b e0f0      	LDI  R31,HIGH(0)
-00010c 9508      	RET
+0000e0 e0e0      	LDI  R30,LOW(0)
+0000e1 e0f0      	LDI  R31,HIGH(0)
+0000e2 9508      	RET
                  ; .FEND
                  
                  	.DSEG
-                 ;float my_abs(float value) {
-                 ; 0000 003B float my_abs(float value) {
+                 ;uint32_t my_abs(int32_t value) {
+                 ; 0000 0034 uint32_t my_abs(int32_t value) {
                  
                  	.CSEG
                  _my_abs:
                  ; .FSTART _my_abs
-                 ; 0000 003C return (value < 0) ? -value : value;
-00010d d3a7      	RCALL __PUTPARD2
+                 ; 0000 0035 return (value < 0) ? -value : value;
+0000e3 d470      	RCALL __PUTPARD2
                  ;	value -> Y+0
-00010e 81ab      	LDD  R26,Y+3
-00010f 23aa      	TST  R26
-000110 f41a      	BRPL _0xE
-000111 d291      	RCALL SUBOPT_0x6
-000112 d3b9      	RCALL __ANEGF1
-000113 c001      	RJMP _0xF
-                 _0xE:
-000114 d28e      	RCALL SUBOPT_0x6
-                 _0xF:
-000115 940c 030c 	JMP  _0x20A0001
-                 ; 0000 003D }
+0000e4 81ab      	LDD  R26,Y+3
+0000e5 23aa      	TST  R26
+0000e6 f41a      	BRPL _0xC
+0000e7 d315      	RCALL SUBOPT_0x6
+0000e8 d3c3      	RCALL __ANEGD1
+0000e9 c001      	RJMP _0xD
+                 _0xC:
+0000ea d312      	RCALL SUBOPT_0x6
+                 _0xD:
+0000eb 940c 0366 	JMP  _0x20A0001
+                 ; 0000 0036 }
                  ; .FEND
                  ;interrupt [2] void ext_int0_isr(void)
-                 ; 0000 0044 {
+                 ; 0000 0041 {
                  _ext_int0_isr:
                  ; .FSTART _ext_int0_isr
-                 ; 0000 0045 if (PINB.4 == 1)
-                 ; 0000 0046 {
-                 ; 0000 0047 //ugol++;
-                 ; 0000 0048 
-                 ; 0000 0049 }
-                 ; 0000 004A else
-                 ; 0000 004B {
-                 ; 0000 004C //ugol--;
-                 ; 0000 004D }
-                 ; 0000 004E 
-                 ; 0000 004F }
-000117 9518      	RETI
+                 ; 0000 0042 if (PINB.4 == 1)
+                 ; 0000 0043 {
+                 ; 0000 0044 //ugol++;
+                 ; 0000 0045 
+                 ; 0000 0046 }
+                 ; 0000 0047 else
+                 ; 0000 0048 {
+                 ; 0000 0049 //ugol--;
+                 ; 0000 004A }
+                 ; 0000 004B 
+                 ; 0000 004C }
+0000ed 9518      	RETI
                  ; .FEND
                  ;interrupt [17] void timer0_ovf_isr(void)
-                 ; 0000 0052 
-                 ; 0000 0053 {
+                 ; 0000 004F 
+                 ; 0000 0050 {
                  _timer0_ovf_isr:
                  ; .FSTART _timer0_ovf_isr
-000118 920a      	ST   -Y,R0
-000119 921a      	ST   -Y,R1
-00011a 92fa      	ST   -Y,R15
-00011b 936a      	ST   -Y,R22
-00011c 937a      	ST   -Y,R23
-00011d 938a      	ST   -Y,R24
-00011e 939a      	ST   -Y,R25
-00011f 93aa      	ST   -Y,R26
-000120 93ba      	ST   -Y,R27
-000121 93ea      	ST   -Y,R30
-000122 93fa      	ST   -Y,R31
-000123 b7ef      	IN   R30,SREG
-000124 93ea      	ST   -Y,R30
-                 ; 0000 0054 
-                 ; 0000 0055 //sprintf(buffer, "%d", ugol);
-                 ; 0000 0056 //
-                 ; 0000 0057 //        puts(buffer);
-                 ; 0000 0058 
-                 ; 0000 0059 byte1 = (ugol >> 8) & 0xFF;
+0000ee 920a      	ST   -Y,R0
+0000ef 921a      	ST   -Y,R1
+0000f0 92fa      	ST   -Y,R15
+0000f1 936a      	ST   -Y,R22
+0000f2 937a      	ST   -Y,R23
+0000f3 938a      	ST   -Y,R24
+0000f4 939a      	ST   -Y,R25
+0000f5 93aa      	ST   -Y,R26
+0000f6 93ba      	ST   -Y,R27
+0000f7 93ea      	ST   -Y,R30
+0000f8 93fa      	ST   -Y,R31
+0000f9 b7ef      	IN   R30,SREG
+0000fa 93ea      	ST   -Y,R30
+                 ; 0000 0051 
+                 ; 0000 0052 //sprintf(buffer, "%d", ugol);
+                 ; 0000 0053 //
+                 ; 0000 0054 //        puts(buffer);
+                 ; 0000 0055 
+                 ; 0000 0056 byte1 = (ugol >> 8) & 0xFF;
                 +
-000125 2de7     +MOV R30 , R7
-000126 2df8     +MOV R31 , R8
+0000fb 2de7     +MOV R30 , R7
+0000fc 2df8     +MOV R31 , R8
                  	__GETW1R 7,8
                 +
-000127 2fef     +MOV R30 , R31
-000128 27ff     +CLR R31
-000129 fde7     +SBRC R30 , 7
-00012a efff     +SER R31
+0000fd 2fef     +MOV R30 , R31
+0000fe 27ff     +CLR R31
+0000ff fde7     +SBRC R30 , 7
+000100 efff     +SER R31
                  	__ASRW8
-00012b 2eae      	MOV  R10,R30
-                 ; 0000 005A byte2 = ugol & 0xFF;
-00012c 2de7      	MOV  R30,R7
-00012d 2e9e      	MOV  R9,R30
-                 ; 0000 005B putchar(0x1c);
-00012e e1ac      	LDI  R26,LOW(28)
-00012f d278      	RCALL SUBOPT_0x7
-                 ; 0000 005C putchar(byte1);
-                 ; 0000 005D putchar(byte2);
-                 ; 0000 005E byte1 = (pwm_value >> 8) & 0xFF;
-000130 91e0 0842 	LDS  R30,_pwm_value+1
-000132 2eae      	MOV  R10,R30
-                 ; 0000 005F byte2 = pwm_value & 0xFF;
-000133 91e0 0841 	LDS  R30,_pwm_value
-000135 2e9e      	MOV  R9,R30
-                 ; 0000 0060 putchar(0x2d);
-000136 e2ad      	LDI  R26,LOW(45)
-000137 d270      	RCALL SUBOPT_0x7
-                 ; 0000 0061 putchar(byte1);
-                 ; 0000 0062 putchar(byte2);
-                 ; 0000 0063 byte4 = (error >> 24) & 0xFF;
-000138 d274      	RCALL SUBOPT_0x8
-000139 e1e8      	LDI  R30,LOW(24)
-00013a d30c      	RCALL __ASRD12
-00013b 2ebe      	MOV  R11,R30
-                 ; 0000 0064 byte3 = (error >> 16) & 0xFF;
-00013c d270      	RCALL SUBOPT_0x8
-00013d e1e0      	LDI  R30,LOW(16)
-00013e d308      	RCALL __ASRD12
-00013f 2ece      	MOV  R12,R30
-                 ; 0000 0065 byte1 = (error >> 8) & 0xFF;
-000140 d26c      	RCALL SUBOPT_0x8
-000141 e0e8      	LDI  R30,LOW(8)
-000142 d304      	RCALL __ASRD12
-000143 2eae      	MOV  R10,R30
-                 ; 0000 0066 byte2 = error & 0xFF;
-000144 91e0 0824 	LDS  R30,_error
-000146 2e9e      	MOV  R9,R30
-                 ; 0000 0067 putchar(0x2c);
-000147 e2ac      	LDI  R26,LOW(44)
-000148 d175      	RCALL _putchar
-                 ; 0000 0068 putchar(byte4);
-000149 2dab      	MOV  R26,R11
-00014a d173      	RCALL _putchar
-                 ; 0000 0069 putchar(byte3);
-00014b 2dac      	MOV  R26,R12
-00014c d25b      	RCALL SUBOPT_0x7
-                 ; 0000 006A putchar(byte1);
-                 ; 0000 006B putchar(byte2);
-                 ; 0000 006C time12=time12+100;
-00014d 91e0 0828 	LDS  R30,_time12
-00014f 91f0 0829 	LDS  R31,_time12+1
-000151 59ec      	SUBI R30,LOW(-100)
-000152 4fff      	SBCI R31,HIGH(-100)
-000153 93e0 0828 	STS  _time12,R30
-000155 93f0 0829 	STS  _time12+1,R31
-                 ; 0000 006D if(time12>16128)time12 = 0;
-000157 d25e      	RCALL SUBOPT_0x9
-000158 f00c      	BRLT _0x13
-000159 d264      	RCALL SUBOPT_0xA
-                 ; 0000 006E //PORTB &= ~(1 << PORTB5);
-                 ; 0000 006F }
+000101 2eae      	MOV  R10,R30
+                 ; 0000 0057 byte2 = ugol & 0xFF;
+000102 2de7      	MOV  R30,R7
+000103 2e9e      	MOV  R9,R30
+                 ; 0000 0058 putchar(0x1c);
+000104 e1ac      	LDI  R26,LOW(28)
+000105 d2fc      	RCALL SUBOPT_0x7
+                 ; 0000 0059 putchar(byte1);
+                 ; 0000 005A putchar(byte2);
+                 ; 0000 005B byte1 = (pwm_value >> 8) & 0xFF;
+000106 d300      	RCALL SUBOPT_0x8
+000107 e0e8      	LDI  R30,LOW(8)
+000108 d3df      	RCALL __LSRD12
+000109 2eae      	MOV  R10,R30
+                 ; 0000 005C byte2 = pwm_value & 0xFF;
+00010a 91e0 083f 	LDS  R30,_pwm_value
+00010c 2e9e      	MOV  R9,R30
+                 ; 0000 005D putchar(0x2d);
+00010d e2ad      	LDI  R26,LOW(45)
+00010e d2f3      	RCALL SUBOPT_0x7
+                 ; 0000 005E putchar(byte1);
+                 ; 0000 005F putchar(byte2);
+                 ; 0000 0060 byte4 = (error >> 24) & 0xFF;
+00010f d300      	RCALL SUBOPT_0x9
+000110 e1e8      	LDI  R30,LOW(24)
+000111 d3bd      	RCALL __ASRD12
+000112 2ebe      	MOV  R11,R30
+                 ; 0000 0061 byte3 = (error >> 16) & 0xFF;
+000113 d2fc      	RCALL SUBOPT_0x9
+000114 e1e0      	LDI  R30,LOW(16)
+000115 d3b9      	RCALL __ASRD12
+000116 2ece      	MOV  R12,R30
+                 ; 0000 0062 byte1 = (error >> 8) & 0xFF;
+000117 d2f8      	RCALL SUBOPT_0x9
+000118 e0e8      	LDI  R30,LOW(8)
+000119 d3b5      	RCALL __ASRD12
+00011a 2eae      	MOV  R10,R30
+                 ; 0000 0063 byte2 = error & 0xFF;
+00011b 91e0 0824 	LDS  R30,_error
+00011d 2e9e      	MOV  R9,R30
+                 ; 0000 0064 putchar(0x2c);
+00011e e2ac      	LDI  R26,LOW(44)
+00011f d1f8      	RCALL _putchar
+                 ; 0000 0065 putchar(byte4);
+000120 2dab      	MOV  R26,R11
+000121 d1f6      	RCALL _putchar
+                 ; 0000 0066 putchar(byte3);
+000122 2dac      	MOV  R26,R12
+000123 d2de      	RCALL SUBOPT_0x7
+                 ; 0000 0067 putchar(byte1);
+                 ; 0000 0068 putchar(byte2);
+                 ; 0000 0069 time12=time12+100;
+000124 91e0 0828 	LDS  R30,_time12
+000126 91f0 0829 	LDS  R31,_time12+1
+000128 59ec      	SUBI R30,LOW(-100)
+000129 4fff      	SBCI R31,HIGH(-100)
+00012a 93e0 0828 	STS  _time12,R30
+00012c 93f0 0829 	STS  _time12+1,R31
+                 ; 0000 006A if(time12>16128)time12 = 0;
+00012e d2ea      	RCALL SUBOPT_0xA
+00012f f00c      	BRLT _0x11
+000130 d2f0      	RCALL SUBOPT_0xB
+                 ; 0000 006B //PORTB &= ~(1 << PORTB5);
+                 ; 0000 006C }
+                 _0x11:
+000131 91e9      	LD   R30,Y+
+000132 bfef      	OUT  SREG,R30
+000133 91f9      	LD   R31,Y+
+000134 91e9      	LD   R30,Y+
+000135 91b9      	LD   R27,Y+
+000136 91a9      	LD   R26,Y+
+000137 9199      	LD   R25,Y+
+000138 9189      	LD   R24,Y+
+000139 9179      	LD   R23,Y+
+00013a 9169      	LD   R22,Y+
+00013b 90f9      	LD   R15,Y+
+00013c 9019      	LD   R1,Y+
+00013d 9009      	LD   R0,Y+
+00013e 9518      	RETI
+                 ; .FEND
+                 ;interrupt[19] void usartRX_data(void) {
+                 ; 0000 006E interrupt[19] void usartRX_data(void) {
+                 _usartRX_data:
+                 ; .FSTART _usartRX_data
+00013f 936a      	ST   -Y,R22
+000140 937a      	ST   -Y,R23
+000141 93aa      	ST   -Y,R26
+000142 93ba      	ST   -Y,R27
+000143 93ea      	ST   -Y,R30
+000144 93fa      	ST   -Y,R31
+000145 b7ef      	IN   R30,SREG
+000146 93ea      	ST   -Y,R30
+                 ; 0000 006F // Чтение принятого байта из регистра UDR0
+                 ; 0000 0070 
+                 ; 0000 0071 uint8_t received_data = UDR0;
+                 ; 0000 0072 if(received_data == 0x0A){
+000147 931a      	ST   -Y,R17
+                 ;	received_data -> R17
+000148 91e0 00c6 	LDS  R30,198
+00014a 2f1e      	MOV  R17,R30
+00014b 301a      	CPI  R17,10
+00014c f419      	BRNE _0x12
+                 ; 0000 0073 flagA = 1;
+00014d e0e1      	LDI  R30,LOW(1)
+00014e 93e0 0844 	STS  _flagA,R30
+                 ; 0000 0074 }
+                 ; 0000 0075 if(flag == 1){
+                 _0x12:
+000150 91a0 082a 	LDS  R26,_flag
+000152 91b0 082b 	LDS  R27,_flag+1
+000154 9711      	SBIW R26,1
+000155 f479      	BRNE _0x13
+                 ; 0000 0076 A = received_data;
+000156 2fe1      	MOV  R30,R17
+000157 27ff      	CLR  R31
+000158 2766      	CLR  R22
+000159 2777      	CLR  R23
+00015a 93e0 0820 	STS  _A,R30
+00015c 93f0 0821 	STS  _A+1,R31
+00015e 9360 0822 	STS  _A+2,R22
+000160 9370 0823 	STS  _A+3,R23
+                 ; 0000 0077 flagA = 0;
+000162 e0e0      	LDI  R30,LOW(0)
+000163 93e0 0844 	STS  _flagA,R30
+                 ; 0000 0078 }
+                 ; 0000 0079 if(received_data == 0x0B){
                  _0x13:
-00015a 91e9      	LD   R30,Y+
-00015b bfef      	OUT  SREG,R30
-00015c 91f9      	LD   R31,Y+
-00015d 91e9      	LD   R30,Y+
-00015e 91b9      	LD   R27,Y+
-00015f 91a9      	LD   R26,Y+
-000160 9199      	LD   R25,Y+
-000161 9189      	LD   R24,Y+
-000162 9179      	LD   R23,Y+
-000163 9169      	LD   R22,Y+
-000164 90f9      	LD   R15,Y+
-000165 9019      	LD   R1,Y+
-000166 9009      	LD   R0,Y+
-000167 9518      	RETI
+000165 301b      	CPI  R17,11
+000166 f419      	BRNE _0x14
+                 ; 0000 007A flagT = 1;
+000167 e0e1      	LDI  R30,LOW(1)
+000168 93e0 0843 	STS  _flagT,R30
+                 ; 0000 007B }
+                 ; 0000 007C if(flagT == 1){
+                 _0x14:
+00016a 91a0 0843 	LDS  R26,_flagT
+00016c 30a1      	CPI  R26,LOW(0x1)
+00016d f439      	BRNE _0x15
+                 ; 0000 007D T = (received_data<<8);
+00016e 2ff1      	MOV  R31,R17
+00016f e0e0      	LDI  R30,LOW(0)
+                +
+000170 2ede     +MOV R13 , R30
+000171 2eef     +MOV R14 , R31
+                 	__PUTW1R 13,14
+                 ; 0000 007E flagT = 2;
+000172 e0e2      	LDI  R30,LOW(2)
+000173 93e0 0843 	STS  _flagT,R30
+                 ; 0000 007F }
+                 ; 0000 0080 if(flagT == 2){
+                 _0x15:
+000175 91a0 0843 	LDS  R26,_flagT
+000177 30a2      	CPI  R26,LOW(0x2)
+000178 f439      	BRNE _0x16
+                 ; 0000 0081 T = T+received_data;
+000179 2fe1      	MOV  R30,R17
+00017a e0f0      	LDI  R31,0
+                +
+00017b 0ede     +ADD R13 , R30
+00017c 1eef     +ADC R14 , R31
+                 	__ADDWRR 13,14,30,31
+                 ; 0000 0082 flagT = 0;
+00017d e0e0      	LDI  R30,LOW(0)
+00017e 93e0 0843 	STS  _flagT,R30
+                 ; 0000 0083 }
+                 ; 0000 0084 if(received_data == 0x1A){
+                 _0x16:
+000180 311a      	CPI  R17,26
+000181 f419      	BRNE _0x17
+                 ; 0000 0085 flagP = 1;
+000182 e0e1      	LDI  R30,LOW(1)
+000183 93e0 0845 	STS  _flagP,R30
+                 ; 0000 0086 }
+                 ; 0000 0087 if(flagP == 1){
+                 _0x17:
+000185 91a0 0845 	LDS  R26,_flagP
+000187 30a1      	CPI  R26,LOW(0x1)
+000188 f431      	BRNE _0x18
+                 ; 0000 0088 Kp = (received_data<<8);
+000189 2ff1      	MOV  R31,R17
+00018a e0e0      	LDI  R30,LOW(0)
+00018b d29b      	RCALL SUBOPT_0xC
+                 ; 0000 0089 flagP = 2;
+00018c e0e2      	LDI  R30,LOW(2)
+00018d 93e0 0845 	STS  _flagP,R30
+                 ; 0000 008A }
+                 ; 0000 008B if(flagP == 2){
+                 _0x18:
+00018f 91a0 0845 	LDS  R26,_flagP
+000191 30a2      	CPI  R26,LOW(0x2)
+000192 f449      	BRNE _0x19
+                 ; 0000 008C Kp = Kp + received_data;
+000193 2fe1      	MOV  R30,R17
+000194 e0f0      	LDI  R31,0
+000195 d296      	RCALL SUBOPT_0xD
+000196 0fea      	ADD  R30,R26
+000197 1ffb      	ADC  R31,R27
+000198 d28e      	RCALL SUBOPT_0xC
+                 ; 0000 008D flagP = 0;
+000199 e0e0      	LDI  R30,LOW(0)
+00019a 93e0 0845 	STS  _flagP,R30
+                 ; 0000 008E }
+                 ; 0000 008F if(received_data == 0x1B){
+                 _0x19:
+00019c 311b      	CPI  R17,27
+00019d f419      	BRNE _0x1A
+                 ; 0000 0090 flagI = 1;
+00019e e0e1      	LDI  R30,LOW(1)
+00019f 93e0 0846 	STS  _flagI,R30
+                 ; 0000 0091 }
+                 ; 0000 0092 if(flagI == 1){
+                 _0x1A:
+0001a1 91a0 0846 	LDS  R26,_flagI
+0001a3 30a1      	CPI  R26,LOW(0x1)
+0001a4 f431      	BRNE _0x1B
+                 ; 0000 0093 Ki = (received_data<<8);
+0001a5 2ff1      	MOV  R31,R17
+0001a6 e0e0      	LDI  R30,LOW(0)
+0001a7 d289      	RCALL SUBOPT_0xE
+                 ; 0000 0094 flagI = 2;
+0001a8 e0e2      	LDI  R30,LOW(2)
+0001a9 93e0 0846 	STS  _flagI,R30
+                 ; 0000 0095 }
+                 ; 0000 0096 if(flagI == 2){
+                 _0x1B:
+0001ab 91a0 0846 	LDS  R26,_flagI
+0001ad 30a2      	CPI  R26,LOW(0x2)
+0001ae f449      	BRNE _0x1C
+                 ; 0000 0097 Ki = Ki + received_data;
+0001af 2fe1      	MOV  R30,R17
+0001b0 e0f0      	LDI  R31,0
+0001b1 d284      	RCALL SUBOPT_0xF
+0001b2 0fea      	ADD  R30,R26
+0001b3 1ffb      	ADC  R31,R27
+0001b4 d27c      	RCALL SUBOPT_0xE
+                 ; 0000 0098 flagI = 0;
+0001b5 e0e0      	LDI  R30,LOW(0)
+0001b6 93e0 0846 	STS  _flagI,R30
+                 ; 0000 0099 }
+                 ; 0000 009A if(received_data == 0x1F){
+                 _0x1C:
+0001b8 311f      	CPI  R17,31
+0001b9 f419      	BRNE _0x1D
+                 ; 0000 009B flagD = 1;
+0001ba e0e1      	LDI  R30,LOW(1)
+0001bb 93e0 0847 	STS  _flagD,R30
+                 ; 0000 009C }
+                 ; 0000 009D if(flagD == 1){
+                 _0x1D:
+0001bd 91a0 0847 	LDS  R26,_flagD
+0001bf 30a1      	CPI  R26,LOW(0x1)
+0001c0 f431      	BRNE _0x1E
+                 ; 0000 009E Kd = (received_data<<8);
+0001c1 2ff1      	MOV  R31,R17
+0001c2 e0e0      	LDI  R30,LOW(0)
+0001c3 d277      	RCALL SUBOPT_0x10
+                 ; 0000 009F flagD = 2;
+0001c4 e0e2      	LDI  R30,LOW(2)
+0001c5 93e0 0847 	STS  _flagD,R30
+                 ; 0000 00A0 }
+                 ; 0000 00A1 if(flagD == 2){
+                 _0x1E:
+0001c7 91a0 0847 	LDS  R26,_flagD
+0001c9 30a2      	CPI  R26,LOW(0x2)
+0001ca f449      	BRNE _0x1F
+                 ; 0000 00A2 Kd = Kd + received_data;
+0001cb 2fe1      	MOV  R30,R17
+0001cc e0f0      	LDI  R31,0
+0001cd d272      	RCALL SUBOPT_0x11
+0001ce 0fea      	ADD  R30,R26
+0001cf 1ffb      	ADC  R31,R27
+0001d0 d26a      	RCALL SUBOPT_0x10
+                 ; 0000 00A3 flagD = 0;
+0001d1 e0e0      	LDI  R30,LOW(0)
+0001d2 93e0 0847 	STS  _flagD,R30
+                 ; 0000 00A4 }
+                 ; 0000 00A5 
+                 ; 0000 00A6 
+                 ; 0000 00A7 
+                 ; 0000 00A8 }
+                 _0x1F:
+0001d4 9119      	LD   R17,Y+
+0001d5 91e9      	LD   R30,Y+
+0001d6 bfef      	OUT  SREG,R30
+0001d7 91f9      	LD   R31,Y+
+0001d8 91e9      	LD   R30,Y+
+0001d9 91b9      	LD   R27,Y+
+0001da 91a9      	LD   R26,Y+
+0001db 9179      	LD   R23,Y+
+0001dc 9169      	LD   R22,Y+
+0001dd 9518      	RETI
                  ; .FEND
                  ;void main(void)
-                 ; 0000 0073 {
+                 ; 0000 00AA {
                  _main:
                  ; .FSTART _main
-                 ; 0000 0074 // Declare your local variables here
-                 ; 0000 0075 
-                 ; 0000 0076 // Crystal Oscillator division factor: 1
-                 ; 0000 0077 #pragma optsize-
-                 ; 0000 0078 CLKPR=(1<<CLKPCE);
-000168 e8e0      	LDI  R30,LOW(128)
-000169 93e0 0061 	STS  97,R30
-                 ; 0000 0079 CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
-00016b e0e0      	LDI  R30,LOW(0)
-00016c 93e0 0061 	STS  97,R30
-                 ; 0000 007A #ifdef _OPTIMIZE_SIZE_
-                 ; 0000 007B #pragma optsize+
-                 ; 0000 007C #endif
-                 ; 0000 007D 
-                 ; 0000 007E // Input/Output Ports initialization
-                 ; 0000 007F // Port B initialization
-                 ; 0000 0080 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-                 ; 0000 0081 DDRB=(0<<DDB7) | (0<<DDB6) | (1<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (1<<DDB1) | (1<<DDB0);
-00016e e2e3      	LDI  R30,LOW(35)
-00016f b9e4      	OUT  0x4,R30
-                 ; 0000 0082 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-                 ; 0000 0083 PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
-000170 e0e0      	LDI  R30,LOW(0)
-000171 b9e5      	OUT  0x5,R30
-                 ; 0000 0084 
-                 ; 0000 0085 // Port C initialization
-                 ; 0000 0086 // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-                 ; 0000 0087 DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<<DDC0);
-000172 b9e7      	OUT  0x7,R30
-                 ; 0000 0088 // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-                 ; 0000 0089 PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
-000173 b9e8      	OUT  0x8,R30
-                 ; 0000 008A 
-                 ; 0000 008B // Port D initialization
-                 ; 0000 008C // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
-                 ; 0000 008D DDRD=(1<<DDD7) | (1<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
-000174 ece2      	LDI  R30,LOW(194)
-000175 b9ea      	OUT  0xA,R30
-                 ; 0000 008E // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
-                 ; 0000 008F PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
-000176 e0e0      	LDI  R30,LOW(0)
-000177 b9eb      	OUT  0xB,R30
-                 ; 0000 0090 
-                 ; 0000 0091 // Timer/Counter 0 initialization
-                 ; 0000 0092 // Clock source: System Clock
-                 ; 0000 0093 // Clock value: 15,625 kHz
-                 ; 0000 0094 // Mode: Normal top=0xFF
-                 ; 0000 0095 // OC0A output: Disconnected
-                 ; 0000 0096 // OC0B output: Disconnected
-                 ; 0000 0097 // Timer Period: 16,384 ms
-                 ; 0000 0098 TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
-000178 bde4      	OUT  0x24,R30
-                 ; 0000 0099 TCCR0B=(0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
-000179 e0e5      	LDI  R30,LOW(5)
-00017a bde5      	OUT  0x25,R30
-                 ; 0000 009A TCNT0=0x00;
-00017b e0e0      	LDI  R30,LOW(0)
-00017c bde6      	OUT  0x26,R30
-                 ; 0000 009B OCR0A=0x00;
-00017d bde7      	OUT  0x27,R30
-                 ; 0000 009C OCR0B=0x00;
-00017e bde8      	OUT  0x28,R30
-                 ; 0000 009D 
-                 ; 0000 009E 
-                 ; 0000 009F // Timer/Counter 0 Interrupt(s) initialization
-                 ; 0000 00A0 TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
-00017f e0e1      	LDI  R30,LOW(1)
-000180 93e0 006e 	STS  110,R30
-                 ; 0000 00A1 
-                 ; 0000 00A2 
-                 ; 0000 00A3 // External Interrupt(s) initialization
-                 ; 0000 00A4 // INT0: On
-                 ; 0000 00A5 // INT0 Mode: Rising Edge
-                 ; 0000 00A6 // INT1: Off
-                 ; 0000 00A7 // Interrupt on any change on pins PCINT0-7: Off
-                 ; 0000 00A8 // Interrupt on any change on pins PCINT8-14: Off
-                 ; 0000 00A9 // Interrupt on any change on pins PCINT16-23: Off
-                 ; 0000 00AA EICRA=(0<<ISC11) | (0<<ISC10) | (1<<ISC01) | (1<<ISC00);
-000182 e0e3      	LDI  R30,LOW(3)
-000183 93e0 0069 	STS  105,R30
-                 ; 0000 00AB EIMSK=(0<<INT1) | (1<<INT0);
-000185 e0e1      	LDI  R30,LOW(1)
-000186 bbed      	OUT  0x1D,R30
-                 ; 0000 00AC EIFR=(0<<INTF1) | (1<<INTF0);
-000187 bbec      	OUT  0x1C,R30
-                 ; 0000 00AD PCICR=(0<<PCIE2) | (0<<PCIE1) | (0<<PCIE0);
-000188 e0e0      	LDI  R30,LOW(0)
-000189 93e0 0068 	STS  104,R30
-                 ; 0000 00AE 
-                 ; 0000 00AF // USART initialization
-                 ; 0000 00B0 // Communication Parameters: 8 Data, 1 Stop, No Parity
-                 ; 0000 00B1 // USART Receiver: Off
-                 ; 0000 00B2 // USART Transmitter: On
-                 ; 0000 00B3 // USART Mode: Asynchronous
-                 ; 0000 00B4 // USART Baud Rate: 38400
-                 ; 0000 00B5 UCSR0A=(0<<RXC0) | (0<<TXC0) | (0<<UDRE0) | (0<<FE0) | (0<<DOR0) | (0<<UPE0) | (0<<U2X0) | (0<<MPCM0);
-00018b 93e0 00c0 	STS  192,R30
-                 ; 0000 00B6 UCSR0B=(0<<RXCIE0) | (0<<TXCIE0) | (0<<UDRIE0) | (0<<RXEN0) | (1<<TXEN0) | (0<<UCSZ02) | (0<<RXB80) | (0<<TXB80);
-00018d e0e8      	LDI  R30,LOW(8)
-00018e 93e0 00c1 	STS  193,R30
-                 ; 0000 00B7 UCSR0C=(0<<UMSEL01) | (0<<UMSEL00) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UCSZ00) | (0<<UCPOL0);
-000190 e0e6      	LDI  R30,LOW(6)
-000191 93e0 00c2 	STS  194,R30
-                 ; 0000 00B8 UBRR0H=0x00;
-000193 e0e0      	LDI  R30,LOW(0)
-000194 93e0 00c5 	STS  197,R30
-                 ; 0000 00B9 UBRR0L=0x19;
-000196 e1e9      	LDI  R30,LOW(25)
-000197 93e0 00c4 	STS  196,R30
-                 ; 0000 00BA 
-                 ; 0000 00BB // Timer/Counter 1 initialization
-                 ; 0000 00BC // Clock source: System Clock
-                 ; 0000 00BD // Clock value: 2000,000 kHz
-                 ; 0000 00BE // Mode: Ph. correct PWM top=0x00FF
-                 ; 0000 00BF // OC1A output: Non-Inverted PWM
-                 ; 0000 00C0 // OC1B output: Disconnected
-                 ; 0000 00C1 // Noise Canceler: Off
-                 ; 0000 00C2 // Input Capture on Falling Edge
-                 ; 0000 00C3 // Timer Period: 0,255 ms
-                 ; 0000 00C4 // Output Pulse(s):
-                 ; 0000 00C5 // OC1A Period: 0,255 ms Width: 0,127 ms
-                 ; 0000 00C6 // Timer1 Overflow Interrupt: Off
-                 ; 0000 00C7 // Input Capture Interrupt: Off
-                 ; 0000 00C8 // Compare A Match Interrupt: Off
-                 ; 0000 00C9 // Compare B Match Interrupt: Off
-                 ; 0000 00CA TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (1<<WGM11) | (1<<WGM10);
-000199 e8e3      	LDI  R30,LOW(131)
-00019a 93e0 0080 	STS  128,R30
-                 ; 0000 00CB TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (1<<CS11) | (0<<CS10);
-00019c e0e2      	LDI  R30,LOW(2)
-00019d 93e0 0081 	STS  129,R30
-                 ; 0000 00CC TCNT1H=0x00;
-00019f e0e0      	LDI  R30,LOW(0)
-0001a0 93e0 0085 	STS  133,R30
-                 ; 0000 00CD TCNT1L=0x00;
-0001a2 93e0 0084 	STS  132,R30
-                 ; 0000 00CE ICR1H=0x00;
-0001a4 93e0 0087 	STS  135,R30
-                 ; 0000 00CF ICR1L=0x00;
-0001a6 93e0 0086 	STS  134,R30
-                 ; 0000 00D0 OCR1AH=0xFF;
-0001a8 efef      	LDI  R30,LOW(255)
-0001a9 93e0 0089 	STS  137,R30
-                 ; 0000 00D1 OCR1AL=0xFA;
-0001ab efea      	LDI  R30,LOW(250)
-0001ac 93e0 0088 	STS  136,R30
-                 ; 0000 00D2 OCR1BH=0x00;
-0001ae e0e0      	LDI  R30,LOW(0)
-0001af 93e0 008b 	STS  139,R30
-                 ; 0000 00D3 OCR1BL=0x00;
-0001b1 93e0 008a 	STS  138,R30
-                 ; 0000 00D4 // Timer/Counter 1 Interrupt(s) initialization
-                 ; 0000 00D5 TIMSK1=(0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (0<<TOIE1);
-0001b3 93e0 006f 	STS  111,R30
-                 ; 0000 00D6 #asm("sei")
-0001b5 9478      	SEI
-                 ; 0000 00D7 PIND.6=0;
-0001b6 984e      	CBI  0x9,6
-                 ; 0000 00D8 PORTB.5 = 1;
-0001b7 9a2d      	SBI  0x5,5
-                 ; 0000 00D9 PORTD.7 = 0;
-0001b8 985f      	CBI  0xB,7
-                 ; 0000 00DA PORTB.1 = 1;
-0001b9 9a29      	SBI  0x5,1
-                 ; 0000 00DB //сделай график управления в режиме реального времени
-                 ; 0000 00DC generSin();
-0001ba defa      	RCALL _generSin
-                 ; 0000 00DD generSinUgol();
-0001bb df22      	RCALL _generSinUgol
-                 ; 0000 00DE 
-                 ; 0000 00DF 
-                 ; 0000 00E0 while (1)
-                 _0x1C:
-                 ; 0000 00E1 {
-                 ; 0000 00E2 // result =A*datay[5];
-                 ; 0000 00E3 if(time12>16128)time12 =0;
-0001bc d1f9      	RCALL SUBOPT_0x9
-0001bd f00c      	BRLT _0x1F
-0001be d1ff      	RCALL SUBOPT_0xA
-                 ; 0000 00E4 result = A*(fix16_sin[(time12>>6)]);
-                 _0x1F:
-0001bf 91a0 0828 	LDS  R26,_time12
-0001c1 91b0 0829 	LDS  R27,_time12+1
-0001c3 e0e6      	LDI  R30,LOW(6)
-0001c4 d26f      	RCALL __ASRW12
-0001c5 d1c3      	RCALL SUBOPT_0x3
-0001c6 d1fd      	RCALL SUBOPT_0xB
-0001c7 93e0 081c 	STS  _result,R30
-0001c9 93f0 081d 	STS  _result+1,R31
-0001cb 9360 081e 	STS  _result+2,R22
-0001cd 9370 081f 	STS  _result+3,R23
-                 ; 0000 00E5 //result = 1966080;
-                 ; 0000 00E6 //result =  A*sin(0.016384*T*time12*2*PI);
-                 ; 0000 00E7 error = (A*((sin_ugol[ugol>>1])) -  result)/100;
-                +
-0001cf 2de7     +MOV R30 , R7
-0001d0 2df8     +MOV R31 , R8
-                 	__GETW1R 7,8
-0001d1 95f5      	ASR  R31
-0001d2 95e7      	ROR  R30
-0001d3 d1ca      	RCALL SUBOPT_0x5
-0001d4 d1ef      	RCALL SUBOPT_0xB
-0001d5 01df      	MOVW R26,R30
-0001d6 01cb      	MOVW R24,R22
-0001d7 91e0 081c 	LDS  R30,_result
-0001d9 91f0 081d 	LDS  R31,_result+1
-0001db 9160 081e 	LDS  R22,_result+2
-0001dd 9170 081f 	LDS  R23,_result+3
-                +
-0001df 1bae     +SUB R26 , R30
-0001e0 0bbf     +SBC R27 , R31
-0001e1 0b86     +SBC R24 , R22
-0001e2 0b97     +SBC R25 , R23
-                 	__SUBD21
-                +
-0001e3 e6e4     +LDI R30 , LOW ( 0x64 )
-0001e4 e0f0     +LDI R31 , HIGH ( 0x64 )
-0001e5 e060     +LDI R22 , BYTE3 ( 0x64 )
-0001e6 e070     +LDI R23 , BYTE4 ( 0x64 )
-                 	__GETD1N 0x64
-0001e7 d2bc      	RCALL __DIVD21
-0001e8 93e0 0824 	STS  _error,R30
-0001ea 93f0 0825 	STS  _error+1,R31
-0001ec 9360 0826 	STS  _error+2,R22
-0001ee 9370 0827 	STS  _error+3,R23
-                 ; 0000 00E8 //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
-                 ; 0000 00E9 //error = (int16_t)(error>>2);
-                 ; 0000 00EA // Вычисление интегральной составляющей
-                 ; 0000 00EB integral += error * dt;
-0001f0 d1e5      	RCALL SUBOPT_0xC
-0001f1 d346      	RCALL __CDF1
-                +
-0001f2 e9a4     +LDI R26 , LOW ( 0x3C858794 )
-0001f3 e8b7     +LDI R27 , HIGH ( 0x3C858794 )
-0001f4 e885     +LDI R24 , BYTE3 ( 0x3C858794 )
-0001f5 e39c     +LDI R25 , BYTE4 ( 0x3C858794 )
-                 	__GETD2N 0x3C858794
-0001f6 d3ca      	RCALL __MULF12
-0001f7 91a0 082a 	LDS  R26,_integral
-0001f9 91b0 082b 	LDS  R27,_integral+1
-0001fb 9180 082c 	LDS  R24,_integral+2
-0001fd 9190 082d 	LDS  R25,_integral+3
-0001ff d372      	RCALL __ADDF12
-000200 93e0 082a 	STS  _integral,R30
-000202 93f0 082b 	STS  _integral+1,R31
-000204 9360 082c 	STS  _integral+2,R22
-000206 9370 082d 	STS  _integral+3,R23
-                 ; 0000 00EC // Вычисление дифференциальной составляющей
-                 ; 0000 00ED derivative = error - previous_error;
-000208 91e0 082e 	LDS  R30,_previous_error
-00020a 91f0 082f 	LDS  R31,_previous_error+1
-00020c 9160 0830 	LDS  R22,_previous_error+2
-00020e 9170 0831 	LDS  R23,_previous_error+3
-000210 d19c      	RCALL SUBOPT_0x8
-000211 d2aa      	RCALL __CDF2
-000212 d2ac      	RCALL __SWAPD12
-000213 d357      	RCALL __SUBF12
-000214 93e0 0832 	STS  _derivative,R30
-000216 93f0 0833 	STS  _derivative+1,R31
-000218 9360 0834 	STS  _derivative+2,R22
-00021a 9370 0835 	STS  _derivative+3,R23
-                 ; 0000 00EE Y = (uint16_t)(my_abs(Kp * error + Ki * integral + Kd * derivative));
-00021c d1b9      	RCALL SUBOPT_0xC
-00021d 91a0 0836 	LDS  R26,_Kp
-00021f 91b0 0837 	LDS  R27,_Kp+1
-                +
-000221 2f8b     +MOV R24 , R27
-000222 0f88     +ADD R24 , R24
-000223 0b88     +SBC R24 , R24
-000224 2f98     +MOV R25 , R24
-                 	__CWD2
-000225 d23a      	RCALL __MULD12
-000226 937f      	PUSH R23
-000227 936f      	PUSH R22
-000228 93ff      	PUSH R31
-000229 93ef      	PUSH R30
-00022a 91e0 082a 	LDS  R30,_integral
-00022c 91f0 082b 	LDS  R31,_integral+1
-00022e 9160 082c 	LDS  R22,_integral+2
-000230 9170 082d 	LDS  R23,_integral+3
-000232 91a0 0838 	LDS  R26,_Ki
-000234 91b0 0839 	LDS  R27,_Ki+1
-000236 d1a8      	RCALL SUBOPT_0xD
-000237 91af      	POP  R26
-000238 91bf      	POP  R27
-000239 918f      	POP  R24
-00023a 919f      	POP  R25
-00023b d280      	RCALL __CDF2
-00023c d335      	RCALL __ADDF12
-00023d 937f      	PUSH R23
-00023e 936f      	PUSH R22
-00023f 93ff      	PUSH R31
-000240 93ef      	PUSH R30
-000241 91e0 0832 	LDS  R30,_derivative
-000243 91f0 0833 	LDS  R31,_derivative+1
-000245 9160 0834 	LDS  R22,_derivative+2
-000247 9170 0835 	LDS  R23,_derivative+3
-000249 91a0 083a 	LDS  R26,_Kd
-00024b 91b0 083b 	LDS  R27,_Kd+1
-00024d d191      	RCALL SUBOPT_0xD
-00024e 91af      	POP  R26
-00024f 91bf      	POP  R27
-000250 918f      	POP  R24
-000251 919f      	POP  R25
-000252 d31f      	RCALL __ADDF12
-000253 01df      	MOVW R26,R30
-000254 01cb      	MOVW R24,R22
-000255 deb7      	RCALL _my_abs
-000256 d2a8      	RCALL __CFD1U
-000257 2766      	CLR  R22
-000258 2777      	CLR  R23
-000259 e3ad      	LDI  R26,LOW(_Y)
-00025a e0b8      	LDI  R27,HIGH(_Y)
-00025b 2766      	CLR  R22
-00025c 2777      	CLR  R23
-00025d d2da      	RCALL __CDF1
-00025e d187      	RCALL SUBOPT_0xE
-                 ; 0000 00EF pwm_value = (Y); // Преобразование float в uint16_t
-00025f 91e0 083d 	LDS  R30,_Y
-000261 91f0 083e 	LDS  R31,_Y+1
-000263 9160 083f 	LDS  R22,_Y+2
-000265 9170 0840 	LDS  R23,_Y+3
-000267 e4a1      	LDI  R26,LOW(_pwm_value)
-000268 e0b8      	LDI  R27,HIGH(_pwm_value)
-000269 d295      	RCALL __CFD1U
-00026a 93ed      	ST   X+,R30
-00026b 93fc      	ST   X,R31
-                 ; 0000 00F0 //error = 1;
-                 ; 0000 00F1 //OCR1AH = 0xFF; // Высший байт
-                 ; 0000 00F2 
-                 ; 0000 00F3 //OCR1AL = 254;
-                 ; 0000 00F4 if (Y > 65535) {
-00026c d17e      	RCALL SUBOPT_0xF
-00026d f009      	BREQ PC+2
-00026e f408      	BRCC PC+2
-00026f c00c      	RJMP _0x20
-                 ; 0000 00F5 Y = 65535;
-                +
-000270 e0e0     +LDI R30 , LOW ( 0x477FFF00 )
-000271 efff     +LDI R31 , HIGH ( 0x477FFF00 )
-000272 e76f     +LDI R22 , BYTE3 ( 0x477FFF00 )
-000273 e477     +LDI R23 , BYTE4 ( 0x477FFF00 )
-                 	__GETD1N 0x477FFF00
-000274 93e0 083d 	STS  _Y,R30
-000276 93f0 083e 	STS  _Y+1,R31
-000278 9360 083f 	STS  _Y+2,R22
-00027a 9370 0840 	STS  _Y+3,R23
+                 ; 0000 00AB // Declare your local variables here
+                 ; 0000 00AC 
+                 ; 0000 00AD // Crystal Oscillator division factor: 1
+                 ; 0000 00AE #pragma optsize-
+                 ; 0000 00AF CLKPR=(1<<CLKPCE);
+0001de e8e0      	LDI  R30,LOW(128)
+0001df 93e0 0061 	STS  97,R30
+                 ; 0000 00B0 CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
+0001e1 e0e0      	LDI  R30,LOW(0)
+0001e2 93e0 0061 	STS  97,R30
+                 ; 0000 00B1 #ifdef _OPTIMIZE_SIZE_
+                 ; 0000 00B2 #pragma optsize+
+                 ; 0000 00B3 #endif
+                 ; 0000 00B4 
+                 ; 0000 00B5 // Input/Output Ports initialization
+                 ; 0000 00B6 // Port B initialization
+                 ; 0000 00B7 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+                 ; 0000 00B8 DDRB=(0<<DDB7) | (0<<DDB6) | (1<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (1<<DDB1) | (1<<DDB0);
+0001e4 e2e3      	LDI  R30,LOW(35)
+0001e5 b9e4      	OUT  0x4,R30
+                 ; 0000 00B9 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+                 ; 0000 00BA PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
+0001e6 e0e0      	LDI  R30,LOW(0)
+0001e7 b9e5      	OUT  0x5,R30
+                 ; 0000 00BB 
+                 ; 0000 00BC // Port C initialization
+                 ; 0000 00BD // Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+                 ; 0000 00BE DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<<DDC0);
+0001e8 b9e7      	OUT  0x7,R30
+                 ; 0000 00BF // State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+                 ; 0000 00C0 PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
+0001e9 b9e8      	OUT  0x8,R30
+                 ; 0000 00C1 
+                 ; 0000 00C2 // Port D initialization
+                 ; 0000 00C3 // Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In
+                 ; 0000 00C4 DDRD=(1<<DDD7) | (1<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
+0001ea ece2      	LDI  R30,LOW(194)
+0001eb b9ea      	OUT  0xA,R30
+                 ; 0000 00C5 // State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T
+                 ; 0000 00C6 PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
+0001ec e0e0      	LDI  R30,LOW(0)
+0001ed b9eb      	OUT  0xB,R30
+                 ; 0000 00C7 
+                 ; 0000 00C8 // Timer/Counter 0 initialization
+                 ; 0000 00C9 // Clock source: System Clock
+                 ; 0000 00CA // Clock value: 15,625 kHz
+                 ; 0000 00CB // Mode: Normal top=0xFF
+                 ; 0000 00CC // OC0A output: Disconnected
+                 ; 0000 00CD // OC0B output: Disconnected
+                 ; 0000 00CE // Timer Period: 16,384 ms
+                 ; 0000 00CF TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
+0001ee bde4      	OUT  0x24,R30
+                 ; 0000 00D0 TCCR0B=(0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+0001ef e0e5      	LDI  R30,LOW(5)
+0001f0 bde5      	OUT  0x25,R30
+                 ; 0000 00D1 TCNT0=0x00;
+0001f1 e0e0      	LDI  R30,LOW(0)
+0001f2 bde6      	OUT  0x26,R30
+                 ; 0000 00D2 OCR0A=0x00;
+0001f3 bde7      	OUT  0x27,R30
+                 ; 0000 00D3 OCR0B=0x00;
+0001f4 bde8      	OUT  0x28,R30
+                 ; 0000 00D4 
+                 ; 0000 00D5 
+                 ; 0000 00D6 // Timer/Counter 0 Interrupt(s) initialization
+                 ; 0000 00D7 TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
+0001f5 e0e1      	LDI  R30,LOW(1)
+0001f6 93e0 006e 	STS  110,R30
+                 ; 0000 00D8 
+                 ; 0000 00D9 
+                 ; 0000 00DA // External Interrupt(s) initialization
+                 ; 0000 00DB // INT0: On
+                 ; 0000 00DC // INT0 Mode: Rising Edge
+                 ; 0000 00DD // INT1: Off
+                 ; 0000 00DE // Interrupt on any change on pins PCINT0-7: Off
+                 ; 0000 00DF // Interrupt on any change on pins PCINT8-14: Off
+                 ; 0000 00E0 // Interrupt on any change on pins PCINT16-23: Off
+                 ; 0000 00E1 EICRA=(0<<ISC11) | (0<<ISC10) | (1<<ISC01) | (1<<ISC00);
+0001f8 e0e3      	LDI  R30,LOW(3)
+0001f9 93e0 0069 	STS  105,R30
+                 ; 0000 00E2 EIMSK=(0<<INT1) | (1<<INT0);
+0001fb e0e1      	LDI  R30,LOW(1)
+0001fc bbed      	OUT  0x1D,R30
+                 ; 0000 00E3 EIFR=(0<<INTF1) | (1<<INTF0);
+0001fd bbec      	OUT  0x1C,R30
+                 ; 0000 00E4 PCICR=(0<<PCIE2) | (0<<PCIE1) | (0<<PCIE0);
+0001fe e0e0      	LDI  R30,LOW(0)
+0001ff 93e0 0068 	STS  104,R30
+                 ; 0000 00E5 
+                 ; 0000 00E6 // USART initialization
+                 ; 0000 00E7 // Communication Parameters: 8 Data, 1 Stop, No Parity
+                 ; 0000 00E8 // USART Receiver: Off
+                 ; 0000 00E9 // USART Transmitter: On
+                 ; 0000 00EA // USART Mode: Asynchronous
+                 ; 0000 00EB 
+                 ; 0000 00EC // Настройка UART на скорость 115200
+                 ; 0000 00ED UCSR0A = (1 << U2X0);  // Включение режима двойной скорости (если требуется)
+000201 e0e2      	LDI  R30,LOW(2)
+000202 93e0 00c0 	STS  192,R30
+                 ; 0000 00EE UCSR0B = (0 << RXCIE0) | (0 << TXCIE0) | (0 << UDRIE0) | (0 << RXEN0) | (1 << TXEN0) | (0 << UCSZ02) | (0 << RXB80) | (0 << TXB80);
+000204 e0e8      	LDI  R30,LOW(8)
+000205 93e0 00c1 	STS  193,R30
+                 ; 0000 00EF UCSR0C = (0 << UMSEL01) | (0 << UMSEL00) | (0 << UPM01) | (0 << UPM00) | (0 << USBS0) | (1 << UCSZ01) | (1 << UCSZ00) | (0 << UCPOL0);
+000207 e0e6      	LDI  R30,LOW(6)
+000208 93e0 00c2 	STS  194,R30
+                 ; 0000 00F0 
+                 ; 0000 00F1 // Установка baud rate
+                 ; 0000 00F2 UBRR0H = 0x00;  // Старший байт UBRR0
+00020a e0e0      	LDI  R30,LOW(0)
+00020b 93e0 00c5 	STS  197,R30
+                 ; 0000 00F3 UBRR0L = 0x10;  // Младший байт UBRR0 (для U2X0 = 1)
+00020d e1e0      	LDI  R30,LOW(16)
+00020e 93e0 00c4 	STS  196,R30
+                 ; 0000 00F4 // Включение приемника и передатчика
+                 ; 0000 00F5 UCSR0B = (1 << RXEN0) | (1 << TXEN0);
+000210 e1e8      	LDI  R30,LOW(24)
+000211 93e0 00c1 	STS  193,R30
                  ; 0000 00F6 
-                 ; 0000 00F7 }
-                 ; 0000 00F8 if ((error<-1) && (flagPWM == 0)){
-                 _0x20:
-00027c d130      	RCALL SUBOPT_0x8
-                +
-00027d 3faf     +CPI R26 , LOW ( 0xFFFFFFFF )
-00027e efef     +LDI R30 , HIGH ( 0xFFFFFFFF )
-00027f 07be     +CPC R27 , R30
-000280 efef     +LDI R30 , BYTE3 ( 0xFFFFFFFF )
-000281 078e     +CPC R24 , R30
-000282 efef     +LDI R30 , BYTE4 ( 0xFFFFFFFF )
-000283 079e     +CPC R25 , R30
-                 	__CPD2N 0xFFFFFFFF
-000284 f424      	BRGE _0x22
-000285 91a0 083c 	LDS  R26,_flagPWM
-000287 30a0      	CPI  R26,LOW(0x0)
-000288 f009      	BREQ _0x23
-                 _0x22:
-000289 c00b      	RJMP _0x21
-                 _0x23:
-                 ; 0000 00F9 flagPWM = 1;
-00028a e0e1      	LDI  R30,LOW(1)
-00028b 93e0 083c 	STS  _flagPWM,R30
-                 ; 0000 00FA PORTD.7 = 0;
-00028d 985f      	CBI  0xB,7
-                 ; 0000 00FB PIND.6=1;
-00028e 9a4e      	SBI  0x9,6
-                 ; 0000 00FC if(Y <= 65535){
-00028f d15b      	RCALL SUBOPT_0xF
-000290 f011      	BREQ PC+3
-000291 f008      	BRCS PC+2
-000292 c001      	RJMP _0x28
-                 ; 0000 00FD //#asm("cli")
-                 ; 0000 00FE OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
-000293 d165      	RCALL SUBOPT_0x10
-                 ; 0000 00FF OCR1AL = 65535 & 0xFF; // Нижний байт
-                 ; 0000 0100 //#asm("sei")
-                 ; 0000 0101 }
-                 ; 0000 0102 }
+                 ; 0000 00F7 // Включение прерывания по завершению приема данных (RX Complete)
+                 ; 0000 00F8 UCSR0B |= (1 << RXCIE0);
+000213 91e0 00c1 	LDS  R30,193
+000215 68e0      	ORI  R30,0x80
+000216 93e0 00c1 	STS  193,R30
+                 ; 0000 00F9 
+                 ; 0000 00FA 
+                 ; 0000 00FB // Timer/Counter 1 initialization
+                 ; 0000 00FC // Clock source: System Clock
+                 ; 0000 00FD // Clock value: 2000,000 kHz
+                 ; 0000 00FE // Mode: Ph. correct PWM top=0x00FF
+                 ; 0000 00FF // OC1A output: Non-Inverted PWM
+                 ; 0000 0100 // OC1B output: Disconnected
+                 ; 0000 0101 // Noise Canceler: Off
+                 ; 0000 0102 // Input Capture on Falling Edge
+                 ; 0000 0103 // Timer Period: 0,255 ms
+                 ; 0000 0104 // Output Pulse(s):
+                 ; 0000 0105 // OC1A Period: 0,255 ms Width: 0,127 ms
+                 ; 0000 0106 // Timer1 Overflow Interrupt: Off
+                 ; 0000 0107 // Input Capture Interrupt: Off
+                 ; 0000 0108 // Compare A Match Interrupt: Off
+                 ; 0000 0109 // Compare B Match Interrupt: Off
+                 ; 0000 010A TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (1<<WGM11) | (1<<WGM10);
+000218 e8e3      	LDI  R30,LOW(131)
+000219 93e0 0080 	STS  128,R30
+                 ; 0000 010B TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (1<<CS11) | (0<<CS10);
+00021b e0e2      	LDI  R30,LOW(2)
+00021c 93e0 0081 	STS  129,R30
+                 ; 0000 010C TCNT1H=0x00;
+00021e e0e0      	LDI  R30,LOW(0)
+00021f 93e0 0085 	STS  133,R30
+                 ; 0000 010D TCNT1L=0x00;
+000221 93e0 0084 	STS  132,R30
+                 ; 0000 010E ICR1H=0x00;
+000223 93e0 0087 	STS  135,R30
+                 ; 0000 010F ICR1L=0x00;
+000225 93e0 0086 	STS  134,R30
+                 ; 0000 0110 OCR1AH=0xFF;
+000227 efef      	LDI  R30,LOW(255)
+000228 93e0 0089 	STS  137,R30
+                 ; 0000 0111 OCR1AL=0xFA;
+00022a efea      	LDI  R30,LOW(250)
+00022b 93e0 0088 	STS  136,R30
+                 ; 0000 0112 OCR1BH=0x00;
+00022d e0e0      	LDI  R30,LOW(0)
+00022e 93e0 008b 	STS  139,R30
+                 ; 0000 0113 OCR1BL=0x00;
+000230 93e0 008a 	STS  138,R30
+                 ; 0000 0114 // Timer/Counter 1 Interrupt(s) initialization
+                 ; 0000 0115 TIMSK1=(0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (0<<TOIE1);
+000232 93e0 006f 	STS  111,R30
+                 ; 0000 0116 #asm("sei")
+000234 9478      	SEI
+                 ; 0000 0117 PIND.6=0;
+000235 984e      	CBI  0x9,6
+                 ; 0000 0118 PORTB.5 = 1;
+000236 9a2d      	SBI  0x5,5
+                 ; 0000 0119 PORTD.7 = 0;
+000237 985f      	CBI  0xB,7
+                 ; 0000 011A PORTB.1 = 1;
+000238 9a29      	SBI  0x5,1
+                 ; 0000 011B //сделай график управления в режиме реального времени
+                 ; 0000 011C generSin();
+000239 de51      	RCALL _generSin
+                 ; 0000 011D generSinUgol();
+00023a de79      	RCALL _generSinUgol
+                 ; 0000 011E 
+                 ; 0000 011F 
+                 ; 0000 0120 while (1)
                  _0x28:
-                 ; 0000 0103 else if((error>1) && (flagPWM == 1)){
-000294 c022      	RJMP _0x29
-                 _0x21:
-000295 d117      	RCALL SUBOPT_0x8
-                +
-000296 30a2     +CPI R26 , LOW ( 0x2 )
-000297 e0e0     +LDI R30 , HIGH ( 0x2 )
-000298 07be     +CPC R27 , R30
-000299 e0e0     +LDI R30 , BYTE3 ( 0x2 )
-00029a 078e     +CPC R24 , R30
-00029b e0e0     +LDI R30 , BYTE4 ( 0x2 )
-00029c 079e     +CPC R25 , R30
-                 	__CPD2N 0x2
-00029d f024      	BRLT _0x2B
-00029e 91a0 083c 	LDS  R26,_flagPWM
-0002a0 30a1      	CPI  R26,LOW(0x1)
-0002a1 f009      	BREQ _0x2C
+                 ; 0000 0121 {
+                 ; 0000 0122 // result =A*datay[5];
+                 ; 0000 0123 if(time12>16128)time12 =0;
+00023b d1dd      	RCALL SUBOPT_0xA
+00023c f00c      	BRLT _0x2B
+00023d d1e3      	RCALL SUBOPT_0xB
+                 ; 0000 0124 result = A*(fix16_sin[(time12>>6)]);
                  _0x2B:
-0002a2 c014      	RJMP _0x2A
+00023e 91a0 0828 	LDS  R26,_time12
+000240 91b0 0829 	LDS  R27,_time12+1
+000242 e0e6      	LDI  R30,LOW(6)
+000243 d278      	RCALL __ASRW12
+000244 d19e      	RCALL SUBOPT_0x3
+000245 d1ff      	RCALL SUBOPT_0x12
+000246 93e0 081c 	STS  _result,R30
+000248 93f0 081d 	STS  _result+1,R31
+00024a 9360 081e 	STS  _result+2,R22
+00024c 9370 081f 	STS  _result+3,R23
+                 ; 0000 0125 //result = 1966080;
+                 ; 0000 0126 //result =  A*sin(0.016384*T*time12*2*PI);
+                 ; 0000 0127 error = (A*((sin_ugol[ugol>>1])) -  result)/100;
+                +
+00024e 2de7     +MOV R30 , R7
+00024f 2df8     +MOV R31 , R8
+                 	__GETW1R 7,8
+000250 95f5      	ASR  R31
+000251 95e7      	ROR  R30
+000252 d1a5      	RCALL SUBOPT_0x5
+000253 d1f1      	RCALL SUBOPT_0x12
+000254 01df      	MOVW R26,R30
+000255 01cb      	MOVW R24,R22
+000256 91e0 081c 	LDS  R30,_result
+000258 91f0 081d 	LDS  R31,_result+1
+00025a 9160 081e 	LDS  R22,_result+2
+00025c 9170 081f 	LDS  R23,_result+3
+                +
+00025e 1bae     +SUB R26 , R30
+00025f 0bbf     +SBC R27 , R31
+000260 0b86     +SBC R24 , R22
+000261 0b97     +SBC R25 , R23
+                 	__SUBD21
+000262 d1f4      	RCALL SUBOPT_0x13
+000263 d2df      	RCALL __DIVD21
+000264 93e0 0824 	STS  _error,R30
+000266 93f0 0825 	STS  _error+1,R31
+000268 9360 0826 	STS  _error+2,R22
+00026a 9370 0827 	STS  _error+3,R23
+                 ; 0000 0128 //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
+                 ; 0000 0129 //error = (int16_t)(error>>2);
+                 ; 0000 012A // Вычисление интегральной составляющей
+                 ; 0000 012B integral += error * dt;
+00026c d1ef      	RCALL SUBOPT_0x14
+00026d d369      	RCALL __CDF1
+                +
+00026e e9a4     +LDI R26 , LOW ( 0x3C858794 )
+00026f e8b7     +LDI R27 , HIGH ( 0x3C858794 )
+000270 e885     +LDI R24 , BYTE3 ( 0x3C858794 )
+000271 e39c     +LDI R25 , BYTE4 ( 0x3C858794 )
+                 	__GETD2N 0x3C858794
+000272 d3ed      	RCALL __MULF12
+000273 91a0 082c 	LDS  R26,_integral
+000275 91b0 082d 	LDS  R27,_integral+1
+000277 9180 082e 	LDS  R24,_integral+2
+000279 9190 082f 	LDS  R25,_integral+3
+00027b d2df      	RCALL __CDF2
+00027c d394      	RCALL __ADDF12
+00027d 93e0 082c 	STS  _integral,R30
+00027f 93f0 082d 	STS  _integral+1,R31
+000281 9360 082e 	STS  _integral+2,R22
+000283 9370 082f 	STS  _integral+3,R23
+                 ; 0000 012C // Вычисление дифференциальной составляющей
+                 ; 0000 012D derivative = error - previous_error;
+000285 91a0 0830 	LDS  R26,_previous_error
+000287 91b0 0831 	LDS  R27,_previous_error+1
+000289 9180 0832 	LDS  R24,_previous_error+2
+00028b 9190 0833 	LDS  R25,_previous_error+3
+00028d d1ce      	RCALL SUBOPT_0x14
+                +
+00028e 1bea     +SUB R30 , R26
+00028f 0bfb     +SBC R31 , R27
+000290 0b68     +SBC R22 , R24
+000291 0b79     +SBC R23 , R25
+                 	__SUBD12
+000292 93e0 0834 	STS  _derivative,R30
+000294 93f0 0835 	STS  _derivative+1,R31
+000296 9360 0836 	STS  _derivative+2,R22
+000298 9370 0837 	STS  _derivative+3,R23
+                 ; 0000 012E pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/100);
+00029a d1c1      	RCALL SUBOPT_0x14
+00029b d190      	RCALL SUBOPT_0xD
+00029c d1c8      	RCALL SUBOPT_0x15
+00029d 937f      	PUSH R23
+00029e 936f      	PUSH R22
+00029f 93ff      	PUSH R31
+0002a0 93ef      	PUSH R30
+0002a1 91e0 082c 	LDS  R30,_integral
+0002a3 91f0 082d 	LDS  R31,_integral+1
+0002a5 9160 082e 	LDS  R22,_integral+2
+0002a7 9170 082f 	LDS  R23,_integral+3
+0002a9 d18c      	RCALL SUBOPT_0xF
+0002aa d1ba      	RCALL SUBOPT_0x15
+0002ab 91af      	POP  R26
+0002ac 91bf      	POP  R27
+0002ad 918f      	POP  R24
+0002ae 919f      	POP  R25
+                +
+0002af 0fea     +ADD R30 , R26
+0002b0 1ffb     +ADC R31 , R27
+0002b1 1f68     +ADC R22 , R24
+0002b2 1f79     +ADC R23 , R25
+                 	__ADDD12
+0002b3 937f      	PUSH R23
+0002b4 936f      	PUSH R22
+0002b5 93ff      	PUSH R31
+0002b6 93ef      	PUSH R30
+0002b7 91e0 0834 	LDS  R30,_derivative
+0002b9 91f0 0835 	LDS  R31,_derivative+1
+0002bb 9160 0836 	LDS  R22,_derivative+2
+0002bd 9170 0837 	LDS  R23,_derivative+3
+0002bf d180      	RCALL SUBOPT_0x11
+0002c0 d1a4      	RCALL SUBOPT_0x15
+0002c1 91af      	POP  R26
+0002c2 91bf      	POP  R27
+0002c3 918f      	POP  R24
+0002c4 919f      	POP  R25
+                +
+0002c5 0fae     +ADD R26 , R30
+0002c6 1fbf     +ADC R27 , R31
+0002c7 1f86     +ADC R24 , R22
+0002c8 1f97     +ADC R25 , R23
+                 	__ADDD21
+0002c9 de19      	RCALL _my_abs
+0002ca 01df      	MOVW R26,R30
+0002cb 01cb      	MOVW R24,R22
+0002cc d18a      	RCALL SUBOPT_0x13
+0002cd d251      	RCALL __DIVD21U
+0002ce d19c      	RCALL SUBOPT_0x16
+                 ; 0000 012F //pwm_value = (Y); // Преобразование float в uint16_t
+                 ; 0000 0130 //error = 1;
+                 ; 0000 0131 //OCR1AH = 0xFF; // Высший байт
+                 ; 0000 0132 
+                 ; 0000 0133 //OCR1AL = 254;
+                 ; 0000 0134 if (pwm_value > 65535) {
+0002cf d1a4      	RCALL SUBOPT_0x17
+0002d0 f028      	BRLO _0x2C
+                 ; 0000 0135 pwm_value = 65535;
+                +
+0002d1 efef     +LDI R30 , LOW ( 0xFFFF )
+0002d2 efff     +LDI R31 , HIGH ( 0xFFFF )
+0002d3 e060     +LDI R22 , BYTE3 ( 0xFFFF )
+0002d4 e070     +LDI R23 , BYTE4 ( 0xFFFF )
+                 	__GETD1N 0xFFFF
+0002d5 d195      	RCALL SUBOPT_0x16
+                 ; 0000 0136 
+                 ; 0000 0137 }
+                 ; 0000 0138 if ((error<-1) && (flagPWM == 0)){
                  _0x2C:
-                 ; 0000 0104 flagPWM = 0;
-0002a3 e0e0      	LDI  R30,LOW(0)
-0002a4 93e0 083c 	STS  _flagPWM,R30
-                 ; 0000 0105 PORTD.7 = 1;
-0002a6 9a5f      	SBI  0xB,7
-                 ; 0000 0106 PIND.6 = 0;
-0002a7 984e      	CBI  0x9,6
-                 ; 0000 0107 if(Y <= 65535) {
-0002a8 d142      	RCALL SUBOPT_0xF
-0002a9 f011      	BREQ PC+3
-0002aa f008      	BRCS PC+2
-0002ab c002      	RJMP _0x31
-                 ; 0000 0108 //#asm("cli")
-                 ; 0000 0109 OCR1AH = (65535 >> 8) & 0xFF; // Высший байт
-0002ac d14c      	RCALL SUBOPT_0x10
-                 ; 0000 010A OCR1AL = 65535 & 0xFF; // Нижний байт
-                 ; 0000 010B //#asm("sei")
-                 ; 0000 010C }
-                 ; 0000 010D else {
-0002ad c009      	RJMP _0x32
-                 _0x31:
-                 ; 0000 010E //OCR1BH = 0;
-                 ; 0000 010F //OCR1BL = 0;
-                 ; 0000 0110 previous_error = 0;
-0002ae e0e0      	LDI  R30,LOW(0)
-0002af 93e0 082e 	STS  _previous_error,R30
-0002b1 93e0 082f 	STS  _previous_error+1,R30
-0002b3 93e0 0830 	STS  _previous_error+2,R30
-0002b5 93e0 0831 	STS  _previous_error+3,R30
-                 ; 0000 0111 }
-                 _0x32:
-                 ; 0000 0112 }
-                 ; 0000 0113 previous_error =  error;
-                 _0x2A:
-                 _0x29:
-0002b7 d11e      	RCALL SUBOPT_0xC
-0002b8 e2ae      	LDI  R26,LOW(_previous_error)
-0002b9 e0b8      	LDI  R27,HIGH(_previous_error)
-0002ba d27d      	RCALL __CDF1
-0002bb d12a      	RCALL SUBOPT_0xE
-                 ; 0000 0114 // OCR1AH = 0;
-                 ; 0000 0115 
-                 ; 0000 0116 }
-0002bc ceff      	RJMP _0x1C
-                 ; 0000 0117 }
-                 _0x33:
-0002bd cfff      	RJMP _0x33
+0002d6 d139      	RCALL SUBOPT_0x9
+                +
+0002d7 3faf     +CPI R26 , LOW ( 0xFFFFFFFF )
+0002d8 efef     +LDI R30 , HIGH ( 0xFFFFFFFF )
+0002d9 07be     +CPC R27 , R30
+0002da efef     +LDI R30 , BYTE3 ( 0xFFFFFFFF )
+0002db 078e     +CPC R24 , R30
+0002dc efef     +LDI R30 , BYTE4 ( 0xFFFFFFFF )
+0002dd 079e     +CPC R25 , R30
+                 	__CPD2N 0xFFFFFFFF
+0002de f424      	BRGE _0x2E
+0002df 91a0 083e 	LDS  R26,_flagPWM
+0002e1 30a0      	CPI  R26,LOW(0x0)
+0002e2 f009      	BREQ _0x2F
+                 _0x2E:
+0002e3 c009      	RJMP _0x2D
+                 _0x2F:
+                 ; 0000 0139 flagPWM = 1;
+0002e4 e0e1      	LDI  R30,LOW(1)
+0002e5 93e0 083e 	STS  _flagPWM,R30
+                 ; 0000 013A PORTD.7 = 0;
+0002e7 985f      	CBI  0xB,7
+                 ; 0000 013B PIND.6=1;
+0002e8 9a4e      	SBI  0x9,6
+                 ; 0000 013C if(pwm_value <= 65535){
+0002e9 d18a      	RCALL SUBOPT_0x17
+0002ea f408      	BRSH _0x34
+                 ; 0000 013D //#asm("cli")
+                 ; 0000 013E OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+0002eb d191      	RCALL SUBOPT_0x18
+                 ; 0000 013F OCR1AL = pwm_value & 0xFF; // Нижний байт
+                 ; 0000 0140 //#asm("sei")
+                 ; 0000 0141 }
+                 ; 0000 0142 }
+                 _0x34:
+                 ; 0000 0143 else if((error>1) && (flagPWM == 1)){
+0002ec c020      	RJMP _0x35
+                 _0x2D:
+0002ed d122      	RCALL SUBOPT_0x9
+                +
+0002ee 30a2     +CPI R26 , LOW ( 0x2 )
+0002ef e0e0     +LDI R30 , HIGH ( 0x2 )
+0002f0 07be     +CPC R27 , R30
+0002f1 e0e0     +LDI R30 , BYTE3 ( 0x2 )
+0002f2 078e     +CPC R24 , R30
+0002f3 e0e0     +LDI R30 , BYTE4 ( 0x2 )
+0002f4 079e     +CPC R25 , R30
+                 	__CPD2N 0x2
+0002f5 f024      	BRLT _0x37
+0002f6 91a0 083e 	LDS  R26,_flagPWM
+0002f8 30a1      	CPI  R26,LOW(0x1)
+0002f9 f009      	BREQ _0x38
+                 _0x37:
+0002fa c012      	RJMP _0x36
+                 _0x38:
+                 ; 0000 0144 flagPWM = 0;
+0002fb e0e0      	LDI  R30,LOW(0)
+0002fc 93e0 083e 	STS  _flagPWM,R30
+                 ; 0000 0145 PORTD.7 = 1;
+0002fe 9a5f      	SBI  0xB,7
+                 ; 0000 0146 PIND.6 = 0;
+0002ff 984e      	CBI  0x9,6
+                 ; 0000 0147 if(pwm_value <= 65535) {
+000300 d173      	RCALL SUBOPT_0x17
+000301 f410      	BRSH _0x3D
+                 ; 0000 0148 //#asm("cli")
+                 ; 0000 0149 OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+000302 d17a      	RCALL SUBOPT_0x18
+                 ; 0000 014A OCR1AL = pwm_value & 0xFF; // Нижний байт
+                 ; 0000 014B //#asm("sei")
+                 ; 0000 014C }
+                 ; 0000 014D else {
+000303 c009      	RJMP _0x3E
+                 _0x3D:
+                 ; 0000 014E //OCR1BH = 0;
+                 ; 0000 014F //OCR1BL = 0;
+                 ; 0000 0150 previous_error = 0;
+000304 e0e0      	LDI  R30,LOW(0)
+000305 93e0 0830 	STS  _previous_error,R30
+000307 93e0 0831 	STS  _previous_error+1,R30
+000309 93e0 0832 	STS  _previous_error+2,R30
+00030b 93e0 0833 	STS  _previous_error+3,R30
+                 ; 0000 0151 }
+                 _0x3E:
+                 ; 0000 0152 }
+                 ; 0000 0153 previous_error =  error;
+                 _0x36:
+                 _0x35:
+00030d d14e      	RCALL SUBOPT_0x14
+00030e 93e0 0830 	STS  _previous_error,R30
+000310 93f0 0831 	STS  _previous_error+1,R31
+000312 9360 0832 	STS  _previous_error+2,R22
+000314 9370 0833 	STS  _previous_error+3,R23
+                 ; 0000 0154 // OCR1AH = 0;
+                 ; 0000 0155 
+                 ; 0000 0156 }
+000316 cf24      	RJMP _0x28
+                 ; 0000 0157 }
+                 _0x3F:
+000317 cfff      	RJMP _0x3F
                  ; .FEND
                  
                  	.CSEG
@@ -2426,233 +2584,233 @@ C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_penduku
                  	.CSEG
                  _putchar:
                  ; .FSTART _putchar
-0002be 931a      	ST   -Y,R17
-0002bf 2f1a      	MOV  R17,R26
+000318 931a      	ST   -Y,R17
+000319 2f1a      	MOV  R17,R26
                  _0x2020006:
-0002c0 91e0 00c0 	LDS  R30,192
-0002c2 72e0      	ANDI R30,LOW(0x20)
-0002c3 f3e1      	BREQ _0x2020006
-0002c4 9310 00c6 	STS  198,R17
-0002c6 9119      	LD   R17,Y+
-0002c7 9508      	RET
+00031a 91e0 00c0 	LDS  R30,192
+00031c 72e0      	ANDI R30,LOW(0x20)
+00031d f3e1      	BREQ _0x2020006
+00031e 9310 00c6 	STS  198,R17
+000320 9119      	LD   R17,Y+
+000321 9508      	RET
                  ; .FEND
                  
                  	.CSEG
                  _ftrunc:
                  ; .FSTART _ftrunc
-0002c8 d1ec      	RCALL __PUTPARD2
-0002c9 817b         ldd  r23,y+3
-0002ca 816a         ldd  r22,y+2
-0002cb 81f9         ldd  r31,y+1
-0002cc 81e8         ld   r30,y
-0002cd fb77         bst  r23,7
-0002ce 0f77         lsl  r23
-0002cf fd67         sbrc r22,7
-0002d0 6071         sbr  r23,1
-0002d1 2f97         mov  r25,r23
-0002d2 579e         subi r25,0x7e
-0002d3 f081         breq __ftrunc0
-0002d4 f078         brcs __ftrunc0
-0002d5 3198         cpi  r25,24
-0002d6 f490         brsh __ftrunc1
-0002d7 27aa         clr  r26
-0002d8 27bb         clr  r27
-0002d9 2788         clr  r24
+000322 d231      	RCALL __PUTPARD2
+000323 817b         ldd  r23,y+3
+000324 816a         ldd  r22,y+2
+000325 81f9         ldd  r31,y+1
+000326 81e8         ld   r30,y
+000327 fb77         bst  r23,7
+000328 0f77         lsl  r23
+000329 fd67         sbrc r22,7
+00032a 6071         sbr  r23,1
+00032b 2f97         mov  r25,r23
+00032c 579e         subi r25,0x7e
+00032d f081         breq __ftrunc0
+00032e f078         brcs __ftrunc0
+00032f 3198         cpi  r25,24
+000330 f490         brsh __ftrunc1
+000331 27aa         clr  r26
+000332 27bb         clr  r27
+000333 2788         clr  r24
                  __ftrunc2:
-0002da 9408         sec
-0002db 9587         ror  r24
-0002dc 95b7         ror  r27
-0002dd 95a7         ror  r26
-0002de 959a         dec  r25
-0002df f7d1         brne __ftrunc2
-0002e0 23ea         and  r30,r26
-0002e1 23fb         and  r31,r27
-0002e2 2368         and  r22,r24
-0002e3 c005         rjmp __ftrunc1
+000334 9408         sec
+000335 9587         ror  r24
+000336 95b7         ror  r27
+000337 95a7         ror  r26
+000338 959a         dec  r25
+000339 f7d1         brne __ftrunc2
+00033a 23ea         and  r30,r26
+00033b 23fb         and  r31,r27
+00033c 2368         and  r22,r24
+00033d c005         rjmp __ftrunc1
                  __ftrunc0:
-0002e4 94e8         clt
-0002e5 2777         clr  r23
-0002e6 27ee         clr  r30
-0002e7 27ff         clr  r31
-0002e8 2766         clr  r22
+00033e 94e8         clt
+00033f 2777         clr  r23
+000340 27ee         clr  r30
+000341 27ff         clr  r31
+000342 2766         clr  r22
                  __ftrunc1:
-0002e9 776f         cbr  r22,0x80
-0002ea 9576         lsr  r23
-0002eb f408         brcc __ftrunc3
-0002ec 6860         sbr  r22,0x80
+000343 776f         cbr  r22,0x80
+000344 9576         lsr  r23
+000345 f408         brcc __ftrunc3
+000346 6860         sbr  r22,0x80
                  __ftrunc3:
-0002ed f977         bld  r23,7
-0002ee 91a9         ld   r26,y+
-0002ef 91b9         ld   r27,y+
-0002f0 9189         ld   r24,y+
-0002f1 9199         ld   r25,y+
-0002f2 17ea         cp   r30,r26
-0002f3 07fb         cpc  r31,r27
-0002f4 0768         cpc  r22,r24
-0002f5 0779         cpc  r23,r25
-0002f6 fb97         bst  r25,7
-0002f7 9508         ret
+000347 f977         bld  r23,7
+000348 91a9         ld   r26,y+
+000349 91b9         ld   r27,y+
+00034a 9189         ld   r24,y+
+00034b 9199         ld   r25,y+
+00034c 17ea         cp   r30,r26
+00034d 07fb         cpc  r31,r27
+00034e 0768         cpc  r22,r24
+00034f 0779         cpc  r23,r25
+000350 fb97         bst  r25,7
+000351 9508         ret
                  ; .FEND
                  _floor:
                  ; .FSTART _floor
-0002f8 d1bc      	RCALL __PUTPARD2
+000352 d201      	RCALL __PUTPARD2
                 +
-0002f9 81a8     +LDD R26 , Y + 0
-0002fa 81b9     +LDD R27 , Y + 0 + 1
-0002fb 818a     +LDD R24 , Y + 0 + 2
-0002fc 819b     +LDD R25 , Y + 0 + 3
+000353 81a8     +LDD R26 , Y + 0
+000354 81b9     +LDD R27 , Y + 0 + 1
+000355 818a     +LDD R24 , Y + 0 + 2
+000356 819b     +LDD R25 , Y + 0 + 3
                  	__GETD2S 0
-0002fd dfca      	RCALL _ftrunc
+000357 dfca      	RCALL _ftrunc
                 +
-0002fe 83e8     +STD Y + 0 , R30
-0002ff 83f9     +STD Y + 0 + 1 , R31
-000300 836a     +STD Y + 0 + 2 , R22
-000301 837b     +STD Y + 0 + 3 , R23
+000358 83e8     +STD Y + 0 , R30
+000359 83f9     +STD Y + 0 + 1 , R31
+00035a 836a     +STD Y + 0 + 2 , R22
+00035b 837b     +STD Y + 0 + 3 , R23
                  	__PUTD1S 0
-000302 f411          brne __floor1
+00035c f411          brne __floor1
                  __floor0:
-000303 d09f      	RCALL SUBOPT_0x6
-000304 c007      	RJMP _0x20A0001
+00035d d09f      	RCALL SUBOPT_0x6
+00035e c007      	RJMP _0x20A0001
                  __floor1:
-000305 f7ee          brtc __floor0
-000306 d09c      	RCALL SUBOPT_0x6
+00035f f7ee          brtc __floor0
+000360 d09c      	RCALL SUBOPT_0x6
                 +
-000307 e0a0     +LDI R26 , LOW ( 0x3F800000 )
-000308 e0b0     +LDI R27 , HIGH ( 0x3F800000 )
-000309 e880     +LDI R24 , BYTE3 ( 0x3F800000 )
-00030a e39f     +LDI R25 , BYTE4 ( 0x3F800000 )
+000361 e0a0     +LDI R26 , LOW ( 0x3F800000 )
+000362 e0b0     +LDI R27 , HIGH ( 0x3F800000 )
+000363 e880     +LDI R24 , BYTE3 ( 0x3F800000 )
+000364 e39f     +LDI R25 , BYTE4 ( 0x3F800000 )
                  	__GETD2N 0x3F800000
-00030b d25f      	RCALL __SUBF12
+000365 d2a4      	RCALL __SUBF12
                  _0x20A0001:
-00030c 9624      	ADIW R28,4
-00030d 9508      	RET
+000366 9624      	ADIW R28,4
+000367 9508      	RET
                  ; .FEND
                  _sin:
                  ; .FSTART _sin
-00030e d1a6      	RCALL __PUTPARD2
-00030f 9724      	SBIW R28,4
-000310 931a      	ST   -Y,R17
-000311 e010      	LDI  R17,0
-000312 d0ec      	RCALL SUBOPT_0x11
+000368 d1eb      	RCALL __PUTPARD2
+000369 9724      	SBIW R28,4
+00036a 931a      	ST   -Y,R17
+00036b e010      	LDI  R17,0
+00036c d11a      	RCALL SUBOPT_0x19
                 +
-000313 e8e3     +LDI R30 , LOW ( 0x3E22F983 )
-000314 eff9     +LDI R31 , HIGH ( 0x3E22F983 )
-000315 e262     +LDI R22 , BYTE3 ( 0x3E22F983 )
-000316 e37e     +LDI R23 , BYTE4 ( 0x3E22F983 )
+00036d e8e3     +LDI R30 , LOW ( 0x3E22F983 )
+00036e eff9     +LDI R31 , HIGH ( 0x3E22F983 )
+00036f e262     +LDI R22 , BYTE3 ( 0x3E22F983 )
+000370 e37e     +LDI R23 , BYTE4 ( 0x3E22F983 )
                  	__GETD1N 0x3E22F983
-000317 d2a9      	RCALL __MULF12
-000318 d0eb      	RCALL SUBOPT_0x12
-000319 dfde      	RCALL _floor
-00031a d0e4      	RCALL SUBOPT_0x11
-00031b d1a3      	RCALL __SWAPD12
-00031c d24e      	RCALL __SUBF12
-00031d d0e6      	RCALL SUBOPT_0x12
-00031e d0ea      	RCALL SUBOPT_0x13
-00031f d333      	RCALL __CMPF12
-000320 f009      	BREQ PC+2
-000321 f408      	BRCC PC+2
-000322 c007      	RJMP _0x2040017
-000323 d0ea      	RCALL SUBOPT_0x14
+000371 d2ee      	RCALL __MULF12
+000372 d119      	RCALL SUBOPT_0x1A
+000373 dfde      	RCALL _floor
+000374 d112      	RCALL SUBOPT_0x19
+000375 d1e8      	RCALL __SWAPD12
+000376 d293      	RCALL __SUBF12
+000377 d114      	RCALL SUBOPT_0x1A
+000378 d118      	RCALL SUBOPT_0x1B
+000379 d378      	RCALL __CMPF12
+00037a f009      	BREQ PC+2
+00037b f408      	BRCC PC+2
+00037c c007      	RJMP _0x2040017
+00037d d118      	RCALL SUBOPT_0x1C
                 +
-000324 e0a0     +LDI R26 , LOW ( 0x3F000000 )
-000325 e0b0     +LDI R27 , HIGH ( 0x3F000000 )
-000326 e080     +LDI R24 , BYTE3 ( 0x3F000000 )
-000327 e39f     +LDI R25 , BYTE4 ( 0x3F000000 )
+00037e e0a0     +LDI R26 , LOW ( 0x3F000000 )
+00037f e0b0     +LDI R27 , HIGH ( 0x3F000000 )
+000380 e080     +LDI R24 , BYTE3 ( 0x3F000000 )
+000381 e39f     +LDI R25 , BYTE4 ( 0x3F000000 )
                  	__GETD2N 0x3F000000
-000328 d0ea      	RCALL SUBOPT_0x15
-000329 e011      	LDI  R17,LOW(1)
+000382 d118      	RCALL SUBOPT_0x1D
+000383 e011      	LDI  R17,LOW(1)
                  _0x2040017:
-00032a d0d4      	RCALL SUBOPT_0x11
+000384 d102      	RCALL SUBOPT_0x19
                 +
-00032b e0e0     +LDI R30 , LOW ( 0x3E800000 )
-00032c e0f0     +LDI R31 , HIGH ( 0x3E800000 )
-00032d e860     +LDI R22 , BYTE3 ( 0x3E800000 )
-00032e e37e     +LDI R23 , BYTE4 ( 0x3E800000 )
+000385 e0e0     +LDI R30 , LOW ( 0x3E800000 )
+000386 e0f0     +LDI R31 , HIGH ( 0x3E800000 )
+000387 e860     +LDI R22 , BYTE3 ( 0x3E800000 )
+000388 e37e     +LDI R23 , BYTE4 ( 0x3E800000 )
                  	__GETD1N 0x3E800000
-00032f d323      	RCALL __CMPF12
-000330 f009      	BREQ PC+2
-000331 f408      	BRCC PC+2
-000332 c003      	RJMP _0x2040018
-000333 d0cb      	RCALL SUBOPT_0x11
-000334 d0d4      	RCALL SUBOPT_0x13
-000335 d0dd      	RCALL SUBOPT_0x15
+000389 d368      	RCALL __CMPF12
+00038a f009      	BREQ PC+2
+00038b f408      	BRCC PC+2
+00038c c003      	RJMP _0x2040018
+00038d d0f9      	RCALL SUBOPT_0x19
+00038e d102      	RCALL SUBOPT_0x1B
+00038f d10b      	RCALL SUBOPT_0x1D
                  _0x2040018:
-000336 3010      	CPI  R17,0
-000337 f031      	BREQ _0x2040019
-000338 d0d5      	RCALL SUBOPT_0x14
-000339 d192      	RCALL __ANEGF1
+000390 3010      	CPI  R17,0
+000391 f031      	BREQ _0x2040019
+000392 d103      	RCALL SUBOPT_0x1C
+000393 d1d7      	RCALL __ANEGF1
                 +
-00033a 83ed     +STD Y + 5 , R30
-00033b 83fe     +STD Y + 5 + 1 , R31
-00033c 836f     +STD Y + 5 + 2 , R22
-00033d 8778     +STD Y + 5 + 3 , R23
+000394 83ed     +STD Y + 5 , R30
+000395 83fe     +STD Y + 5 + 1 , R31
+000396 836f     +STD Y + 5 + 2 , R22
+000397 8778     +STD Y + 5 + 3 , R23
                  	__PUTD1S 5
                  _0x2040019:
-00033e d0cf      	RCALL SUBOPT_0x14
-00033f d0bf      	RCALL SUBOPT_0x11
-000340 d280      	RCALL __MULF12
+000398 d0fd      	RCALL SUBOPT_0x1C
+000399 d0ed      	RCALL SUBOPT_0x19
+00039a d2c5      	RCALL __MULF12
                 +
-000341 83e9     +STD Y + 1 , R30
-000342 83fa     +STD Y + 1 + 1 , R31
-000343 836b     +STD Y + 1 + 2 , R22
-000344 837c     +STD Y + 1 + 3 , R23
+00039b 83e9     +STD Y + 1 , R30
+00039c 83fa     +STD Y + 1 + 1 , R31
+00039d 836b     +STD Y + 1 + 2 , R22
+00039e 837c     +STD Y + 1 + 3 , R23
                  	__PUTD1S 1
-000345 d0d3      	RCALL SUBOPT_0x16
+00039f d101      	RCALL SUBOPT_0x1E
                 +
-000346 eba1     +LDI R26 , LOW ( 0x4226C4B1 )
-000347 ecb4     +LDI R27 , HIGH ( 0x4226C4B1 )
-000348 e286     +LDI R24 , BYTE3 ( 0x4226C4B1 )
-000349 e492     +LDI R25 , BYTE4 ( 0x4226C4B1 )
+0003a0 eba1     +LDI R26 , LOW ( 0x4226C4B1 )
+0003a1 ecb4     +LDI R27 , HIGH ( 0x4226C4B1 )
+0003a2 e286     +LDI R24 , BYTE3 ( 0x4226C4B1 )
+0003a3 e492     +LDI R25 , BYTE4 ( 0x4226C4B1 )
                  	__GETD2N 0x4226C4B1
-00034a d276      	RCALL __MULF12
-00034b 01df      	MOVW R26,R30
-00034c 01cb      	MOVW R24,R22
+0003a4 d2bb      	RCALL __MULF12
+0003a5 01df      	MOVW R26,R30
+0003a6 01cb      	MOVW R24,R22
                 +
-00034d e1ed     +LDI R30 , LOW ( 0x422DE51D )
-00034e eef5     +LDI R31 , HIGH ( 0x422DE51D )
-00034f e26d     +LDI R22 , BYTE3 ( 0x422DE51D )
-000350 e472     +LDI R23 , BYTE4 ( 0x422DE51D )
+0003a7 e1ed     +LDI R30 , LOW ( 0x422DE51D )
+0003a8 eef5     +LDI R31 , HIGH ( 0x422DE51D )
+0003a9 e26d     +LDI R22 , BYTE3 ( 0x422DE51D )
+0003aa e472     +LDI R23 , BYTE4 ( 0x422DE51D )
                  	__GETD1N 0x422DE51D
-000351 d16d      	RCALL __SWAPD12
-000352 d218      	RCALL __SUBF12
-000353 d0ca      	RCALL SUBOPT_0x17
+0003ab d1b2      	RCALL __SWAPD12
+0003ac d25d      	RCALL __SUBF12
+0003ad d0f8      	RCALL SUBOPT_0x1F
                 +
-000354 e4ac     +LDI R26 , LOW ( 0x4104534C )
-000355 e5b3     +LDI R27 , HIGH ( 0x4104534C )
-000356 e084     +LDI R24 , BYTE3 ( 0x4104534C )
-000357 e491     +LDI R25 , BYTE4 ( 0x4104534C )
+0003ae e4ac     +LDI R26 , LOW ( 0x4104534C )
+0003af e5b3     +LDI R27 , HIGH ( 0x4104534C )
+0003b0 e084     +LDI R24 , BYTE3 ( 0x4104534C )
+0003b1 e491     +LDI R25 , BYTE4 ( 0x4104534C )
                  	__GETD2N 0x4104534C
-000358 d219      	RCALL __ADDF12
-000359 d0a5      	RCALL SUBOPT_0x11
-00035a d266      	RCALL __MULF12
-00035b 937f      	PUSH R23
-00035c 936f      	PUSH R22
-00035d 93ff      	PUSH R31
-00035e 93ef      	PUSH R30
-00035f d0b9      	RCALL SUBOPT_0x16
+0003b2 d25e      	RCALL __ADDF12
+0003b3 d0d3      	RCALL SUBOPT_0x19
+0003b4 d2ab      	RCALL __MULF12
+0003b5 937f      	PUSH R23
+0003b6 936f      	PUSH R22
+0003b7 93ff      	PUSH R31
+0003b8 93ef      	PUSH R30
+0003b9 d0e7      	RCALL SUBOPT_0x1E
                 +
-000360 e1a1     +LDI R26 , LOW ( 0x3FDEED11 )
-000361 eebd     +LDI R27 , HIGH ( 0x3FDEED11 )
-000362 ed8e     +LDI R24 , BYTE3 ( 0x3FDEED11 )
-000363 e39f     +LDI R25 , BYTE4 ( 0x3FDEED11 )
+0003ba e1a1     +LDI R26 , LOW ( 0x3FDEED11 )
+0003bb eebd     +LDI R27 , HIGH ( 0x3FDEED11 )
+0003bc ed8e     +LDI R24 , BYTE3 ( 0x3FDEED11 )
+0003bd e39f     +LDI R25 , BYTE4 ( 0x3FDEED11 )
                  	__GETD2N 0x3FDEED11
-000364 d20d      	RCALL __ADDF12
-000365 d0b8      	RCALL SUBOPT_0x17
+0003be d252      	RCALL __ADDF12
+0003bf d0e6      	RCALL SUBOPT_0x1F
                 +
-000366 e5ae     +LDI R26 , LOW ( 0x3FA87B5E )
-000367 e7bb     +LDI R27 , HIGH ( 0x3FA87B5E )
-000368 ea88     +LDI R24 , BYTE3 ( 0x3FA87B5E )
-000369 e39f     +LDI R25 , BYTE4 ( 0x3FA87B5E )
+0003c0 e5ae     +LDI R26 , LOW ( 0x3FA87B5E )
+0003c1 e7bb     +LDI R27 , HIGH ( 0x3FA87B5E )
+0003c2 ea88     +LDI R24 , BYTE3 ( 0x3FA87B5E )
+0003c3 e39f     +LDI R25 , BYTE4 ( 0x3FA87B5E )
                  	__GETD2N 0x3FA87B5E
-00036a d207      	RCALL __ADDF12
-00036b 91af      	POP  R26
-00036c 91bf      	POP  R27
-00036d 918f      	POP  R24
-00036e 919f      	POP  R25
-00036f d29f      	RCALL __DIVF21
-000370 8118      	LDD  R17,Y+0
-000371 9629      	ADIW R28,9
-000372 9508      	RET
+0003c4 d24c      	RCALL __ADDF12
+0003c5 91af      	POP  R26
+0003c6 91bf      	POP  R27
+0003c7 918f      	POP  R24
+0003c8 919f      	POP  R25
+0003c9 d2e4      	RCALL __DIVF21
+0003ca 8118      	LDD  R17,Y+0
+0003cb 9629      	ADIW R28,9
+0003cc 9508      	RET
                  ; .FEND
                  
                  	.CSEG
@@ -2678,1006 +2836,1097 @@ C:\study\diplom\code_c_control_system_pendulum\Debug\List\control_system_penduku
 000824           	.BYTE 0x4
                  _time12:
 000828           	.BYTE 0x2
+                 _flag:
+00082a           	.BYTE 0x2
                  _integral:
-00082a           	.BYTE 0x4
+00082c           	.BYTE 0x4
                  _previous_error:
-00082e           	.BYTE 0x4
+000830           	.BYTE 0x4
                  _derivative:
-000832           	.BYTE 0x4
+000834           	.BYTE 0x4
                  _Kp:
-000836           	.BYTE 0x2
-                 _Ki:
 000838           	.BYTE 0x2
-                 _Kd:
+                 _Ki:
 00083a           	.BYTE 0x2
+                 _Kd:
+00083c           	.BYTE 0x2
                  _flagPWM:
-00083c           	.BYTE 0x1
-                 _Y:
-00083d           	.BYTE 0x4
+00083e           	.BYTE 0x1
                  _pwm_value:
-000841           	.BYTE 0x2
+00083f           	.BYTE 0x4
+                 _flagT:
+000843           	.BYTE 0x1
+                 _flagA:
+000844           	.BYTE 0x1
+                 _flagP:
+000845           	.BYTE 0x1
+                 _flagI:
+000846           	.BYTE 0x1
+                 _flagD:
+000847           	.BYTE 0x1
                  __seed_G104:
-000843           	.BYTE 0x4
+000848           	.BYTE 0x4
                  
                  	.CSEG
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:3 WORDS
                  SUBOPT_0x0:
                 +
-000373 2f6f     +MOV R22 , R31
-000374 0f66     +ADD R22 , R22
-000375 0b66     +SBC R22 , R22
-000376 2f76     +MOV R23 , R22
+0003cd 2f6f     +MOV R22 , R31
+0003ce 0f66     +ADD R22 , R22
+0003cf 0b66     +SBC R22 , R22
+0003d0 2f76     +MOV R23 , R22
                  	__CWD1
-000377 d1c0      	RCALL __CDF1
-000378 9508      	RET
+0003d1 d205      	RCALL __CDF1
+0003d2 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
                  SUBOPT_0x1:
                 +
-000379 eca3     +LDI R26 , LOW ( 0x4048F5C3 )
-00037a efb5     +LDI R27 , HIGH ( 0x4048F5C3 )
-00037b e488     +LDI R24 , BYTE3 ( 0x4048F5C3 )
-00037c e490     +LDI R25 , BYTE4 ( 0x4048F5C3 )
+0003d3 eca3     +LDI R26 , LOW ( 0x4048F5C3 )
+0003d4 efb5     +LDI R27 , HIGH ( 0x4048F5C3 )
+0003d5 e488     +LDI R24 , BYTE3 ( 0x4048F5C3 )
+0003d6 e490     +LDI R25 , BYTE4 ( 0x4048F5C3 )
                  	__GETD2N 0x4048F5C3
-00037d d243      	RCALL __MULF12
-00037e 9508      	RET
+0003d7 d288      	RCALL __MULF12
+0003d8 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:6 WORDS
                  SUBOPT_0x2:
-00037f d28f      	RCALL __DIVF21
-000380 93e0 04f8 	STS  _x,R30
-000382 93f0 04f9 	STS  _x+1,R31
-000384 9360 04fa 	STS  _x+2,R22
-000386 9370 04fb 	STS  _x+3,R23
-000388 9508      	RET
+0003d9 d2d4      	RCALL __DIVF21
+0003da 93e0 04f8 	STS  _x,R30
+0003dc 93f0 04f9 	STS  _x+1,R31
+0003de 9360 04fa 	STS  _x+2,R22
+0003e0 9370 04fb 	STS  _x+3,R23
+0003e2 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x3:
-000389 e0a0      	LDI  R26,LOW(_fix16_sin)
-00038a e0b3      	LDI  R27,HIGH(_fix16_sin)
-00038b 0fee      	LSL  R30
-00038c 1fff      	ROL  R31
-00038d 9508      	RET
+0003e3 e0a0      	LDI  R26,LOW(_fix16_sin)
+0003e4 e0b3      	LDI  R27,HIGH(_fix16_sin)
+0003e5 0fee      	LSL  R30
+0003e6 1fff      	ROL  R31
+0003e7 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:12 WORDS
                  SUBOPT_0x4:
-00038e 91a0 04f8 	LDS  R26,_x
-000390 91b0 04f9 	LDS  R27,_x+1
-000392 9180 04fa 	LDS  R24,_x+2
-000394 9190 04fb 	LDS  R25,_x+3
-000396 df77      	RCALL _sin
+0003e8 91a0 04f8 	LDS  R26,_x
+0003ea 91b0 04f9 	LDS  R27,_x+1
+0003ec 9180 04fa 	LDS  R24,_x+2
+0003ee 9190 04fb 	LDS  R25,_x+3
+0003f0 df77      	RCALL _sin
                 +
-000397 e0a0     +LDI R26 , LOW ( 0x47000000 )
-000398 e0b0     +LDI R27 , HIGH ( 0x47000000 )
-000399 e080     +LDI R24 , BYTE3 ( 0x47000000 )
-00039a e497     +LDI R25 , BYTE4 ( 0x47000000 )
+0003f1 e0a0     +LDI R26 , LOW ( 0x47000000 )
+0003f2 e0b0     +LDI R27 , HIGH ( 0x47000000 )
+0003f3 e080     +LDI R24 , BYTE3 ( 0x47000000 )
+0003f4 e497     +LDI R25 , BYTE4 ( 0x47000000 )
                  	__GETD2N 0x47000000
-00039b d225      	RCALL __MULF12
-00039c d164      	RCALL __CFD1
-00039d 9508      	RET
+0003f5 d26a      	RCALL __MULF12
+0003f6 d1a9      	RCALL __CFD1
+0003f7 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x5:
-00039e efac      	LDI  R26,LOW(_sin_ugol)
-00039f e0b4      	LDI  R27,HIGH(_sin_ugol)
-0003a0 0fee      	LSL  R30
-0003a1 1fff      	ROL  R31
-0003a2 9508      	RET
+0003f8 efac      	LDI  R26,LOW(_sin_ugol)
+0003f9 e0b4      	LDI  R27,HIGH(_sin_ugol)
+0003fa 0fee      	LSL  R30
+0003fb 1fff      	ROL  R31
+0003fc 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:7 WORDS
                  SUBOPT_0x6:
                 +
-0003a3 81e8     +LDD R30 , Y + 0
-0003a4 81f9     +LDD R31 , Y + 0 + 1
-0003a5 816a     +LDD R22 , Y + 0 + 2
-0003a6 817b     +LDD R23 , Y + 0 + 3
+0003fd 81e8     +LDD R30 , Y + 0
+0003fe 81f9     +LDD R31 , Y + 0 + 1
+0003ff 816a     +LDD R22 , Y + 0 + 2
+000400 817b     +LDD R23 , Y + 0 + 3
                  	__GETD1S 0
-0003a7 9508      	RET
+000401 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:6 WORDS
                  SUBOPT_0x7:
-0003a8 df15      	RCALL _putchar
-0003a9 2daa      	MOV  R26,R10
-0003aa df13      	RCALL _putchar
-0003ab 2da9      	MOV  R26,R9
-0003ac cf11      	RJMP _putchar
+000402 df15      	RCALL _putchar
+000403 2daa      	MOV  R26,R10
+000404 df13      	RCALL _putchar
+000405 2da9      	MOV  R26,R9
+000406 cf11      	RJMP _putchar
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 6 TIMES, CODE SIZE REDUCTION:33 WORDS
                  SUBOPT_0x8:
-0003ad 91a0 0824 	LDS  R26,_error
-0003af 91b0 0825 	LDS  R27,_error+1
-0003b1 9180 0826 	LDS  R24,_error+2
-0003b3 9190 0827 	LDS  R25,_error+3
-0003b5 9508      	RET
+000407 91a0 083f 	LDS  R26,_pwm_value
+000409 91b0 0840 	LDS  R27,_pwm_value+1
+00040b 9180 0841 	LDS  R24,_pwm_value+2
+00040d 9190 0842 	LDS  R25,_pwm_value+3
+00040f 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:26 WORDS
+                 SUBOPT_0x9:
+000410 91a0 0824 	LDS  R26,_error
+000412 91b0 0825 	LDS  R27,_error+1
+000414 9180 0826 	LDS  R24,_error+2
+000416 9190 0827 	LDS  R25,_error+3
+000418 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:4 WORDS
-                 SUBOPT_0x9:
-0003b6 91a0 0828 	LDS  R26,_time12
-0003b8 91b0 0829 	LDS  R27,_time12+1
-0003ba 30a1      	CPI  R26,LOW(0x3F01)
-0003bb e3ef      	LDI  R30,HIGH(0x3F01)
-0003bc 07be      	CPC  R27,R30
-0003bd 9508      	RET
+                 SUBOPT_0xA:
+000419 91a0 0828 	LDS  R26,_time12
+00041b 91b0 0829 	LDS  R27,_time12+1
+00041d 30a1      	CPI  R26,LOW(0x3F01)
+00041e e3ef      	LDI  R30,HIGH(0x3F01)
+00041f 07be      	CPC  R27,R30
+000420 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
-                 SUBOPT_0xA:
-0003be e0e0      	LDI  R30,LOW(0)
-0003bf 93e0 0828 	STS  _time12,R30
-0003c1 93e0 0829 	STS  _time12+1,R30
-0003c3 9508      	RET
-                 
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:14 WORDS
                  SUBOPT_0xB:
-0003c4 0fae      	ADD  R26,R30
-0003c5 1fbf      	ADC  R27,R31
-0003c6 91ed      	LD   R30,X+
-0003c7 91fd      	LD   R31,X+
-0003c8 91a0 0820 	LDS  R26,_A
-0003ca 91b0 0821 	LDS  R27,_A+1
-0003cc 9180 0822 	LDS  R24,_A+2
-0003ce 9190 0823 	LDS  R25,_A+3
-                +
-0003d0 2f6f     +MOV R22 , R31
-0003d1 0f66     +ADD R22 , R22
-0003d2 0b66     +SBC R22 , R22
-0003d3 2f76     +MOV R23 , R22
-                 	__CWD1
-0003d4 d08b      	RCALL __MULD12
-0003d5 9508      	RET
+000421 e0e0      	LDI  R30,LOW(0)
+000422 93e0 0828 	STS  _time12,R30
+000424 93e0 0829 	STS  _time12+1,R30
+000426 9508      	RET
                  
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:12 WORDS
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0xC:
-0003d6 91e0 0824 	LDS  R30,_error
-0003d8 91f0 0825 	LDS  R31,_error+1
-0003da 9160 0826 	LDS  R22,_error+2
-0003dc 9170 0827 	LDS  R23,_error+3
-0003de 9508      	RET
+000427 93e0 0838 	STS  _Kp,R30
+000429 93f0 0839 	STS  _Kp+1,R31
+00042b 9508      	RET
                  
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:4 WORDS
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0xD:
-                +
-0003df 2f8b     +MOV R24 , R27
-0003e0 0f88     +ADD R24 , R24
-0003e1 0b88     +SBC R24 , R24
-0003e2 2f98     +MOV R25 , R24
-                 	__CWD2
-0003e3 d0d8      	RCALL __CDF2
-0003e4 d1dc      	RCALL __MULF12
-0003e5 9508      	RET
+00042c 91a0 0838 	LDS  R26,_Kp
+00042e 91b0 0839 	LDS  R27,_Kp+1
+000430 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0xE:
-                +
-0003e6 93ed     +ST X + , R30
-0003e7 93fd     +ST X + , R31
-0003e8 936d     +ST X + , R22
-0003e9 937c     +ST X , R23
-                 	__PUTDP1
-0003ea 9508      	RET
+000431 93e0 083a 	STS  _Ki,R30
+000433 93f0 083b 	STS  _Ki+1,R31
+000435 9508      	RET
                  
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:22 WORDS
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0xF:
-0003eb 91a0 083d 	LDS  R26,_Y
-0003ed 91b0 083e 	LDS  R27,_Y+1
-0003ef 9180 083f 	LDS  R24,_Y+2
-0003f1 9190 0840 	LDS  R25,_Y+3
-                +
-0003f3 e0e0     +LDI R30 , LOW ( 0x477FFF00 )
-0003f4 efff     +LDI R31 , HIGH ( 0x477FFF00 )
-0003f5 e76f     +LDI R22 , BYTE3 ( 0x477FFF00 )
-0003f6 e477     +LDI R23 , BYTE4 ( 0x477FFF00 )
-                 	__GETD1N 0x477FFF00
-0003f7 d25b      	RCALL __CMPF12
-0003f8 9508      	RET
+000436 91a0 083a 	LDS  R26,_Ki
+000438 91b0 083b 	LDS  R27,_Ki+1
+00043a 9508      	RET
                  
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:3 WORDS
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x10:
-0003f9 efef      	LDI  R30,LOW(255)
-0003fa 93e0 0089 	STS  137,R30
-0003fc 93e0 0088 	STS  136,R30
-0003fe 9508      	RET
+00043b 93e0 083c 	STS  _Kd,R30
+00043d 93f0 083d 	STS  _Kd+1,R31
+00043f 9508      	RET
                  
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 8 TIMES, CODE SIZE REDUCTION:19 WORDS
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x11:
-                +
-0003ff 81ad     +LDD R26 , Y + 5
-000400 81be     +LDD R27 , Y + 5 + 1
-000401 818f     +LDD R24 , Y + 5 + 2
-000402 8598     +LDD R25 , Y + 5 + 3
-                 	__GETD2S 5
-000403 9508      	RET
+000440 91a0 083c 	LDS  R26,_Kd
+000442 91b0 083d 	LDS  R27,_Kd+1
+000444 9508      	RET
                  
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:14 WORDS
                  SUBOPT_0x12:
+000445 0fae      	ADD  R26,R30
+000446 1fbf      	ADC  R27,R31
+000447 91ed      	LD   R30,X+
+000448 91fd      	LD   R31,X+
+000449 91a0 0820 	LDS  R26,_A
+00044b 91b0 0821 	LDS  R27,_A+1
+00044d 9180 0822 	LDS  R24,_A+2
+00044f 9190 0823 	LDS  R25,_A+3
                 +
-000404 83ed     +STD Y + 5 , R30
-000405 83fe     +STD Y + 5 + 1 , R31
-000406 836f     +STD Y + 5 + 2 , R22
-000407 8778     +STD Y + 5 + 3 , R23
-                 	__PUTD1S 5
-000408 cff6      	RJMP SUBOPT_0x11
+000451 2f6f     +MOV R22 , R31
+000452 0f66     +ADD R22 , R22
+000453 0b66     +SBC R22 , R22
+000454 2f76     +MOV R23 , R22
+                 	__CWD1
+000455 d0a9      	RCALL __MULD12
+000456 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
                  SUBOPT_0x13:
                 +
-000409 e0e0     +LDI R30 , LOW ( 0x3F000000 )
-00040a e0f0     +LDI R31 , HIGH ( 0x3F000000 )
-00040b e060     +LDI R22 , BYTE3 ( 0x3F000000 )
-00040c e37f     +LDI R23 , BYTE4 ( 0x3F000000 )
-                 	__GETD1N 0x3F000000
-00040d 9508      	RET
+000457 e6e4     +LDI R30 , LOW ( 0x64 )
+000458 e0f0     +LDI R31 , HIGH ( 0x64 )
+000459 e060     +LDI R22 , BYTE3 ( 0x64 )
+00045a e070     +LDI R23 , BYTE4 ( 0x64 )
+                 	__GETD1N 0x64
+00045b 9508      	RET
                  
-                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:4 WORDS
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:19 WORDS
                  SUBOPT_0x14:
+00045c 91e0 0824 	LDS  R30,_error
+00045e 91f0 0825 	LDS  R31,_error+1
+000460 9160 0826 	LDS  R22,_error+2
+000462 9170 0827 	LDS  R23,_error+3
+000464 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:6 WORDS
+                 SUBOPT_0x15:
                 +
-00040e 81ed     +LDD R30 , Y + 5
-00040f 81fe     +LDD R31 , Y + 5 + 1
-000410 816f     +LDD R22 , Y + 5 + 2
-000411 8578     +LDD R23 , Y + 5 + 3
-                 	__GETD1S 5
-000412 9508      	RET
+000465 2f8b     +MOV R24 , R27
+000466 0f88     +ADD R24 , R24
+000467 0b88     +SBC R24 , R24
+000468 2f98     +MOV R25 , R24
+                 	__CWD2
+000469 d095      	RCALL __MULD12
+00046a 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:5 WORDS
+                 SUBOPT_0x16:
+00046b 93e0 083f 	STS  _pwm_value,R30
+00046d 93f0 0840 	STS  _pwm_value+1,R31
+00046f 9360 0841 	STS  _pwm_value+2,R22
+000471 9370 0842 	STS  _pwm_value+3,R23
+000473 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:12 WORDS
+                 SUBOPT_0x17:
+000474 df92      	RCALL SUBOPT_0x8
+                +
+000475 30a0     +CPI R26 , LOW ( 0x10000 )
+000476 e0e0     +LDI R30 , HIGH ( 0x10000 )
+000477 07be     +CPC R27 , R30
+000478 e0e1     +LDI R30 , BYTE3 ( 0x10000 )
+000479 078e     +CPC R24 , R30
+00047a e0e0     +LDI R30 , BYTE4 ( 0x10000 )
+00047b 079e     +CPC R25 , R30
+                 	__CPD2N 0x10000
+00047c 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:6 WORDS
+                 SUBOPT_0x18:
+00047d df89      	RCALL SUBOPT_0x8
+00047e e0e8      	LDI  R30,LOW(8)
+00047f d068      	RCALL __LSRD12
+000480 93e0 0089 	STS  137,R30
+000482 91e0 083f 	LDS  R30,_pwm_value
+000484 93e0 0088 	STS  136,R30
+000486 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 8 TIMES, CODE SIZE REDUCTION:19 WORDS
+                 SUBOPT_0x19:
+                +
+000487 81ad     +LDD R26 , Y + 5
+000488 81be     +LDD R27 , Y + 5 + 1
+000489 818f     +LDD R24 , Y + 5 + 2
+00048a 8598     +LDD R25 , Y + 5 + 3
+                 	__GETD2S 5
+00048b 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
-                 SUBOPT_0x15:
-000413 d157      	RCALL __SUBF12
+                 SUBOPT_0x1A:
                 +
-000414 83ed     +STD Y + 5 , R30
-000415 83fe     +STD Y + 5 + 1 , R31
-000416 836f     +STD Y + 5 + 2 , R22
-000417 8778     +STD Y + 5 + 3 , R23
+00048c 83ed     +STD Y + 5 , R30
+00048d 83fe     +STD Y + 5 + 1 , R31
+00048e 836f     +STD Y + 5 + 2 , R22
+00048f 8778     +STD Y + 5 + 3 , R23
                  	__PUTD1S 5
-000418 9508      	RET
+000490 cff6      	RJMP SUBOPT_0x19
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
-                 SUBOPT_0x16:
+                 SUBOPT_0x1B:
                 +
-000419 81e9     +LDD R30 , Y + 1
-00041a 81fa     +LDD R31 , Y + 1 + 1
-00041b 816b     +LDD R22 , Y + 1 + 2
-00041c 817c     +LDD R23 , Y + 1 + 3
-                 	__GETD1S 1
-00041d 9508      	RET
+000491 e0e0     +LDI R30 , LOW ( 0x3F000000 )
+000492 e0f0     +LDI R31 , HIGH ( 0x3F000000 )
+000493 e060     +LDI R22 , BYTE3 ( 0x3F000000 )
+000494 e37f     +LDI R23 , BYTE4 ( 0x3F000000 )
+                 	__GETD1N 0x3F000000
+000495 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:4 WORDS
+                 SUBOPT_0x1C:
+                +
+000496 81ed     +LDD R30 , Y + 5
+000497 81fe     +LDD R31 , Y + 5 + 1
+000498 816f     +LDD R22 , Y + 5 + 2
+000499 8578     +LDD R23 , Y + 5 + 3
+                 	__GETD1S 5
+00049a 9508      	RET
                  
                  ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
-                 SUBOPT_0x17:
+                 SUBOPT_0x1D:
+00049b d16e      	RCALL __SUBF12
                 +
-00041e 81a9     +LDD R26 , Y + 1
-00041f 81ba     +LDD R27 , Y + 1 + 1
-000420 818b     +LDD R24 , Y + 1 + 2
-000421 819c     +LDD R25 , Y + 1 + 3
+00049c 83ed     +STD Y + 5 , R30
+00049d 83fe     +STD Y + 5 + 1 , R31
+00049e 836f     +STD Y + 5 + 2 , R22
+00049f 8778     +STD Y + 5 + 3 , R23
+                 	__PUTD1S 5
+0004a0 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
+                 SUBOPT_0x1E:
+                +
+0004a1 81e9     +LDD R30 , Y + 1
+0004a2 81fa     +LDD R31 , Y + 1 + 1
+0004a3 816b     +LDD R22 , Y + 1 + 2
+0004a4 817c     +LDD R23 , Y + 1 + 3
+                 	__GETD1S 1
+0004a5 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
+                 SUBOPT_0x1F:
+                +
+0004a6 81a9     +LDD R26 , Y + 1
+0004a7 81ba     +LDD R27 , Y + 1 + 1
+0004a8 818b     +LDD R24 , Y + 1 + 2
+0004a9 819c     +LDD R25 , Y + 1 + 3
                  	__GETD2S 1
-000422 d19e      	RCALL __MULF12
-000423 9508      	RET
+0004aa d1b5      	RCALL __MULF12
+0004ab 9508      	RET
                  
                  ;RUNTIME LIBRARY
                  
                  	.CSEG
                  __ANEGD1:
-000424 95f0      	COM  R31
-000425 9560      	COM  R22
-000426 9570      	COM  R23
-000427 95e1      	NEG  R30
-000428 4fff      	SBCI R31,-1
-000429 4f6f      	SBCI R22,-1
-00042a 4f7f      	SBCI R23,-1
-00042b 9508      	RET
+0004ac 95f0      	COM  R31
+0004ad 9560      	COM  R22
+0004ae 9570      	COM  R23
+0004af 95e1      	NEG  R30
+0004b0 4fff      	SBCI R31,-1
+0004b1 4f6f      	SBCI R22,-1
+0004b2 4f7f      	SBCI R23,-1
+0004b3 9508      	RET
                  
                  __ANEGD2:
-00042c 95b0      	COM  R27
-00042d 9580      	COM  R24
-00042e 9590      	COM  R25
-00042f 95a1      	NEG  R26
-000430 4fbf      	SBCI R27,-1
-000431 4f8f      	SBCI R24,-1
-000432 4f9f      	SBCI R25,-1
-000433 9508      	RET
+0004b4 95b0      	COM  R27
+0004b5 9580      	COM  R24
+0004b6 9590      	COM  R25
+0004b7 95a1      	NEG  R26
+0004b8 4fbf      	SBCI R27,-1
+0004b9 4f8f      	SBCI R24,-1
+0004ba 4f9f      	SBCI R25,-1
+0004bb 9508      	RET
                  
                  __ASRW12:
-000434 23ee      	TST  R30
-000435 2e0e      	MOV  R0,R30
-000436 e0e8      	LDI  R30,8
-000437 2e1e      	MOV  R1,R30
-000438 01fd      	MOVW R30,R26
-000439 f061      	BREQ __ASRW12R
+0004bc 23ee      	TST  R30
+0004bd 2e0e      	MOV  R0,R30
+0004be e0e8      	LDI  R30,8
+0004bf 2e1e      	MOV  R1,R30
+0004c0 01fd      	MOVW R30,R26
+0004c1 f061      	BREQ __ASRW12R
                  __ASRW12S8:
-00043a 1401      	CP   R0,R1
-00043b f030      	BRLO __ASRW12L
-00043c 2fef      	MOV  R30,R31
-00043d e0f0      	LDI  R31,0
-00043e fde7      	SBRC R30,7
-00043f efff      	LDI  R31,0xFF
-000440 1801      	SUB  R0,R1
-000441 f021      	BREQ __ASRW12R
+0004c2 1401      	CP   R0,R1
+0004c3 f030      	BRLO __ASRW12L
+0004c4 2fef      	MOV  R30,R31
+0004c5 e0f0      	LDI  R31,0
+0004c6 fde7      	SBRC R30,7
+0004c7 efff      	LDI  R31,0xFF
+0004c8 1801      	SUB  R0,R1
+0004c9 f021      	BREQ __ASRW12R
                  __ASRW12L:
-000442 95f5      	ASR  R31
-000443 95e7      	ROR  R30
-000444 940a      	DEC  R0
-000445 f7e1      	BRNE __ASRW12L
+0004ca 95f5      	ASR  R31
+0004cb 95e7      	ROR  R30
+0004cc 940a      	DEC  R0
+0004cd f7e1      	BRNE __ASRW12L
                  __ASRW12R:
-000446 9508      	RET
+0004ce 9508      	RET
                  
                  __ASRD12:
-000447 23ee      	TST  R30
-000448 2e0e      	MOV  R0,R30
-000449 e0e8      	LDI  R30,8
-00044a 2e1e      	MOV  R1,R30
-00044b 01fd      	MOVW R30,R26
-00044c 01bc      	MOVW R22,R24
-00044d f089      	BREQ __ASRD12R
+0004cf 23ee      	TST  R30
+0004d0 2e0e      	MOV  R0,R30
+0004d1 e0e8      	LDI  R30,8
+0004d2 2e1e      	MOV  R1,R30
+0004d3 01fd      	MOVW R30,R26
+0004d4 01bc      	MOVW R22,R24
+0004d5 f089      	BREQ __ASRD12R
                  __ASRD12S8:
-00044e 1401      	CP   R0,R1
-00044f f048      	BRLO __ASRD12L
-000450 2fef      	MOV  R30,R31
-000451 2ff6      	MOV  R31,R22
-000452 2f67      	MOV  R22,R23
-000453 e070      	LDI  R23,0
-000454 fd67      	SBRC R22,7
-000455 ef7f      	LDI  R23,0xFF
-000456 1801      	SUB  R0,R1
-000457 f7b1      	BRNE __ASRD12S8
-000458 9508      	RET
+0004d6 1401      	CP   R0,R1
+0004d7 f048      	BRLO __ASRD12L
+0004d8 2fef      	MOV  R30,R31
+0004d9 2ff6      	MOV  R31,R22
+0004da 2f67      	MOV  R22,R23
+0004db e070      	LDI  R23,0
+0004dc fd67      	SBRC R22,7
+0004dd ef7f      	LDI  R23,0xFF
+0004de 1801      	SUB  R0,R1
+0004df f7b1      	BRNE __ASRD12S8
+0004e0 9508      	RET
                  __ASRD12L:
-000459 9575      	ASR  R23
-00045a 9567      	ROR  R22
-00045b 95f7      	ROR  R31
-00045c 95e7      	ROR  R30
-00045d 940a      	DEC  R0
-00045e f7d1      	BRNE __ASRD12L
+0004e1 9575      	ASR  R23
+0004e2 9567      	ROR  R22
+0004e3 95f7      	ROR  R31
+0004e4 95e7      	ROR  R30
+0004e5 940a      	DEC  R0
+0004e6 f7d1      	BRNE __ASRD12L
                  __ASRD12R:
-00045f 9508      	RET
+0004e7 9508      	RET
+                 
+                 __LSRD12:
+0004e8 23ee      	TST  R30
+0004e9 2e0e      	MOV  R0,R30
+0004ea e0e8      	LDI  R30,8
+0004eb 2e1e      	MOV  R1,R30
+0004ec 01fd      	MOVW R30,R26
+0004ed 01bc      	MOVW R22,R24
+0004ee f079      	BREQ __LSRD12R
+                 __LSRD12S8:
+0004ef 1401      	CP   R0,R1
+0004f0 f038      	BRLO __LSRD12L
+0004f1 2fef      	MOV  R30,R31
+0004f2 2ff6      	MOV  R31,R22
+0004f3 2f67      	MOV  R22,R23
+0004f4 e070      	LDI  R23,0
+0004f5 1801      	SUB  R0,R1
+0004f6 f7c1      	BRNE __LSRD12S8
+0004f7 9508      	RET
+                 __LSRD12L:
+0004f8 9576      	LSR  R23
+0004f9 9567      	ROR  R22
+0004fa 95f7      	ROR  R31
+0004fb 95e7      	ROR  R30
+0004fc 940a      	DEC  R0
+0004fd f7d1      	BRNE __LSRD12L
+                 __LSRD12R:
+0004fe 9508      	RET
                  
                  __MULD12:
                  __MULD12U:
-000460 9f7a      	MUL  R23,R26
-000461 2d70      	MOV  R23,R0
-000462 9f6b      	MUL  R22,R27
-000463 0d70      	ADD  R23,R0
-000464 9ff8      	MUL  R31,R24
-000465 0d70      	ADD  R23,R0
-000466 9fe9      	MUL  R30,R25
-000467 0d70      	ADD  R23,R0
-000468 9f6a      	MUL  R22,R26
-000469 2d60      	MOV  R22,R0
-00046a 0d71      	ADD  R23,R1
-00046b 9ffb      	MUL  R31,R27
-00046c 0d60      	ADD  R22,R0
-00046d 1d71      	ADC  R23,R1
-00046e 9fe8      	MUL  R30,R24
-00046f 0d60      	ADD  R22,R0
-000470 1d71      	ADC  R23,R1
-000471 2788      	CLR  R24
-000472 9ffa      	MUL  R31,R26
-000473 2df0      	MOV  R31,R0
-000474 0d61      	ADD  R22,R1
-000475 1f78      	ADC  R23,R24
-000476 9feb      	MUL  R30,R27
-000477 0df0      	ADD  R31,R0
-000478 1d61      	ADC  R22,R1
-000479 1f78      	ADC  R23,R24
-00047a 9fea      	MUL  R30,R26
-00047b 2de0      	MOV  R30,R0
-00047c 0df1      	ADD  R31,R1
-00047d 1f68      	ADC  R22,R24
-00047e 1f78      	ADC  R23,R24
-00047f 9508      	RET
+0004ff 9f7a      	MUL  R23,R26
+000500 2d70      	MOV  R23,R0
+000501 9f6b      	MUL  R22,R27
+000502 0d70      	ADD  R23,R0
+000503 9ff8      	MUL  R31,R24
+000504 0d70      	ADD  R23,R0
+000505 9fe9      	MUL  R30,R25
+000506 0d70      	ADD  R23,R0
+000507 9f6a      	MUL  R22,R26
+000508 2d60      	MOV  R22,R0
+000509 0d71      	ADD  R23,R1
+00050a 9ffb      	MUL  R31,R27
+00050b 0d60      	ADD  R22,R0
+00050c 1d71      	ADC  R23,R1
+00050d 9fe8      	MUL  R30,R24
+00050e 0d60      	ADD  R22,R0
+00050f 1d71      	ADC  R23,R1
+000510 2788      	CLR  R24
+000511 9ffa      	MUL  R31,R26
+000512 2df0      	MOV  R31,R0
+000513 0d61      	ADD  R22,R1
+000514 1f78      	ADC  R23,R24
+000515 9feb      	MUL  R30,R27
+000516 0df0      	ADD  R31,R0
+000517 1d61      	ADC  R22,R1
+000518 1f78      	ADC  R23,R24
+000519 9fea      	MUL  R30,R26
+00051a 2de0      	MOV  R30,R0
+00051b 0df1      	ADD  R31,R1
+00051c 1f68      	ADC  R22,R24
+00051d 1f78      	ADC  R23,R24
+00051e 9508      	RET
                  
                  __DIVD21U:
-000480 933f      	PUSH R19
-000481 934f      	PUSH R20
-000482 935f      	PUSH R21
-000483 2400      	CLR  R0
-000484 2411      	CLR  R1
-000485 01a0      	MOVW R20,R0
-000486 e230      	LDI  R19,32
+00051f 933f      	PUSH R19
+000520 934f      	PUSH R20
+000521 935f      	PUSH R21
+000522 2400      	CLR  R0
+000523 2411      	CLR  R1
+000524 01a0      	MOVW R20,R0
+000525 e230      	LDI  R19,32
                  __DIVD21U1:
-000487 0faa      	LSL  R26
-000488 1fbb      	ROL  R27
-000489 1f88      	ROL  R24
-00048a 1f99      	ROL  R25
-00048b 1c00      	ROL  R0
-00048c 1c11      	ROL  R1
-00048d 1f44      	ROL  R20
-00048e 1f55      	ROL  R21
-00048f 1a0e      	SUB  R0,R30
-000490 0a1f      	SBC  R1,R31
-000491 0b46      	SBC  R20,R22
-000492 0b57      	SBC  R21,R23
-000493 f428      	BRCC __DIVD21U2
-000494 0e0e      	ADD  R0,R30
-000495 1e1f      	ADC  R1,R31
-000496 1f46      	ADC  R20,R22
-000497 1f57      	ADC  R21,R23
-000498 c001      	RJMP __DIVD21U3
+000526 0faa      	LSL  R26
+000527 1fbb      	ROL  R27
+000528 1f88      	ROL  R24
+000529 1f99      	ROL  R25
+00052a 1c00      	ROL  R0
+00052b 1c11      	ROL  R1
+00052c 1f44      	ROL  R20
+00052d 1f55      	ROL  R21
+00052e 1a0e      	SUB  R0,R30
+00052f 0a1f      	SBC  R1,R31
+000530 0b46      	SBC  R20,R22
+000531 0b57      	SBC  R21,R23
+000532 f428      	BRCC __DIVD21U2
+000533 0e0e      	ADD  R0,R30
+000534 1e1f      	ADC  R1,R31
+000535 1f46      	ADC  R20,R22
+000536 1f57      	ADC  R21,R23
+000537 c001      	RJMP __DIVD21U3
                  __DIVD21U2:
-000499 60a1      	SBR  R26,1
+000538 60a1      	SBR  R26,1
                  __DIVD21U3:
-00049a 953a      	DEC  R19
-00049b f759      	BRNE __DIVD21U1
-00049c 01fd      	MOVW R30,R26
-00049d 01bc      	MOVW R22,R24
-00049e 01d0      	MOVW R26,R0
-00049f 01ca      	MOVW R24,R20
-0004a0 915f      	POP  R21
-0004a1 914f      	POP  R20
-0004a2 913f      	POP  R19
-0004a3 9508      	RET
+000539 953a      	DEC  R19
+00053a f759      	BRNE __DIVD21U1
+00053b 01fd      	MOVW R30,R26
+00053c 01bc      	MOVW R22,R24
+00053d 01d0      	MOVW R26,R0
+00053e 01ca      	MOVW R24,R20
+00053f 915f      	POP  R21
+000540 914f      	POP  R20
+000541 913f      	POP  R19
+000542 9508      	RET
                  
                  __DIVD21:
-0004a4 d004      	RCALL __CHKSIGND
-0004a5 dfda      	RCALL __DIVD21U
-0004a6 f40e      	BRTC __DIVD211
-0004a7 df7c      	RCALL __ANEGD1
+000543 d004      	RCALL __CHKSIGND
+000544 dfda      	RCALL __DIVD21U
+000545 f40e      	BRTC __DIVD211
+000546 df65      	RCALL __ANEGD1
                  __DIVD211:
-0004a8 9508      	RET
+000547 9508      	RET
                  
                  __CHKSIGND:
-0004a9 94e8      	CLT
-0004aa ff77      	SBRS R23,7
-0004ab c002      	RJMP __CHKSD1
-0004ac df77      	RCALL __ANEGD1
-0004ad 9468      	SET
+000548 94e8      	CLT
+000549 ff77      	SBRS R23,7
+00054a c002      	RJMP __CHKSD1
+00054b df60      	RCALL __ANEGD1
+00054c 9468      	SET
                  __CHKSD1:
-0004ae ff97      	SBRS R25,7
-0004af c004      	RJMP __CHKSD2
-0004b0 df7b      	RCALL __ANEGD2
-0004b1 f800      	BLD  R0,0
-0004b2 9403      	INC  R0
-0004b3 fa00      	BST  R0,0
+00054d ff97      	SBRS R25,7
+00054e c004      	RJMP __CHKSD2
+00054f df64      	RCALL __ANEGD2
+000550 f800      	BLD  R0,0
+000551 9403      	INC  R0
+000552 fa00      	BST  R0,0
                  __CHKSD2:
-0004b4 9508      	RET
-                 
-                 __PUTPARD2:
-0004b5 939a      	ST   -Y,R25
-0004b6 938a      	ST   -Y,R24
-0004b7 93ba      	ST   -Y,R27
-0004b8 93aa      	ST   -Y,R26
-0004b9 9508      	RET
-                 
-                 __CDF2U:
-0004ba 9468      	SET
-0004bb c001      	RJMP __CDF2U0
-                 __CDF2:
-0004bc 94e8      	CLT
-                 __CDF2U0:
-0004bd d001      	RCALL __SWAPD12
-0004be d07a      	RCALL __CDF1U0
-                 
-                 __SWAPD12:
-0004bf 2e18      	MOV  R1,R24
-0004c0 2f86      	MOV  R24,R22
-0004c1 2d61      	MOV  R22,R1
-0004c2 2e19      	MOV  R1,R25
-0004c3 2f97      	MOV  R25,R23
-0004c4 2d71      	MOV  R23,R1
-                 
-                 __SWAPW12:
-0004c5 2e1b      	MOV  R1,R27
-0004c6 2fbf      	MOV  R27,R31
-0004c7 2df1      	MOV  R31,R1
-                 
-                 __SWAPB12:
-0004c8 2e1a      	MOV  R1,R26
-0004c9 2fae      	MOV  R26,R30
-0004ca 2de1      	MOV  R30,R1
-0004cb 9508      	RET
-                 
-                 __ANEGF1:
-0004cc 9730      	SBIW R30,0
-0004cd 4060      	SBCI R22,0
-0004ce 4070      	SBCI R23,0
-0004cf f009      	BREQ __ANEGF10
-0004d0 5870      	SUBI R23,0x80
-                 __ANEGF10:
-0004d1 9508      	RET
-                 
-                 __ROUND_REPACK:
-0004d2 2355      	TST  R21
-0004d3 f442      	BRPL __REPACK
-0004d4 3850      	CPI  R21,0x80
-0004d5 f411      	BRNE __ROUND_REPACK0
-0004d6 ffe0      	SBRS R30,0
-0004d7 c004      	RJMP __REPACK
-                 __ROUND_REPACK0:
-0004d8 9631      	ADIW R30,1
-0004d9 1f69      	ADC  R22,R25
-0004da 1f79      	ADC  R23,R25
-0004db f06b      	BRVS __REPACK1
-                 
-                 __REPACK:
-0004dc e850      	LDI  R21,0x80
-0004dd 2757      	EOR  R21,R23
-0004de f411      	BRNE __REPACK0
-0004df 935f      	PUSH R21
-0004e0 c0cf      	RJMP __ZERORES
-                 __REPACK0:
-0004e1 3f5f      	CPI  R21,0xFF
-0004e2 f031      	BREQ __REPACK1
-0004e3 0f66      	LSL  R22
-0004e4 0c00      	LSL  R0
-0004e5 9557      	ROR  R21
-0004e6 9567      	ROR  R22
-0004e7 2f75      	MOV  R23,R21
-0004e8 9508      	RET
-                 __REPACK1:
-0004e9 935f      	PUSH R21
-0004ea 2000      	TST  R0
-0004eb f00a      	BRMI __REPACK2
-0004ec c0ce      	RJMP __MAXRES
-                 __REPACK2:
-0004ed c0c7      	RJMP __MINRES
-                 
-                 __UNPACK:
-0004ee e850      	LDI  R21,0x80
-0004ef 2e19      	MOV  R1,R25
-0004f0 2215      	AND  R1,R21
-0004f1 0f88      	LSL  R24
-0004f2 1f99      	ROL  R25
-0004f3 2795      	EOR  R25,R21
-0004f4 0f55      	LSL  R21
-0004f5 9587      	ROR  R24
-                 
-                 __UNPACK1:
-0004f6 e850      	LDI  R21,0x80
-0004f7 2e07      	MOV  R0,R23
-0004f8 2205      	AND  R0,R21
-0004f9 0f66      	LSL  R22
-0004fa 1f77      	ROL  R23
-0004fb 2775      	EOR  R23,R21
-0004fc 0f55      	LSL  R21
-0004fd 9567      	ROR  R22
-0004fe 9508      	RET
-                 
-                 __CFD1U:
-0004ff 9468      	SET
-000500 c001      	RJMP __CFD1U0
-                 __CFD1:
-000501 94e8      	CLT
-                 __CFD1U0:
-000502 935f      	PUSH R21
-000503 dff2      	RCALL __UNPACK1
-000504 3870      	CPI  R23,0x80
-000505 f018      	BRLO __CFD10
-000506 3f7f      	CPI  R23,0xFF
-000507 f408      	BRCC __CFD10
-000508 c0a7      	RJMP __ZERORES
-                 __CFD10:
-000509 e156      	LDI  R21,22
-00050a 1b57      	SUB  R21,R23
-00050b f4aa      	BRPL __CFD11
-00050c 9551      	NEG  R21
-00050d 3058      	CPI  R21,8
-00050e f40e      	BRTC __CFD19
-00050f 3059      	CPI  R21,9
-                 __CFD19:
-000510 f030      	BRLO __CFD17
-000511 efef      	SER  R30
-000512 efff      	SER  R31
-000513 ef6f      	SER  R22
-000514 e77f      	LDI  R23,0x7F
-000515 f977      	BLD  R23,7
-000516 c01a      	RJMP __CFD15
-                 __CFD17:
-000517 2777      	CLR  R23
-000518 2355      	TST  R21
-000519 f0b9      	BREQ __CFD15
-                 __CFD18:
-00051a 0fee      	LSL  R30
-00051b 1fff      	ROL  R31
-00051c 1f66      	ROL  R22
-00051d 1f77      	ROL  R23
-00051e 955a      	DEC  R21
-00051f f7d1      	BRNE __CFD18
-000520 c010      	RJMP __CFD15
-                 __CFD11:
-000521 2777      	CLR  R23
-                 __CFD12:
-000522 3058      	CPI  R21,8
-000523 f028      	BRLO __CFD13
-000524 2fef      	MOV  R30,R31
-000525 2ff6      	MOV  R31,R22
-000526 2f67      	MOV  R22,R23
-000527 5058      	SUBI R21,8
-000528 cff9      	RJMP __CFD12
-                 __CFD13:
-000529 2355      	TST  R21
-00052a f031      	BREQ __CFD15
-                 __CFD14:
-00052b 9576      	LSR  R23
-00052c 9567      	ROR  R22
-00052d 95f7      	ROR  R31
-00052e 95e7      	ROR  R30
-00052f 955a      	DEC  R21
-000530 f7d1      	BRNE __CFD14
-                 __CFD15:
-000531 2000      	TST  R0
-000532 f40a      	BRPL __CFD16
-000533 def0      	RCALL __ANEGD1
-                 __CFD16:
-000534 915f      	POP  R21
-000535 9508      	RET
-                 
-                 __CDF1U:
-000536 9468      	SET
-000537 c001      	RJMP __CDF1U0
-                 __CDF1:
-000538 94e8      	CLT
-                 __CDF1U0:
-000539 9730      	SBIW R30,0
-00053a 4060      	SBCI R22,0
-00053b 4070      	SBCI R23,0
-00053c f0b1      	BREQ __CDF10
-00053d 2400      	CLR  R0
-00053e f026      	BRTS __CDF11
-00053f 2377      	TST  R23
-000540 f412      	BRPL __CDF11
-000541 9400      	COM  R0
-000542 dee1      	RCALL __ANEGD1
-                 __CDF11:
-000543 2e17      	MOV  R1,R23
-000544 e17e      	LDI  R23,30
-000545 2011      	TST  R1
-                 __CDF12:
-000546 f032      	BRMI __CDF13
-000547 957a      	DEC  R23
-000548 0fee      	LSL  R30
-000549 1fff      	ROL  R31
-00054a 1f66      	ROL  R22
-00054b 1c11      	ROL  R1
-00054c cff9      	RJMP __CDF12
-                 __CDF13:
-00054d 2fef      	MOV  R30,R31
-00054e 2ff6      	MOV  R31,R22
-00054f 2d61      	MOV  R22,R1
-000550 935f      	PUSH R21
-000551 df8a      	RCALL __REPACK
-000552 915f      	POP  R21
-                 __CDF10:
 000553 9508      	RET
                  
-                 __SWAPACC:
-000554 934f      	PUSH R20
-000555 01af      	MOVW R20,R30
-000556 01fd      	MOVW R30,R26
-000557 01da      	MOVW R26,R20
-000558 01ab      	MOVW R20,R22
-000559 01bc      	MOVW R22,R24
-00055a 01ca      	MOVW R24,R20
-00055b 2d40      	MOV  R20,R0
-00055c 2c01      	MOV  R0,R1
-00055d 2e14      	MOV  R1,R20
-00055e 914f      	POP  R20
-00055f 9508      	RET
+                 __PUTPARD2:
+000554 939a      	ST   -Y,R25
+000555 938a      	ST   -Y,R24
+000556 93ba      	ST   -Y,R27
+000557 93aa      	ST   -Y,R26
+000558 9508      	RET
                  
-                 __UADD12:
-000560 0fea      	ADD  R30,R26
-000561 1ffb      	ADC  R31,R27
-000562 1f68      	ADC  R22,R24
-000563 9508      	RET
+                 __CDF2U:
+000559 9468      	SET
+00055a c001      	RJMP __CDF2U0
+                 __CDF2:
+00055b 94e8      	CLT
+                 __CDF2U0:
+00055c d001      	RCALL __SWAPD12
+00055d d07a      	RCALL __CDF1U0
                  
-                 __NEGMAN1:
-000564 95e0      	COM  R30
-000565 95f0      	COM  R31
-000566 9560      	COM  R22
-000567 5fef      	SUBI R30,-1
-000568 4fff      	SBCI R31,-1
-000569 4f6f      	SBCI R22,-1
+                 __SWAPD12:
+00055e 2e18      	MOV  R1,R24
+00055f 2f86      	MOV  R24,R22
+000560 2d61      	MOV  R22,R1
+000561 2e19      	MOV  R1,R25
+000562 2f97      	MOV  R25,R23
+000563 2d71      	MOV  R23,R1
+                 
+                 __SWAPW12:
+000564 2e1b      	MOV  R1,R27
+000565 2fbf      	MOV  R27,R31
+000566 2df1      	MOV  R31,R1
+                 
+                 __SWAPB12:
+000567 2e1a      	MOV  R1,R26
+000568 2fae      	MOV  R26,R30
+000569 2de1      	MOV  R30,R1
 00056a 9508      	RET
                  
-                 __SUBF12:
-00056b 935f      	PUSH R21
-00056c df81      	RCALL __UNPACK
-00056d 3890      	CPI  R25,0x80
-00056e f171      	BREQ __ADDF129
-00056f e850      	LDI  R21,0x80
-000570 2615      	EOR  R1,R21
+                 __ANEGF1:
+00056b 9730      	SBIW R30,0
+00056c 4060      	SBCI R22,0
+00056d 4070      	SBCI R23,0
+00056e f009      	BREQ __ANEGF10
+00056f 5870      	SUBI R23,0x80
+                 __ANEGF10:
+000570 9508      	RET
                  
-000571 c004      	RJMP __ADDF120
+                 __ROUND_REPACK:
+000571 2355      	TST  R21
+000572 f442      	BRPL __REPACK
+000573 3850      	CPI  R21,0x80
+000574 f411      	BRNE __ROUND_REPACK0
+000575 ffe0      	SBRS R30,0
+000576 c004      	RJMP __REPACK
+                 __ROUND_REPACK0:
+000577 9631      	ADIW R30,1
+000578 1f69      	ADC  R22,R25
+000579 1f79      	ADC  R23,R25
+00057a f06b      	BRVS __REPACK1
+                 
+                 __REPACK:
+00057b e850      	LDI  R21,0x80
+00057c 2757      	EOR  R21,R23
+00057d f411      	BRNE __REPACK0
+00057e 935f      	PUSH R21
+00057f c0cf      	RJMP __ZERORES
+                 __REPACK0:
+000580 3f5f      	CPI  R21,0xFF
+000581 f031      	BREQ __REPACK1
+000582 0f66      	LSL  R22
+000583 0c00      	LSL  R0
+000584 9557      	ROR  R21
+000585 9567      	ROR  R22
+000586 2f75      	MOV  R23,R21
+000587 9508      	RET
+                 __REPACK1:
+000588 935f      	PUSH R21
+000589 2000      	TST  R0
+00058a f00a      	BRMI __REPACK2
+00058b c0ce      	RJMP __MAXRES
+                 __REPACK2:
+00058c c0c7      	RJMP __MINRES
+                 
+                 __UNPACK:
+00058d e850      	LDI  R21,0x80
+00058e 2e19      	MOV  R1,R25
+00058f 2215      	AND  R1,R21
+000590 0f88      	LSL  R24
+000591 1f99      	ROL  R25
+000592 2795      	EOR  R25,R21
+000593 0f55      	LSL  R21
+000594 9587      	ROR  R24
+                 
+                 __UNPACK1:
+000595 e850      	LDI  R21,0x80
+000596 2e07      	MOV  R0,R23
+000597 2205      	AND  R0,R21
+000598 0f66      	LSL  R22
+000599 1f77      	ROL  R23
+00059a 2775      	EOR  R23,R21
+00059b 0f55      	LSL  R21
+00059c 9567      	ROR  R22
+00059d 9508      	RET
+                 
+                 __CFD1U:
+00059e 9468      	SET
+00059f c001      	RJMP __CFD1U0
+                 __CFD1:
+0005a0 94e8      	CLT
+                 __CFD1U0:
+0005a1 935f      	PUSH R21
+0005a2 dff2      	RCALL __UNPACK1
+0005a3 3870      	CPI  R23,0x80
+0005a4 f018      	BRLO __CFD10
+0005a5 3f7f      	CPI  R23,0xFF
+0005a6 f408      	BRCC __CFD10
+0005a7 c0a7      	RJMP __ZERORES
+                 __CFD10:
+0005a8 e156      	LDI  R21,22
+0005a9 1b57      	SUB  R21,R23
+0005aa f4aa      	BRPL __CFD11
+0005ab 9551      	NEG  R21
+0005ac 3058      	CPI  R21,8
+0005ad f40e      	BRTC __CFD19
+0005ae 3059      	CPI  R21,9
+                 __CFD19:
+0005af f030      	BRLO __CFD17
+0005b0 efef      	SER  R30
+0005b1 efff      	SER  R31
+0005b2 ef6f      	SER  R22
+0005b3 e77f      	LDI  R23,0x7F
+0005b4 f977      	BLD  R23,7
+0005b5 c01a      	RJMP __CFD15
+                 __CFD17:
+0005b6 2777      	CLR  R23
+0005b7 2355      	TST  R21
+0005b8 f0b9      	BREQ __CFD15
+                 __CFD18:
+0005b9 0fee      	LSL  R30
+0005ba 1fff      	ROL  R31
+0005bb 1f66      	ROL  R22
+0005bc 1f77      	ROL  R23
+0005bd 955a      	DEC  R21
+0005be f7d1      	BRNE __CFD18
+0005bf c010      	RJMP __CFD15
+                 __CFD11:
+0005c0 2777      	CLR  R23
+                 __CFD12:
+0005c1 3058      	CPI  R21,8
+0005c2 f028      	BRLO __CFD13
+0005c3 2fef      	MOV  R30,R31
+0005c4 2ff6      	MOV  R31,R22
+0005c5 2f67      	MOV  R22,R23
+0005c6 5058      	SUBI R21,8
+0005c7 cff9      	RJMP __CFD12
+                 __CFD13:
+0005c8 2355      	TST  R21
+0005c9 f031      	BREQ __CFD15
+                 __CFD14:
+0005ca 9576      	LSR  R23
+0005cb 9567      	ROR  R22
+0005cc 95f7      	ROR  R31
+0005cd 95e7      	ROR  R30
+0005ce 955a      	DEC  R21
+0005cf f7d1      	BRNE __CFD14
+                 __CFD15:
+0005d0 2000      	TST  R0
+0005d1 f40a      	BRPL __CFD16
+0005d2 ded9      	RCALL __ANEGD1
+                 __CFD16:
+0005d3 915f      	POP  R21
+0005d4 9508      	RET
+                 
+                 __CDF1U:
+0005d5 9468      	SET
+0005d6 c001      	RJMP __CDF1U0
+                 __CDF1:
+0005d7 94e8      	CLT
+                 __CDF1U0:
+0005d8 9730      	SBIW R30,0
+0005d9 4060      	SBCI R22,0
+0005da 4070      	SBCI R23,0
+0005db f0b1      	BREQ __CDF10
+0005dc 2400      	CLR  R0
+0005dd f026      	BRTS __CDF11
+0005de 2377      	TST  R23
+0005df f412      	BRPL __CDF11
+0005e0 9400      	COM  R0
+0005e1 deca      	RCALL __ANEGD1
+                 __CDF11:
+0005e2 2e17      	MOV  R1,R23
+0005e3 e17e      	LDI  R23,30
+0005e4 2011      	TST  R1
+                 __CDF12:
+0005e5 f032      	BRMI __CDF13
+0005e6 957a      	DEC  R23
+0005e7 0fee      	LSL  R30
+0005e8 1fff      	ROL  R31
+0005e9 1f66      	ROL  R22
+0005ea 1c11      	ROL  R1
+0005eb cff9      	RJMP __CDF12
+                 __CDF13:
+0005ec 2fef      	MOV  R30,R31
+0005ed 2ff6      	MOV  R31,R22
+0005ee 2d61      	MOV  R22,R1
+0005ef 935f      	PUSH R21
+0005f0 df8a      	RCALL __REPACK
+0005f1 915f      	POP  R21
+                 __CDF10:
+0005f2 9508      	RET
+                 
+                 __SWAPACC:
+0005f3 934f      	PUSH R20
+0005f4 01af      	MOVW R20,R30
+0005f5 01fd      	MOVW R30,R26
+0005f6 01da      	MOVW R26,R20
+0005f7 01ab      	MOVW R20,R22
+0005f8 01bc      	MOVW R22,R24
+0005f9 01ca      	MOVW R24,R20
+0005fa 2d40      	MOV  R20,R0
+0005fb 2c01      	MOV  R0,R1
+0005fc 2e14      	MOV  R1,R20
+0005fd 914f      	POP  R20
+0005fe 9508      	RET
+                 
+                 __UADD12:
+0005ff 0fea      	ADD  R30,R26
+000600 1ffb      	ADC  R31,R27
+000601 1f68      	ADC  R22,R24
+000602 9508      	RET
+                 
+                 __NEGMAN1:
+000603 95e0      	COM  R30
+000604 95f0      	COM  R31
+000605 9560      	COM  R22
+000606 5fef      	SUBI R30,-1
+000607 4fff      	SBCI R31,-1
+000608 4f6f      	SBCI R22,-1
+000609 9508      	RET
+                 
+                 __SUBF12:
+00060a 935f      	PUSH R21
+00060b df81      	RCALL __UNPACK
+00060c 3890      	CPI  R25,0x80
+00060d f171      	BREQ __ADDF129
+00060e e850      	LDI  R21,0x80
+00060f 2615      	EOR  R1,R21
+                 
+000610 c004      	RJMP __ADDF120
                  
                  __ADDF12:
-000572 935f      	PUSH R21
-000573 df7a      	RCALL __UNPACK
-000574 3890      	CPI  R25,0x80
-000575 f139      	BREQ __ADDF129
+000611 935f      	PUSH R21
+000612 df7a      	RCALL __UNPACK
+000613 3890      	CPI  R25,0x80
+000614 f139      	BREQ __ADDF129
                  
                  __ADDF120:
-000576 3870      	CPI  R23,0x80
-000577 f121      	BREQ __ADDF128
+000615 3870      	CPI  R23,0x80
+000616 f121      	BREQ __ADDF128
                  __ADDF121:
-000578 2f57      	MOV  R21,R23
-000579 1b59      	SUB  R21,R25
-00057a f12b      	BRVS __ADDF1211
-00057b f412      	BRPL __ADDF122
-00057c dfd7      	RCALL __SWAPACC
-00057d cffa      	RJMP __ADDF121
+000617 2f57      	MOV  R21,R23
+000618 1b59      	SUB  R21,R25
+000619 f12b      	BRVS __ADDF1211
+00061a f412      	BRPL __ADDF122
+00061b dfd7      	RCALL __SWAPACC
+00061c cffa      	RJMP __ADDF121
                  __ADDF122:
-00057e 3158      	CPI  R21,24
-00057f f018      	BRLO __ADDF123
-000580 27aa      	CLR  R26
-000581 27bb      	CLR  R27
-000582 2788      	CLR  R24
+00061d 3158      	CPI  R21,24
+00061e f018      	BRLO __ADDF123
+00061f 27aa      	CLR  R26
+000620 27bb      	CLR  R27
+000621 2788      	CLR  R24
                  __ADDF123:
-000583 3058      	CPI  R21,8
-000584 f028      	BRLO __ADDF124
-000585 2fab      	MOV  R26,R27
-000586 2fb8      	MOV  R27,R24
-000587 2788      	CLR  R24
-000588 5058      	SUBI R21,8
-000589 cff9      	RJMP __ADDF123
+000622 3058      	CPI  R21,8
+000623 f028      	BRLO __ADDF124
+000624 2fab      	MOV  R26,R27
+000625 2fb8      	MOV  R27,R24
+000626 2788      	CLR  R24
+000627 5058      	SUBI R21,8
+000628 cff9      	RJMP __ADDF123
                  __ADDF124:
-00058a 2355      	TST  R21
-00058b f029      	BREQ __ADDF126
+000629 2355      	TST  R21
+00062a f029      	BREQ __ADDF126
                  __ADDF125:
-00058c 9586      	LSR  R24
-00058d 95b7      	ROR  R27
-00058e 95a7      	ROR  R26
-00058f 955a      	DEC  R21
-000590 f7d9      	BRNE __ADDF125
+00062b 9586      	LSR  R24
+00062c 95b7      	ROR  R27
+00062d 95a7      	ROR  R26
+00062e 955a      	DEC  R21
+00062f f7d9      	BRNE __ADDF125
                  __ADDF126:
-000591 2d50      	MOV  R21,R0
-000592 2551      	EOR  R21,R1
-000593 f072      	BRMI __ADDF127
-000594 dfcb      	RCALL __UADD12
-000595 f438      	BRCC __ADDF129
-000596 9567      	ROR  R22
-000597 95f7      	ROR  R31
-000598 95e7      	ROR  R30
-000599 9573      	INC  R23
-00059a f413      	BRVC __ADDF129
-00059b c01f      	RJMP __MAXRES
+000630 2d50      	MOV  R21,R0
+000631 2551      	EOR  R21,R1
+000632 f072      	BRMI __ADDF127
+000633 dfcb      	RCALL __UADD12
+000634 f438      	BRCC __ADDF129
+000635 9567      	ROR  R22
+000636 95f7      	ROR  R31
+000637 95e7      	ROR  R30
+000638 9573      	INC  R23
+000639 f413      	BRVC __ADDF129
+00063a c01f      	RJMP __MAXRES
                  __ADDF128:
-00059c dfb7      	RCALL __SWAPACC
+00063b dfb7      	RCALL __SWAPACC
                  __ADDF129:
-00059d df3e      	RCALL __REPACK
-00059e 915f      	POP  R21
-00059f 9508      	RET
+00063c df3e      	RCALL __REPACK
+00063d 915f      	POP  R21
+00063e 9508      	RET
                  __ADDF1211:
-0005a0 f7d8      	BRCC __ADDF128
-0005a1 cffb      	RJMP __ADDF129
+00063f f7d8      	BRCC __ADDF128
+000640 cffb      	RJMP __ADDF129
                  __ADDF127:
-0005a2 1bea      	SUB  R30,R26
-0005a3 0bfb      	SBC  R31,R27
-0005a4 0b68      	SBC  R22,R24
-0005a5 f051      	BREQ __ZERORES
-0005a6 f410      	BRCC __ADDF1210
-0005a7 9400      	COM  R0
-0005a8 dfbb      	RCALL __NEGMAN1
+000641 1bea      	SUB  R30,R26
+000642 0bfb      	SBC  R31,R27
+000643 0b68      	SBC  R22,R24
+000644 f051      	BREQ __ZERORES
+000645 f410      	BRCC __ADDF1210
+000646 9400      	COM  R0
+000647 dfbb      	RCALL __NEGMAN1
                  __ADDF1210:
-0005a9 2366      	TST  R22
-0005aa f392      	BRMI __ADDF129
-0005ab 0fee      	LSL  R30
-0005ac 1fff      	ROL  R31
-0005ad 1f66      	ROL  R22
-0005ae 957a      	DEC  R23
-0005af f7cb      	BRVC __ADDF1210
+000648 2366      	TST  R22
+000649 f392      	BRMI __ADDF129
+00064a 0fee      	LSL  R30
+00064b 1fff      	ROL  R31
+00064c 1f66      	ROL  R22
+00064d 957a      	DEC  R23
+00064e f7cb      	BRVC __ADDF1210
                  
                  __ZERORES:
-0005b0 27ee      	CLR  R30
-0005b1 27ff      	CLR  R31
-0005b2 01bf      	MOVW R22,R30
-0005b3 915f      	POP  R21
-0005b4 9508      	RET
+00064f 27ee      	CLR  R30
+000650 27ff      	CLR  R31
+000651 01bf      	MOVW R22,R30
+000652 915f      	POP  R21
+000653 9508      	RET
                  
                  __MINRES:
-0005b5 efef      	SER  R30
-0005b6 efff      	SER  R31
-0005b7 e76f      	LDI  R22,0x7F
-0005b8 ef7f      	SER  R23
-0005b9 915f      	POP  R21
-0005ba 9508      	RET
+000654 efef      	SER  R30
+000655 efff      	SER  R31
+000656 e76f      	LDI  R22,0x7F
+000657 ef7f      	SER  R23
+000658 915f      	POP  R21
+000659 9508      	RET
                  
                  __MAXRES:
-0005bb efef      	SER  R30
-0005bc efff      	SER  R31
-0005bd e76f      	LDI  R22,0x7F
-0005be e77f      	LDI  R23,0x7F
-0005bf 915f      	POP  R21
-0005c0 9508      	RET
+00065a efef      	SER  R30
+00065b efff      	SER  R31
+00065c e76f      	LDI  R22,0x7F
+00065d e77f      	LDI  R23,0x7F
+00065e 915f      	POP  R21
+00065f 9508      	RET
                  
                  __MULF12:
-0005c1 935f      	PUSH R21
-0005c2 df2b      	RCALL __UNPACK
-0005c3 3870      	CPI  R23,0x80
-0005c4 f359      	BREQ __ZERORES
-0005c5 3890      	CPI  R25,0x80
-0005c6 f349      	BREQ __ZERORES
-0005c7 2401      	EOR  R0,R1
-0005c8 9408      	SEC
-0005c9 1f79      	ADC  R23,R25
-0005ca f423      	BRVC __MULF124
-0005cb f324      	BRLT __ZERORES
+000660 935f      	PUSH R21
+000661 df2b      	RCALL __UNPACK
+000662 3870      	CPI  R23,0x80
+000663 f359      	BREQ __ZERORES
+000664 3890      	CPI  R25,0x80
+000665 f349      	BREQ __ZERORES
+000666 2401      	EOR  R0,R1
+000667 9408      	SEC
+000668 1f79      	ADC  R23,R25
+000669 f423      	BRVC __MULF124
+00066a f324      	BRLT __ZERORES
                  __MULF125:
-0005cc 2000      	TST  R0
-0005cd f33a      	BRMI __MINRES
-0005ce cfec      	RJMP __MAXRES
+00066b 2000      	TST  R0
+00066c f33a      	BRMI __MINRES
+00066d cfec      	RJMP __MAXRES
                  __MULF124:
-0005cf 920f      	PUSH R0
-0005d0 931f      	PUSH R17
-0005d1 932f      	PUSH R18
-0005d2 933f      	PUSH R19
-0005d3 934f      	PUSH R20
-0005d4 2711      	CLR  R17
-0005d5 2722      	CLR  R18
-0005d6 2799      	CLR  R25
-0005d7 9f68      	MUL  R22,R24
-0005d8 01a0      	MOVW R20,R0
-0005d9 9f8f      	MUL  R24,R31
-0005da 2d30      	MOV  R19,R0
-0005db 0d41      	ADD  R20,R1
-0005dc 1f59      	ADC  R21,R25
-0005dd 9f6b      	MUL  R22,R27
-0005de 0d30      	ADD  R19,R0
-0005df 1d41      	ADC  R20,R1
-0005e0 1f59      	ADC  R21,R25
-0005e1 9f8e      	MUL  R24,R30
-0005e2 d027      	RCALL __MULF126
-0005e3 9fbf      	MUL  R27,R31
-0005e4 d025      	RCALL __MULF126
-0005e5 9f6a      	MUL  R22,R26
-0005e6 d023      	RCALL __MULF126
-0005e7 9fbe      	MUL  R27,R30
-0005e8 d01d      	RCALL __MULF127
-0005e9 9faf      	MUL  R26,R31
-0005ea d01b      	RCALL __MULF127
-0005eb 9fae      	MUL  R26,R30
-0005ec 0d11      	ADD  R17,R1
-0005ed 1f29      	ADC  R18,R25
-0005ee 1f39      	ADC  R19,R25
-0005ef 1f49      	ADC  R20,R25
-0005f0 1f59      	ADC  R21,R25
-0005f1 2fe3      	MOV  R30,R19
-0005f2 2ff4      	MOV  R31,R20
-0005f3 2f65      	MOV  R22,R21
-0005f4 2f52      	MOV  R21,R18
-0005f5 914f      	POP  R20
-0005f6 913f      	POP  R19
-0005f7 912f      	POP  R18
-0005f8 911f      	POP  R17
-0005f9 900f      	POP  R0
-0005fa 2366      	TST  R22
-0005fb f02a      	BRMI __MULF122
-0005fc 0f55      	LSL  R21
-0005fd 1fee      	ROL  R30
-0005fe 1fff      	ROL  R31
-0005ff 1f66      	ROL  R22
-000600 c002      	RJMP __MULF123
+00066e 920f      	PUSH R0
+00066f 931f      	PUSH R17
+000670 932f      	PUSH R18
+000671 933f      	PUSH R19
+000672 934f      	PUSH R20
+000673 2711      	CLR  R17
+000674 2722      	CLR  R18
+000675 2799      	CLR  R25
+000676 9f68      	MUL  R22,R24
+000677 01a0      	MOVW R20,R0
+000678 9f8f      	MUL  R24,R31
+000679 2d30      	MOV  R19,R0
+00067a 0d41      	ADD  R20,R1
+00067b 1f59      	ADC  R21,R25
+00067c 9f6b      	MUL  R22,R27
+00067d 0d30      	ADD  R19,R0
+00067e 1d41      	ADC  R20,R1
+00067f 1f59      	ADC  R21,R25
+000680 9f8e      	MUL  R24,R30
+000681 d027      	RCALL __MULF126
+000682 9fbf      	MUL  R27,R31
+000683 d025      	RCALL __MULF126
+000684 9f6a      	MUL  R22,R26
+000685 d023      	RCALL __MULF126
+000686 9fbe      	MUL  R27,R30
+000687 d01d      	RCALL __MULF127
+000688 9faf      	MUL  R26,R31
+000689 d01b      	RCALL __MULF127
+00068a 9fae      	MUL  R26,R30
+00068b 0d11      	ADD  R17,R1
+00068c 1f29      	ADC  R18,R25
+00068d 1f39      	ADC  R19,R25
+00068e 1f49      	ADC  R20,R25
+00068f 1f59      	ADC  R21,R25
+000690 2fe3      	MOV  R30,R19
+000691 2ff4      	MOV  R31,R20
+000692 2f65      	MOV  R22,R21
+000693 2f52      	MOV  R21,R18
+000694 914f      	POP  R20
+000695 913f      	POP  R19
+000696 912f      	POP  R18
+000697 911f      	POP  R17
+000698 900f      	POP  R0
+000699 2366      	TST  R22
+00069a f02a      	BRMI __MULF122
+00069b 0f55      	LSL  R21
+00069c 1fee      	ROL  R30
+00069d 1fff      	ROL  R31
+00069e 1f66      	ROL  R22
+00069f c002      	RJMP __MULF123
                  __MULF122:
-000601 9573      	INC  R23
-000602 f24b      	BRVS __MULF125
+0006a0 9573      	INC  R23
+0006a1 f24b      	BRVS __MULF125
                  __MULF123:
-000603 dece      	RCALL __ROUND_REPACK
-000604 915f      	POP  R21
-000605 9508      	RET
+0006a2 dece      	RCALL __ROUND_REPACK
+0006a3 915f      	POP  R21
+0006a4 9508      	RET
                  
                  __MULF127:
-000606 0d10      	ADD  R17,R0
-000607 1d21      	ADC  R18,R1
-000608 1f39      	ADC  R19,R25
-000609 c002      	RJMP __MULF128
+0006a5 0d10      	ADD  R17,R0
+0006a6 1d21      	ADC  R18,R1
+0006a7 1f39      	ADC  R19,R25
+0006a8 c002      	RJMP __MULF128
                  __MULF126:
-00060a 0d20      	ADD  R18,R0
-00060b 1d31      	ADC  R19,R1
+0006a9 0d20      	ADD  R18,R0
+0006aa 1d31      	ADC  R19,R1
                  __MULF128:
-00060c 1f49      	ADC  R20,R25
-00060d 1f59      	ADC  R21,R25
-00060e 9508      	RET
+0006ab 1f49      	ADC  R20,R25
+0006ac 1f59      	ADC  R21,R25
+0006ad 9508      	RET
                  
                  __DIVF21:
-00060f 935f      	PUSH R21
-000610 dedd      	RCALL __UNPACK
-000611 3870      	CPI  R23,0x80
-000612 f421      	BRNE __DIVF210
-000613 2011      	TST  R1
+0006ae 935f      	PUSH R21
+0006af dedd      	RCALL __UNPACK
+0006b0 3870      	CPI  R23,0x80
+0006b1 f421      	BRNE __DIVF210
+0006b2 2011      	TST  R1
                  __DIVF211:
-000614 f40a      	BRPL __DIVF219
-000615 cf9f      	RJMP __MINRES
+0006b3 f40a      	BRPL __DIVF219
+0006b4 cf9f      	RJMP __MINRES
                  __DIVF219:
-000616 cfa4      	RJMP __MAXRES
+0006b5 cfa4      	RJMP __MAXRES
                  __DIVF210:
-000617 3890      	CPI  R25,0x80
-000618 f409      	BRNE __DIVF218
+0006b6 3890      	CPI  R25,0x80
+0006b7 f409      	BRNE __DIVF218
                  __DIVF217:
-000619 cf96      	RJMP __ZERORES
+0006b8 cf96      	RJMP __ZERORES
                  __DIVF218:
-00061a 2401      	EOR  R0,R1
-00061b 9408      	SEC
-00061c 0b97      	SBC  R25,R23
-00061d f41b      	BRVC __DIVF216
-00061e f3d4      	BRLT __DIVF217
-00061f 2000      	TST  R0
-000620 cff3      	RJMP __DIVF211
+0006b9 2401      	EOR  R0,R1
+0006ba 9408      	SEC
+0006bb 0b97      	SBC  R25,R23
+0006bc f41b      	BRVC __DIVF216
+0006bd f3d4      	BRLT __DIVF217
+0006be 2000      	TST  R0
+0006bf cff3      	RJMP __DIVF211
                  __DIVF216:
-000621 2f79      	MOV  R23,R25
-000622 931f      	PUSH R17
-000623 932f      	PUSH R18
-000624 933f      	PUSH R19
-000625 934f      	PUSH R20
-000626 2411      	CLR  R1
-000627 2711      	CLR  R17
-000628 2722      	CLR  R18
-000629 2733      	CLR  R19
-00062a 01a9      	MOVW R20,R18
-00062b e290      	LDI  R25,32
+0006c0 2f79      	MOV  R23,R25
+0006c1 931f      	PUSH R17
+0006c2 932f      	PUSH R18
+0006c3 933f      	PUSH R19
+0006c4 934f      	PUSH R20
+0006c5 2411      	CLR  R1
+0006c6 2711      	CLR  R17
+0006c7 2722      	CLR  R18
+0006c8 2733      	CLR  R19
+0006c9 01a9      	MOVW R20,R18
+0006ca e290      	LDI  R25,32
                  __DIVF212:
-00062c 17ae      	CP   R26,R30
-00062d 07bf      	CPC  R27,R31
-00062e 0786      	CPC  R24,R22
-00062f 0741      	CPC  R20,R17
-000630 f030      	BRLO __DIVF213
-000631 1bae      	SUB  R26,R30
-000632 0bbf      	SBC  R27,R31
-000633 0b86      	SBC  R24,R22
-000634 0b41      	SBC  R20,R17
-000635 9408      	SEC
-000636 c001      	RJMP __DIVF214
+0006cb 17ae      	CP   R26,R30
+0006cc 07bf      	CPC  R27,R31
+0006cd 0786      	CPC  R24,R22
+0006ce 0741      	CPC  R20,R17
+0006cf f030      	BRLO __DIVF213
+0006d0 1bae      	SUB  R26,R30
+0006d1 0bbf      	SBC  R27,R31
+0006d2 0b86      	SBC  R24,R22
+0006d3 0b41      	SBC  R20,R17
+0006d4 9408      	SEC
+0006d5 c001      	RJMP __DIVF214
                  __DIVF213:
-000637 9488      	CLC
+0006d6 9488      	CLC
                  __DIVF214:
-000638 1f55      	ROL  R21
-000639 1f22      	ROL  R18
-00063a 1f33      	ROL  R19
-00063b 1c11      	ROL  R1
-00063c 1faa      	ROL  R26
-00063d 1fbb      	ROL  R27
-00063e 1f88      	ROL  R24
-00063f 1f44      	ROL  R20
-000640 959a      	DEC  R25
-000641 f751      	BRNE __DIVF212
-000642 01f9      	MOVW R30,R18
-000643 2d61      	MOV  R22,R1
-000644 914f      	POP  R20
-000645 913f      	POP  R19
-000646 912f      	POP  R18
-000647 911f      	POP  R17
-000648 2366      	TST  R22
-000649 f032      	BRMI __DIVF215
-00064a 0f55      	LSL  R21
-00064b 1fee      	ROL  R30
-00064c 1fff      	ROL  R31
-00064d 1f66      	ROL  R22
-00064e 957a      	DEC  R23
-00064f f24b      	BRVS __DIVF217
+0006d7 1f55      	ROL  R21
+0006d8 1f22      	ROL  R18
+0006d9 1f33      	ROL  R19
+0006da 1c11      	ROL  R1
+0006db 1faa      	ROL  R26
+0006dc 1fbb      	ROL  R27
+0006dd 1f88      	ROL  R24
+0006de 1f44      	ROL  R20
+0006df 959a      	DEC  R25
+0006e0 f751      	BRNE __DIVF212
+0006e1 01f9      	MOVW R30,R18
+0006e2 2d61      	MOV  R22,R1
+0006e3 914f      	POP  R20
+0006e4 913f      	POP  R19
+0006e5 912f      	POP  R18
+0006e6 911f      	POP  R17
+0006e7 2366      	TST  R22
+0006e8 f032      	BRMI __DIVF215
+0006e9 0f55      	LSL  R21
+0006ea 1fee      	ROL  R30
+0006eb 1fff      	ROL  R31
+0006ec 1f66      	ROL  R22
+0006ed 957a      	DEC  R23
+0006ee f24b      	BRVS __DIVF217
                  __DIVF215:
-000650 de81      	RCALL __ROUND_REPACK
-000651 915f      	POP  R21
-000652 9508      	RET
+0006ef de81      	RCALL __ROUND_REPACK
+0006f0 915f      	POP  R21
+0006f1 9508      	RET
                  
                  __CMPF12:
-000653 2399      	TST  R25
-000654 f09a      	BRMI __CMPF120
-000655 2377      	TST  R23
-000656 f042      	BRMI __CMPF121
-000657 1797      	CP   R25,R23
-000658 f048      	BRLO __CMPF122
-000659 f429      	BRNE __CMPF121
-00065a 17ae      	CP   R26,R30
-00065b 07bf      	CPC  R27,R31
-00065c 0786      	CPC  R24,R22
-00065d f020      	BRLO __CMPF122
-00065e f031      	BREQ __CMPF123
+0006f2 2399      	TST  R25
+0006f3 f09a      	BRMI __CMPF120
+0006f4 2377      	TST  R23
+0006f5 f042      	BRMI __CMPF121
+0006f6 1797      	CP   R25,R23
+0006f7 f048      	BRLO __CMPF122
+0006f8 f429      	BRNE __CMPF121
+0006f9 17ae      	CP   R26,R30
+0006fa 07bf      	CPC  R27,R31
+0006fb 0786      	CPC  R24,R22
+0006fc f020      	BRLO __CMPF122
+0006fd f031      	BREQ __CMPF123
                  __CMPF121:
-00065f 9498      	CLZ
-000660 9488      	CLC
-000661 9508      	RET
+0006fe 9498      	CLZ
+0006ff 9488      	CLC
+000700 9508      	RET
                  __CMPF122:
-000662 9498      	CLZ
-000663 9408      	SEC
-000664 9508      	RET
+000701 9498      	CLZ
+000702 9408      	SEC
+000703 9508      	RET
                  __CMPF123:
-000665 9418      	SEZ
-000666 9488      	CLC
-000667 9508      	RET
+000704 9418      	SEZ
+000705 9488      	CLC
+000706 9508      	RET
                  __CMPF120:
-000668 2377      	TST  R23
-000669 f7c2      	BRPL __CMPF122
-00066a 1797      	CP   R25,R23
-00066b f398      	BRLO __CMPF121
-00066c f7a9      	BRNE __CMPF122
-00066d 17ea      	CP   R30,R26
-00066e 07fb      	CPC  R31,R27
-00066f 0768      	CPC  R22,R24
-000670 f388      	BRLO __CMPF122
-000671 f399      	BREQ __CMPF123
-000672 cfec      	RJMP __CMPF121
+000707 2377      	TST  R23
+000708 f7c2      	BRPL __CMPF122
+000709 1797      	CP   R25,R23
+00070a f398      	BRLO __CMPF121
+00070b f7a9      	BRNE __CMPF122
+00070c 17ea      	CP   R30,R26
+00070d 07fb      	CPC  R31,R27
+00070e 0768      	CPC  R22,R24
+00070f f388      	BRLO __CMPF122
+000710 f399      	BREQ __CMPF123
+000711 cfec      	RJMP __CMPF121
                  
                  ;END OF CODE MARKER
                  __END_OF_CODE:
@@ -3698,41 +3947,41 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 ATmega328P register use summary:
-r0 :  55 r1 :  48 r2 :   0 r3 :   5 r4 :   5 r5 :   5 r6 :   5 r7 :   3 
-r8 :   2 r9 :   4 r10:   4 r11:   2 r12:   2 r13:   0 r14:   0 r15:   2 
-r16:   0 r17:  19 r18:  13 r19:  16 r20:  29 r21:  67 r22: 124 r23: 111 
-r24:  90 r25:  74 r26:  99 r27:  76 r28:   4 r29:   1 r30: 260 r31: 126 
-x  :  15 y  :  85 z  :   7 
-Registers used: 31 out of 35 (88.6%)
+r0 :  59 r1 :  51 r2 :   0 r3 :   5 r4 :   5 r5 :   5 r6 :   5 r7 :   3 
+r8 :   2 r9 :   4 r10:   4 r11:   2 r12:   2 r13:   2 r14:   2 r15:   2 
+r16:   0 r17:  36 r18:  13 r19:  16 r20:  29 r21:  67 r22: 130 r23: 116 
+r24:  90 r25:  78 r26: 125 r27:  83 r28:   4 r29:   1 r30: 333 r31: 148 
+x  :   9 y  : 101 z  :   7 
+Registers used: 33 out of 35 (94.3%)
 
 ATmega328P instruction use summary:
-.lds  :   0 .lds.l:   0 .sts  :   0 .sts.l:   0 adc   :  32 add   :  25 
+.lds  :   0 .lds.l:   0 .sts  :   0 .sts.l:   0 adc   :  42 add   :  30 
 adiw  :   3 and   :   5 andi  :   1 asr   :   4 bclr  :   0 bld   :   3 
-brbc  :   0 brbs  :   0 brcc  :   9 brcs  :   3 break :   0 breq  :  28 
-brge  :   3 brhc  :   0 brhs  :   0 brid  :   0 brie  :   0 brlo  :  12 
-brlt  :   5 brmi  :   9 brne  :  19 brpl  :   8 brsh  :   1 brtc  :   3 
+brbc  :   0 brbs  :   0 brcc  :   8 brcs  :   1 break :   0 breq  :  26 
+brge  :   3 brhc  :   0 brhs  :   0 brid  :   0 brie  :   0 brlo  :  14 
+brlt  :   5 brmi  :   9 brne  :  35 brpl  :   8 brsh  :   3 brtc  :   3 
 brts  :   1 brvc  :   4 brvs  :   4 bset  :   0 bst   :   3 call  :   0 
 cbi   :   4 cbr   :   1 clc   :   3 clh   :   0 cli   :   1 cln   :   0 
-clr   :  37 cls   :   0 clt   :   5 clv   :   0 clz   :   2 com   :  11 
-cp    :  10 cpc   :  19 cpi   :  23 cpse  :   0 dec   :  12 des   :   0 
+clr   :  36 cls   :   0 clt   :   5 clv   :   0 clz   :   2 com   :  11 
+cp    :  11 cpc   :  22 cpi   :  37 cpse  :   0 dec   :  13 des   :   0 
 eor   :   7 fmul  :   0 fmuls :   0 fmulsu:   0 icall :   0 ijmp  :   0 
-in    :   1 inc   :   3 jmp   :  28 ld    :  20 ldd   :  29 ldi   : 175 
-lds   :  62 lpm   :   7 lsl   :  15 lsr   :   3 mov   :  84 movw  :  31 
+in    :   2 inc   :   3 jmp   :  28 ld    :  28 ldd   :  29 ldi   : 195 
+lds   :  70 lpm   :   7 lsl   :  15 lsr   :   4 mov   :  99 movw  :  33 
 mul   :  19 muls  :   0 mulsu :   0 neg   :   3 nop   :   0 or    :   0 
-ori   :   0 out   :  20 pop   :  37 push  :  37 rcall : 152 ret   :  56 
-reti  :   2 rjmp  :  49 rol   :  33 ror   :  21 sbc   :  16 sbci  :  14 
-sbi   :   4 sbic  :   0 sbis  :   0 sbiw  :   6 sbr   :   3 sbrc  :   4 
+ori   :   1 out   :  21 pop   :  37 push  :  37 rcall : 161 ret   :  66 
+reti  :   3 rjmp  :  46 rol   :  33 ror   :  24 sbc   :  18 sbci  :  14 
+sbi   :   4 sbic  :   0 sbis  :   0 sbiw  :   7 sbr   :   3 sbrc  :   4 
 sbrs  :   3 sec   :   5 seh   :   0 sei   :   1 sen   :   0 ser   :   9 
 ses   :   0 set   :   4 sev   :   0 sez   :   1 sleep :   0 spm   :   0 
-st    :  31 std   :  20 sts   :  58 sub   :   8 subi  :   7 swap  :   0 
-tst   :  20 wdr   :   0 
-Instructions used: 76 out of 116 (65.5%)
+st    :  33 std   :  20 sts   :  88 sub   :  10 subi  :   7 swap  :   0 
+tst   :  21 wdr   :   0 
+Instructions used: 77 out of 116 (66.4%)
 
 ATmega328P memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000ce6   3138    164   3302   32768  10.1%
-[.dseg] 0x000100 0x000847      0   1351   1351    2048  66.0%
+[.cseg] 0x000000 0x000e24   3540     80   3620   32768  11.0%
+[.dseg] 0x000100 0x00084c      0   1356   1356    2048  66.2%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
-Assembly complete, 0 errors, 18 warnings
+Assembly complete, 0 errors, 17 warnings

@@ -8,16 +8,21 @@ result                                                                          
 A                                                                                 0x0820       4
 error                                                                             0x0824       4
 time12                                                                            0x0828       2
-integral                                                                          0x082A       4
-previous_error                                                                    0x082E       4
-derivative                                                                        0x0832       4
-Kp                                                                                0x0836       2
-Ki                                                                                0x0838       2
-Kd                                                                                0x083A       2
-flagPWM                                                                           0x083C       1
-Y                                                                                 0x083D       4
-pwm_value                                                                         0x0841       2
-_seed (stdlib.lib)                                                                0x0843       4
+flag                                                                              0x082A       2
+integral                                                                          0x082C       4
+previous_error                                                                    0x0830       4
+derivative                                                                        0x0834       4
+Kp                                                                                0x0838       2
+Ki                                                                                0x083A       2
+Kd                                                                                0x083C       2
+flagPWM                                                                           0x083E       1
+pwm_value                                                                         0x083F       4
+flagT                                                                             0x0843       1
+flagA                                                                             0x0844       1
+flagP                                                                             0x0845       1
+flagI                                                                             0x0846       1
+flagD                                                                             0x0847       1
+_seed (stdlib.lib)                                                                0x0848       4
 
 EEPROM Allocation [bytes]
 Variable                                                                          Address   Size
@@ -38,13 +43,14 @@ T                                                                               
 FLASH Allocation [words]
 Function                                                                          Address   Size
 ------------------------------------------------------------------------------------------------
-generSin                                                                          0x000B5     41
-generSinUgol                                                                      0x000DE     47
-my_abs                                                                            0x0010D     10
-ext_int0_isr                                                                      0x00117      1
-timer0_ovf_isr                                                                    0x00118     80
-main                                                                              0x00168    342
-putchar                                                                           0x002BE     10
-ftrunc                                                                            0x002C8     48
-floor                                                                             0x002F8     22
-sin                                                                               0x0030E    101
+generSin                                                                          0x0008B     41
+generSinUgol                                                                      0x000B4     47
+my_abs                                                                            0x000E3     10
+ext_int0_isr                                                                      0x000ED      1
+timer0_ovf_isr                                                                    0x000EE     81
+usartRX_data                                                                      0x0013F    159
+main                                                                              0x001DE    314
+putchar                                                                           0x00318     10
+ftrunc                                                                            0x00322     48
+floor                                                                             0x00352     22
+sin                                                                               0x00368    101
