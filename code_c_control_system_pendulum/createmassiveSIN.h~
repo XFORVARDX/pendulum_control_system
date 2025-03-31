@@ -4,7 +4,7 @@
 
 #define FIX16_SCALE 32768 // ƒл€ представлени€ фиксированной точки с 16 битами
 #define MI_P 3.14159265358979323846
-#define samls 256
+#define samls 252
 #define MAXugol 400
 int fix16_sin[samls];
 int i = 0;

@@ -65,12 +65,12 @@ interrupt [EXT_INT0] void ext_int0_isr(void)
 {
 if (PINB.4 == 1)
 {     
-  //ugol++;    
+  ugol++;    
   
 }
 else
 {
-  //ugol--;
+  ugol--;
 }
 
 }
@@ -103,7 +103,64 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
         putchar(byte1);   
         putchar(byte2);    
         time12=time12+100; 
-        if(time12>16128)time12 = 0;      
+        if(time12>(samls*8))time12 = 0;
+        if(time12>16128)time12 =0;
+    result = A*(fix16_sin[(time12>>3)]);  
+    //result = 1966080;
+    ugol = 0;
+    //result =  A*sin(0.016384*T*time12*2*PI);   
+    error = (A*((sin_ugol[ugol>>1])) -  result)/100;
+    //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
+    //error = (int16_t)(error>>2);    
+    // Вычисление интегральной составляющей
+    integral += error * dt;
+    // Вычисление дифференциальной составляющей
+    derivative = error - previous_error; 
+    pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/10);    
+    //pwm_value = (Y); // Преобразование float в uint16_t         
+    //error = 1;                   
+                    //OCR1AH = 0xFF; // Высший байт
+               
+    //OCR1AL = 254;  
+        if (pwm_value > 65535) {
+            pwm_value = 65535;  
+            
+        }    
+        if (error<0){   
+            
+            if(flagPWM == 0){
+            flagPWM = 1;
+            PORTD.7 = 0;  
+            PIND.6=1;        
+            }
+            if(pwm_value <= 65535){      
+               //#asm("cli")
+               OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+               OCR1AL = pwm_value & 0xFF; // Нижний байт  
+               //#asm("sei")     
+            }  
+        }
+            else if(error>0){   
+            if(flagPWM == 1)
+            { 
+            flagPWM = 0;     
+            PORTD.7 = 1;  
+            PIND.6 = 0; 
+            }
+            if(pwm_value <= 65535) {  
+                //#asm("cli")
+                OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+                OCR1AL = pwm_value & 0xFF; // Нижний байт   
+                //#asm("sei")      
+            } 
+            else {
+                OCR1BH = 0; 
+                OCR1BL = 0;
+                previous_error = 0;    
+            }
+        }        
+    previous_error =  error;
+    // OCR1AH = 0;      
         //PORTB &= ~(1 << PORTB5);    
 }
 // Declare your global variables here
@@ -288,56 +345,56 @@ generSinUgol();
 while (1)
     {  
     // result =A*datay[5];          
-    if(time12>16128)time12 =0;
-    result = A*(fix16_sin[(time12>>6)]);  
-    //result = 1966080;
-    //result =  A*sin(0.016384*T*time12*2*PI);   
-    error = (A*((sin_ugol[ugol>>1])) -  result)/100;
-    //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
-    //error = (int16_t)(error>>2);    
-    // Вычисление интегральной составляющей
-    integral += error * dt;
-    // Вычисление дифференциальной составляющей
-    derivative = error - previous_error; 
-    pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/1000);    
-    //pwm_value = (Y); // Преобразование float в uint16_t         
-    //error = 1;                   
-                    //OCR1AH = 0xFF; // Высший байт
-               
-    //OCR1AL = 254;  
-        if (pwm_value > 65535) {
-            pwm_value = 65535;  
-            
-        }    
-        if ((error<-1) && (flagPWM == 0)){   
-            flagPWM = 1; 
-            PORTD.7 = 0;  
-            PIND.6=1;    
-            if(pwm_value <= 65535){      
-               //#asm("cli")
-               OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
-               OCR1AL = pwm_value & 0xFF; // Нижний байт  
-               //#asm("sei")     
-            }  
-        }
-            else if((error>1) && (flagPWM == 1)){    
-            flagPWM = 0;
-            PORTD.7 = 1;  
-            PIND.6 = 0; 
-            if(pwm_value <= 65535) {  
-                //#asm("cli")
-                OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
-                OCR1AL = pwm_value & 0xFF; // Нижний байт   
-                //#asm("sei")      
-            } 
-            else {
-                //OCR1BH = 0; 
-                //OCR1BL = 0;
-                previous_error = 0;    
-            }
-        }        
-    previous_error =  error;
-    // OCR1AH = 0;
+//    if(time12>16128)time12 =0;
+//    result = A*(fix16_sin[(time12>>6)]);  
+//    //result = 1966080;
+//    //result =  A*sin(0.016384*T*time12*2*PI);   
+//    error = (A*((sin_ugol[ugol>>1])) -  result)/100;
+//    //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
+//    //error = (int16_t)(error>>2);    
+//    // Вычисление интегральной составляющей
+//    integral += error * dt;
+//    // Вычисление дифференциальной составляющей
+//    derivative = error - previous_error; 
+//    pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/100);    
+//    //pwm_value = (Y); // Преобразование float в uint16_t         
+//    //error = 1;                   
+//                    //OCR1AH = 0xFF; // Высший байт
+//               
+//    //OCR1AL = 254;  
+//        if (pwm_value > 65535) {
+//            pwm_value = 65535;  
+//            
+//        }    
+//        if (error<0){   
+//            flagPWM = 1; 
+//            PORTD.7 = 0;  
+//            PIND.6=1;    
+//            if(pwm_value <= 65535){      
+//               //#asm("cli")
+//               OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+//               OCR1AL = pwm_value & 0xFF; // Нижний байт  
+//               //#asm("sei")     
+//            }  
+//        }
+//            else if(error>0){    
+//            flagPWM = 0;
+//            PORTD.7 = 1;  
+//            PIND.6 = 0; 
+//            if(pwm_value <= 65535) {  
+//                //#asm("cli")
+//                OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+//                OCR1AL = pwm_value & 0xFF; // Нижний байт   
+//                //#asm("sei")      
+//            } 
+//            else {
+//                //OCR1BH = 0; 
+//                //OCR1BL = 0;
+//                previous_error = 0;    
+//            }
+//        }        
+//    previous_error =  error;
+//    // OCR1AH = 0;
       
     }
 }
