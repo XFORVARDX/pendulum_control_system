@@ -142,7 +142,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="7b2K1Y0jvREfLudPawNW-55" value="ugol++" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+        <mxCell id="7b2K1Y0jvREfLudPawNW-55" value="ugol--" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="510.01" y="177.5" width="46.95" height="15" as="geometry" />
         </mxCell>
       </root>
