@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 YaBrowser/25.2.0.0 Safari/537.36" version="26.2.10">
   <diagram name="Страница — 1" id="oFeI4IzwDTeMwtEr_Rw7">
-    <mxGraphModel dx="720" dy="372" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="994" dy="514" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -114,26 +114,36 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="7b2K1Y0jvREfLudPawNW-61" value="Да" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="7b2K1Y0jvREfLudPawNW-56">
+          <mxGeometry x="-0.6261" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="7b2K1Y0jvREfLudPawNW-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7b2K1Y0jvREfLudPawNW-49" target="7b2K1Y0jvREfLudPawNW-55">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="516" y="148" />
+              <mxPoint x="533" y="148" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="7b2K1Y0jvREfLudPawNW-49" value="Канал Б&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="7b2K1Y0jvREfLudPawNW-62" value="Нет" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="7b2K1Y0jvREfLudPawNW-58">
+          <mxGeometry x="-0.5358" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7b2K1Y0jvREfLudPawNW-49" value="Канал Б = 1" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="380" y="120" width="130.01" height="55" as="geometry" />
         </mxCell>
         <mxCell id="7b2K1Y0jvREfLudPawNW-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7b2K1Y0jvREfLudPawNW-55" target="7b2K1Y0jvREfLudPawNW-48">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="519" y="210" />
+              <mxPoint x="534" y="210" />
               <mxPoint x="445" y="210" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="7b2K1Y0jvREfLudPawNW-55" value="ugol++" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="492.56" y="177.5" width="46.95" height="15" as="geometry" />
+          <mxGeometry x="510.01" y="177.5" width="46.95" height="15" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
