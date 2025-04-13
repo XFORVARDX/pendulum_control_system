@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 YaBrowser/25.2.0.0 Safari/537.36" version="26.2.10">
+  <diagram name="Страница — 1" id="AFYpMhPHs1pD8Qywxrqk">
+    <mxGraphModel dx="1044" dy="540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DS3g_occrMwrthtSbe9c-1" value="Начало прерывания па таймеру(0.164)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="90" width="104" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-3" value="Конец прерывания" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="310" width="104" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DS3g_occrMwrthtSbe9c-6" target="DS3g_occrMwrthtSbe9c-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-6" value="Начало&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="80" width="104" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DS3g_occrMwrthtSbe9c-7" target="DS3g_occrMwrthtSbe9c-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-7" value="&lt;div style=&quot;padding: 30px; font-size: medium; text-align: start;&quot; class=&quot;rtcContent&quot;&gt;&lt;div style=&quot;font-size: 10pt; font-family: Menlo, Monaco, Consolas, &amp;quot;Courier New&amp;quot;, monospace;&quot; class=&quot;lineNode&quot;&gt;&lt;div style=&quot;padding: 30px; font-size: medium;&quot; class=&quot;rtcContent&quot;&gt;&lt;div style=&quot;font-size: 10pt;&quot; class=&quot;lineNode&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;ADatareal &lt;span style=&quot;color: rgb(160, 82, 45);&quot;&gt;double &lt;/span&gt;= [ 0]; &lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="205.5" y="160" width="213" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DS3g_occrMwrthtSbe9c-9" target="DS3g_occrMwrthtSbe9c-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-9" value="открытие COM порта для чтения" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="252" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DS3g_occrMwrthtSbe9c-11" target="DS3g_occrMwrthtSbe9c-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-11" value="Инициализация таймера и прерывания каждый 0.00164 мс" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="252" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DS3g_occrMwrthtSbe9c-19" target="DS3g_occrMwrthtSbe9c-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-16" value="Да" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DS3g_occrMwrthtSbe9c-15">
+          <mxGeometry x="0.1227" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DS3g_occrMwrthtSbe9c-19" target="DS3g_occrMwrthtSbe9c-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-18" value="Нет" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DS3g_occrMwrthtSbe9c-17">
+          <mxGeometry x="0.2847" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-19" value="while(True)" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="237" y="380" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DS3g_occrMwrthtSbe9c-21" target="DS3g_occrMwrthtSbe9c-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="530" />
+              <mxPoint x="430" y="425" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-21" value="__NOP();" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="244" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DS3g_occrMwrthtSbe9c-22" value="Конец" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="385" width="110" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
