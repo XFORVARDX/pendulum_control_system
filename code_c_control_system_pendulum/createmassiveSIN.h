@@ -6,10 +6,10 @@
 #define MI_P 3.14159265358979323846
 #define samls 256
 #define MAXugol 400
-int fix16_sin[samls];
+int16_t fix16_sin[samls];
 int i = 0;
 float x = 0;
-int sin_ugol[MAXugol];
+int16_t sin_ugol[MAXugol];
 
 
 int generSin() {
@@ -19,7 +19,8 @@ int generSin() {
         // Преобразуем i в радианы
         x = 2*(3.14 * i) / samls; // x от -1 до 1
         // Вычисляем синус и масштабируем в fix16
-        fix16_sin[i] = (int)(sin(x) * FIX16_SCALE);
+        fix16_sin[i] = (int)(sin(x) * FIX16_SCALE);  
+        //fix16_sin[i] = sin(x);
     }                                               
 
 
@@ -34,7 +35,8 @@ int generSinUgol() {
         // Преобразуем i в радианы
         x = ((k-MAXugol>>1)*0.9*3.14) / 180; // x от -1 до 1
         // Вычисляем синус и масштабируем в fix16
-        sin_ugol[k] = (int)(sin(x) * FIX16_SCALE );     
+        sin_ugol[k] = (int)(sin(x) * FIX16_SCALE );
+        //sin_ugol[k] = sin(x) ;     
         
         
     }                                               

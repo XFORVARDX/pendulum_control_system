@@ -1,0 +1,13 @@
+//setting peripherals
+#include "peripherals.c"
+#ifndef PERIPHERALS_H
+#define PERIPHERALS_H
+
+void setPORTS(void);
+void setCLK(void);               z
+void setTimers(void);
+void setEXT(void);
+void uartconfig(void);
+
+#endif // PERIPHERALS_H
+ 

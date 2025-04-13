@@ -1,13 +1,10 @@
 /*******************************************************
 This program was created by the CodeWizardAVR V3.27 
-Automatic Program Generator
- Copyright 1998-2016 Pavel Haiduc, HP InfoTech s.r.l.
-http://www.hpinfotech.com
-Project : NIRcode
+Project : DIPLOM
 Version : 
 Date    : 17.04.2024
-Author  : 
-Company : 
+Author  : FORVARD
+Company : KB52
 Comments: 
 
 
@@ -25,16 +22,18 @@ Data Stack size         : 512
 #include <stdio.h>
 #include <math.h>
 #include <stdint.h>
+#include <mega328p.h>
+#include <peripherals.h>
 #include "createmassiveSIN.h"
 #define dt 0.0163
 
 
-int ugol = 0;
+volatile int ugol = 0;
 unsigned char byte1,byte2,byte3,byte4 ;
 int32_t result = 0;    // результат функции 
 //задаем параметры функции синуса(из которой будем получать ошибку) y = A*sin(T*t)
 int32_t A = 60 ;//амплитуда , потом будем задавать матлабом 
-int T = 1 ; // период , потом будем принимать с матлаба 
+int T = 3 ; // период , потом будем принимать с матлаба    //3~0.684 ms  каждое увеличение в 2 раза
 int32_t error = 0;// для расчета ошибки 
 int time12 = 0;
 int flag = 0;
@@ -47,7 +46,6 @@ int16_t Kp = 200;
 int16_t Ki = 0;
 int16_t Kd = 1;
 uint8_t flagPWM = 0;
-//uint32_t Y = 0 ;
 uint32_t pwm_value = 0;
 uint32_t my_abs(int32_t value) {
     return (value < 0) ? -value : value;
@@ -58,69 +56,65 @@ uint8_t flagP = 0   ;
 uint8_t flagI = 0   ;
 uint8_t flagD = 0   ;
 
-// Declare your global variables here
-
 // External Interrupt 0 service routine
 interrupt [EXT_INT0] void ext_int0_isr(void)
 {
+                  //PORTB ^= (1 << PORTB5); // Переключение состояния светодиода L (PB5)
 if (PINB.4 == 1)
 {     
   ugol++;    
-  
 }
 else
 {
   ugol--;
 }
-
+EIFR |= (1 << INTF0); // Установка флага INTF0 для вызова прерывания INT0
 }
 // Timer 0 overflow interrupt service routine
 interrupt [TIM0_OVF] void timer0_ovf_isr(void)
 
 {       
-          
-//sprintf(buffer, "%d", ugol);
-//                    
-//        puts(buffer);   
+        //PORTB ^= (1 << PORTB5); // Переключение состояния светодиода L (PB5)
 
         byte1 = (ugol >> 8) & 0xFF;
         byte2 = ugol & 0xFF;  
-        putchar(0x1c);
+        putchar(0x1c);   // преамбула для пакета угла
         putchar(byte1);   
         putchar(byte2);        
         byte1 = (pwm_value >> 8) & 0xFF;
         byte2 = pwm_value & 0xFF; 
-        putchar(0x2d); 
+        putchar(0x2d);  // преамбула для пакета управления
         putchar(byte1);   
         putchar(byte2);
         byte4 = (error >> 24) & 0xFF;      
         byte3 = (error >> 16) & 0xFF;
         byte1 = (error >> 8) & 0xFF;
         byte2 = error & 0xFF; 
-        putchar(0x2c);   
+        putchar(0x2c);       // преамбула для ошибки        
         putchar(byte4);    
         putchar(byte3);
         putchar(byte1);   
         putchar(byte2);    
         time12=time12+100; 
-        if(time12>(samls*8))time12 = 0;
+        if(time12>(samls*(1<<T)))time12 = 0;
         if(time12>16128)time12 =0;
-    result = A*(fix16_sin[(time12>>3)]);  
-    //result = 1966080;
-    //result =  A*sin(0.016384*T*time12*2*PI);   
-    error = (A*((sin_ugol[ugol>>1])) -  result)/100;
-    //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
-    //error = (int16_t)(error>>2);    
-    // Вычисление интегральной составляющей
-    integral += error * dt;
-    // Вычисление дифференциальной составляющей
-    derivative = error - previous_error; 
-    pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/10);    
-    //pwm_value = (Y); // Преобразование float в uint16_t         
-    //error = 1;                   
-                    //OCR1AH = 0xFF; // Высший байт
-               
-    //OCR1AL = 254;  
+        
+        //cordic
+        //PORTB ^= (1 << PORTB5); // Переключение состояния светодиода L (PB5)
+
+        //result =  A*sin(0.016384*T*time12*2*PI);   
+        //error = (A*((sin_ugol[ugol>>1])) -  result)/100;
+        //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
+        //    //error = (int16_t)(error>>2);    
+        result = A*(fix16_sin[(time12>>T)]);  
+        error = (A*((sin_ugol[ugol>>1])) -  result)/100;
+        // Вычисление интегральной составляющей
+        integral += error * dt;
+        // Вычисление дифференциальной составляющей
+        derivative = error - previous_error; 
+        pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/10);   
+       
+
         if (pwm_value > 65535) {
             pwm_value = 65535;  
             
@@ -133,10 +127,8 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
             PIND.6=1;        
             }
             if(pwm_value <= 65535){      
-               //#asm("cli")
                OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
-               OCR1AL = pwm_value & 0xFF; // Нижний байт  
-               //#asm("sei")     
+               OCR1AL = pwm_value & 0xFF; // Нижний байт    
             }  
         }
             else if(error>0){   
@@ -147,25 +139,22 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
             PIND.6 = 0; 
             }
             if(pwm_value <= 65535) {  
-                //#asm("cli")
                 OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
-                OCR1AL = pwm_value & 0xFF; // Нижний байт   
-                //#asm("sei")      
+                OCR1AL = pwm_value & 0xFF; // Нижний байт       
             } 
             else {
                 OCR1BH = 0; 
                 OCR1BL = 0;
-                previous_error = 0;    
+               previous_error = 0;    
             }
+
         }        
     previous_error =  error;
-    // OCR1AH = 0;      
-        //PORTB &= ~(1 << PORTB5);    
+    //PORTB ^= (1 << PORTB5); // Переключение состояния светодиода L (PB5) 
 }
 // Declare your global variables here
 interrupt[USART_RXC] void usartRX_data(void) {
-    // Чтение принятого байта из регистра UDR0 
-    
+    // Чтение принятого байта из регистра UDR0    
     uint8_t received_data = UDR0;   
     if(received_data == 0x0A){
         flagA = 1;
@@ -218,182 +207,87 @@ interrupt[USART_RXC] void usartRX_data(void) {
         Kd = Kd + received_data; 
         flagD = 0;
     }  
-
-
-
 }
+
+
 void main(void)
 {
-// Declare your local variables here
-
-// Crystal Oscillator division factor: 1
-#pragma optsize-
-CLKPR=(1<<CLKPCE);
-CLKPR=(0<<CLKPCE) | (0<<CLKPS3) | (0<<CLKPS2) | (0<<CLKPS1) | (0<<CLKPS0);
-#ifdef _OPTIMIZE_SIZE_
-#pragma optsize+
-#endif
-
-// Input/Output Ports initialization
-// Port B initialization
-// Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
-DDRB=(0<<DDB7) | (0<<DDB6) | (1<<DDB5) | (0<<DDB4) | (0<<DDB3) | (0<<DDB2) | (1<<DDB1) | (1<<DDB0);
-// State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
-PORTB=(0<<PORTB7) | (0<<PORTB6) | (0<<PORTB5) | (0<<PORTB4) | (0<<PORTB3) | (0<<PORTB2) | (0<<PORTB1) | (0<<PORTB0);
-
-// Port C initialization
-// Function: Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
-DDRC=(0<<DDC6) | (0<<DDC5) | (0<<DDC4) | (0<<DDC3) | (0<<DDC2) | (0<<DDC1) | (0<<DDC0);
-// State: Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
-PORTC=(0<<PORTC6) | (0<<PORTC5) | (0<<PORTC4) | (0<<PORTC3) | (0<<PORTC2) | (0<<PORTC1) | (0<<PORTC0);
-
-// Port D initialization
-// Function: Bit7=In Bit6=In Bit5=In Bit4=In Bit3=In Bit2=In Bit1=In Bit0=In 
-DDRD=(1<<DDD7) | (1<<DDD6) | (0<<DDD5) | (0<<DDD4) | (0<<DDD3) | (0<<DDD2) | (1<<DDD1) | (0<<DDD0);
-// State: Bit7=T Bit6=T Bit5=T Bit4=T Bit3=T Bit2=T Bit1=T Bit0=T 
-PORTD=(0<<PORTD7) | (0<<PORTD6) | (0<<PORTD5) | (0<<PORTD4) | (0<<PORTD3) | (0<<PORTD2) | (0<<PORTD1) | (0<<PORTD0);
-
-// Timer/Counter 0 initialization
-// Clock source: System Clock
-// Clock value: 15,625 kHz
-// Mode: Normal top=0xFF
-// OC0A output: Disconnected
-// OC0B output: Disconnected
-// Timer Period: 16,384 ms
-TCCR0A=(0<<COM0A1) | (0<<COM0A0) | (0<<COM0B1) | (0<<COM0B0) | (0<<WGM01) | (0<<WGM00);
-TCCR0B=(0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
-TCNT0=0x00;
-OCR0A=0x00;
-OCR0B=0x00;
+    
+    //peripherals config
+    setCLK();
+    setPORTS();
+    setTimers();   
+    setEXT();
+    uartconfig();
 
 
-// Timer/Counter 0 Interrupt(s) initialization
-TIMSK0=(0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
+    #asm("sei")
+    PIND.6=0;
+    PORTB.5 = 0;
+    PORTD.7 = 0;
+    PORTB.1 = 1; 
+    generSin();        // заполнениение массива синуса 
+    generSinUgol();
+    PORTD.7 = 1;  
+    PIND.6 = 0; 
+    OCR1BH = 244; 
+    OCR1BL = 244;
 
 
-// External Interrupt(s) initialization
-// INT0: On
-// INT0 Mode: Rising Edge
-// INT1: Off
-// Interrupt on any change on pins PCINT0-7: Off
-// Interrupt on any change on pins PCINT8-14: Off
-// Interrupt on any change on pins PCINT16-23: Off
-EICRA=(0<<ISC11) | (0<<ISC10) | (1<<ISC01) | (1<<ISC00);
-EIMSK=(0<<INT1) | (1<<INT0);
-EIFR=(0<<INTF1) | (1<<INTF0);
-PCICR=(0<<PCIE2) | (0<<PCIE1) | (0<<PCIE0);
-
-// USART initialization
-// Communication Parameters: 8 Data, 1 Stop, No Parity
-// USART Receiver: Off
-// USART Transmitter: On
-// USART Mode: Asynchronous
-
-// Настройка UART на скорость 115200
-UCSR0A = (1 << U2X0);  // Включение режима двойной скорости (если требуется)
-UCSR0B = (0 << RXCIE0) | (0 << TXCIE0) | (0 << UDRIE0) | (0 << RXEN0) | (1 << TXEN0) | (0 << UCSZ02) | (0 << RXB80) | (0 << TXB80);
-UCSR0C = (0 << UMSEL01) | (0 << UMSEL00) | (0 << UPM01) | (0 << UPM00) | (0 << USBS0) | (1 << UCSZ01) | (1 << UCSZ00) | (0 << UCPOL0);
-
-// Установка baud rate
-UBRR0H = 0x00;  // Старший байт UBRR0
-UBRR0L = 0x10;  // Младший байт UBRR0 (для U2X0 = 1)
-// Включение приемника и передатчика
-UCSR0B = (1 << RXEN0) | (1 << TXEN0);
-
-// Включение прерывания по завершению приема данных (RX Complete)
-UCSR0B |= (1 << RXCIE0);
-
-
-// Timer/Counter 1 initialization
-// Clock source: System Clock
-// Clock value: 2000,000 kHz
-// Mode: Ph. correct PWM top=0x00FF
-// OC1A output: Non-Inverted PWM
-// OC1B output: Disconnected
-// Noise Canceler: Off
-// Input Capture on Falling Edge
-// Timer Period: 0,255 ms
-// Output Pulse(s):
-// OC1A Period: 0,255 ms Width: 0,127 ms
-// Timer1 Overflow Interrupt: Off
-// Input Capture Interrupt: Off
-// Compare A Match Interrupt: Off
-// Compare B Match Interrupt: Off
-TCCR1A=(1<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (1<<WGM11) | (1<<WGM10);
-TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (1<<CS11) | (0<<CS10);
-TCNT1H=0x00;
-TCNT1L=0x00;
-ICR1H=0x00;
-ICR1L=0x00;
-OCR1AH=0xFF;
-OCR1AL=0xFA;
-OCR1BH=0x00;
-OCR1BL=0x00;
-// Timer/Counter 1 Interrupt(s) initialization
-TIMSK1=(0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (0<<TOIE1);
-#asm("sei")
-PIND.6=0;
-PORTB.5 = 1;
-PORTD.7 = 0;
-PORTB.1 = 1; 
-//сделай график управления в режиме реального времени
-generSin();
-generSinUgol();
-
-
-while (1)
+    while (1)
     {  
-    // result =A*datay[5];          
-//    if(time12>16128)time12 =0;
-//    result = A*(fix16_sin[(time12>>6)]);  
-//    //result = 1966080;
-//    //result =  A*sin(0.016384*T*time12*2*PI);   
-//    error = (A*((sin_ugol[ugol>>1])) -  result)/100;
-//    //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
-//    //error = (int16_t)(error>>2);    
-//    // Вычисление интегральной составляющей
-//    integral += error * dt;
-//    // Вычисление дифференциальной составляющей
-//    derivative = error - previous_error; 
-//    pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/100);    
-//    //pwm_value = (Y); // Преобразование float в uint16_t         
-//    //error = 1;                   
-//                    //OCR1AH = 0xFF; // Высший байт
-//               
-//    //OCR1AL = 254;  
-//        if (pwm_value > 65535) {
-//            pwm_value = 65535;  
-//            
-//        }    
-//        if (error<0){   
-//            flagPWM = 1; 
-//            PORTD.7 = 0;  
-//            PIND.6=1;    
-//            if(pwm_value <= 65535){      
-//               //#asm("cli")
-//               OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
-//               OCR1AL = pwm_value & 0xFF; // Нижний байт  
-//               //#asm("sei")     
-//            }  
-//        }
-//            else if(error>0){    
-//            flagPWM = 0;
-//            PORTD.7 = 1;  
-//            PIND.6 = 0; 
-//            if(pwm_value <= 65535) {  
-//                //#asm("cli")
-//                OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
-//                OCR1AL = pwm_value & 0xFF; // Нижний байт   
-//                //#asm("sei")      
-//            } 
-//            else {
-//                //OCR1BH = 0; 
-//                //OCR1BL = 0;
-//                previous_error = 0;    
-//            }
-//        }        
-//    previous_error =  error;
-//    // OCR1AH = 0;
+    
+        // result =A*datay[5];          
+        //    if(time12>16128)time12 =0;
+        //    result = A*(fix16_sin[(time12>>6)]);  
+        //    //result = 1966080;
+        //    //result =  A*sin(0.016384*T*time12*2*PI);   
+        //    error = (A*((sin_ugol[ugol>>1])) -  result)/100;
+        //    //error =((int16_t)(A*sin(ugol/1.39*PI/180))) - result;
+        //    //error = (int16_t)(error>>2);    
+        //    // Вычисление интегральной составляющей
+        //    integral += error * dt;
+        //    // Вычисление дифференциальной составляющей
+        //    derivative = error - previous_error; 
+        //    pwm_value = (my_abs(Kp * error + Ki * integral + Kd * derivative)/100);    
+        //    //pwm_value = (Y); // Преобразование float в uint16_t         
+        //    //error = 1;                   
+        //                    //OCR1AH = 0xFF; // Высший байт
+        //               
+        //    //OCR1AL = 254;  
+        //        if (pwm_value > 65535) {
+        //            pwm_value = 65535;  
+        //            
+        //        }    
+        //        if (error<0){   
+        //            flagPWM = 1; 
+        //            PORTD.7 = 0;  
+        //            PIND.6=1;    
+        //            if(pwm_value <= 65535){      
+        //               //#asm("cli")
+        //               OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+        //               OCR1AL = pwm_value & 0xFF; // Нижний байт  
+        //               //#asm("sei")     
+        //            }  
+        //        }
+        //            else if(error>0){    
+        //            flagPWM = 0;
+        //            PORTD.7 = 1;  
+        //            PIND.6 = 0; 
+        //            if(pwm_value <= 65535) {  
+        //                //#asm("cli")
+        //                OCR1AH = (pwm_value >> 8) & 0xFF; // Высший байт
+        //                OCR1AL = pwm_value & 0xFF; // Нижний байт   
+        //                //#asm("sei")      
+        //            } 
+        //            else {
+        //                //OCR1BH = 0; 
+        //                //OCR1BL = 0;
+        //                previous_error = 0;    
+        //            }
+        //        }        
+        //    previous_error =  error;
+        //    // OCR1AH = 0;
       
     }
 }
