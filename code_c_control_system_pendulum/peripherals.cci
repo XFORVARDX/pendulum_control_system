@@ -1,6 +1,8 @@
-VERSION:3 SOURCE_TIMESTAMP:5A8D80CD
+VERSION:3 SOURCE_TIMESTAMP:5AAC25EB
 NODE:F LEVEL:0 LINE:3 "setPORTS(void)"
 NODE:F LEVEL:0 LINE:24 "setCLK(void)"
 NODE:F LEVEL:0 LINE:34 "setTimers(void)"
 NODE:F LEVEL:0 LINE:82 "setEXT(void)"
 NODE:F LEVEL:0 LINE:96 "uartconfig(void)"
+NODE:F LEVEL:0 LINE:118 "send_byte(uint8_t byte)"
+NODE:F LEVEL:0 LINE:123 "calculate_crc(uint8_t * data,uint8_t len)"

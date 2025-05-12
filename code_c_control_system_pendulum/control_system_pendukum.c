@@ -28,6 +28,21 @@ Data Stack size         : 512
 #define dt 0.0163
 
 
+#define PACKET_SIZE 9
+#define PREAMBLE 0x88 
+
+typedef struct {
+    uint8_t preamble;
+    uint8_t type;
+    uint8_t length;
+    uint8_t data[6];
+    uint8_t crc;
+} Packet;
+
+Packet rx_packet;
+volatile uint8_t rx_index = 0;
+volatile uint8_t packet_received = 0;
+
 volatile int ugol = 0;
 unsigned char byte1,byte2,byte3,byte4 ;
 int32_t result = 0;    // результат функции 
@@ -42,9 +57,9 @@ int32_t integral = 0;       // Интегральная составляющая
 int32_t previous_error = 0; // Предыдущее значение ошибки
 int32_t derivative;
 //коэффициенты ПИД регулятора
-int16_t Kp = 200;
-int16_t Ki = 0;
-int16_t Kd = 1;
+volatile int16_t Kp = 200;
+volatile int16_t Ki = 0;
+volatile int16_t Kd = 1;
 uint8_t flagPWM = 0;
 uint32_t pwm_value = 0;
 uint32_t my_abs(int32_t value) {
@@ -153,60 +168,102 @@ interrupt [TIM0_OVF] void timer0_ovf_isr(void)
     //PORTB ^= (1 << PORTB5); // Переключение состояния светодиода L (PB5) 
 }
 // Declare your global variables here
-interrupt[USART_RXC] void usartRX_data(void) {
-    // Чтение принятого байта из регистра UDR0    
-    uint8_t received_data = UDR0;   
-    if(received_data == 0x0A){
-        flagA = 1;
-    }  
-    if(flag == 1){
-        A = received_data; 
-        flagA = 0;
-    }   
-    if(received_data == 0x0B){
-        flagT = 1;
-    }  
-    if(flagT == 1){
-        T = (received_data<<8); 
-        flagT = 2;
-    }  
-    if(flagT == 2){
-        T = T+received_data; 
-        flagT = 0;
-    }    
-    if(received_data == 0x1A){
-        flagP = 1;
-    }  
-    if(flagP == 1){
-        Kp = (received_data<<8); 
-        flagP = 2;
-    }  
-    if(flagP == 2){
-        Kp = Kp + received_data; 
-        flagP = 0;
-    }    
-    if(received_data == 0x1B){
-        flagI = 1;
-    }  
-    if(flagI == 1){
-        Ki = (received_data<<8); 
-        flagI = 2;
-    }  
-    if(flagI == 2){
-        Ki = Ki + received_data; 
-        flagI = 0;
-    }  
-    if(received_data == 0x1F){
-        flagD = 1;
-    }  
-    if(flagD == 1){
-        Kd = (received_data<<8); 
-        flagD = 2;
-    }  
-    if(flagD == 2){
-        Kd = Kd + received_data; 
-        flagD = 0;
-    }  
+interrupt[USART_RXC] void usartRX_data(void) {   
+    int i = 0;
+    uint8_t ack[5] = {0x88, 0x01, 0x01, 0x00, 0x00};  
+    uint8_t calc_crc ;
+    static uint8_t state = 0;
+    uint8_t received_data = UDR0;
+    switch (state)
+           {
+           
+           case 0: if (received_data == PREAMBLE) state++; 
+           else state = 0;
+           break;
+
+           case 1:   rx_packet.type = received_data;
+           state++;
+
+           break;  
+           case 2: rx_packet.length = received_data; state++; break;
+           case 3: if (rx_index < rx_packet.length) {
+                    rx_packet.data[rx_index++] = received_data;
+                    if (rx_index == rx_packet.length) state++;
+                }
+                break;
+           case 4: rx_packet.crc = received_data;
+                calc_crc = calculate_crc((uint8_t*)&rx_packet, rx_index + 3); // без CRC
+                if (calc_crc == rx_packet.crc) {
+                    // Пакет корректный
+                    switch(rx_packet.type) {
+                        case 0x02: { // установка PID
+                            Kp = (rx_packet.data[0] << 8) | rx_packet.data[1]; 
+                            Ki = (rx_packet.data[2] << 8) | rx_packet.data[3]; 
+                            Kd = (rx_packet.data[4] << 8) | rx_packet.data[5];
+                            // Отправить подтверждение
+                            ack[4] = calculate_crc(ack, 5);
+                            for (i = 0; i < 5; i++) {
+                                send_byte(ack[i]);
+                            }
+                        } break;
+                    }
+                }
+                state = 0;
+                rx_index = 0;
+                packet_received = 1;
+                break;
+           }
+//    if(received_data == 0x0A){
+//        flagA = 1;
+//    }  
+//    if(flag == 1){
+//        A = received_data; 
+//        flagA = 0;
+//    }   
+//    if(received_data == 0x0B){
+//        flagT = 1;
+//    }  
+//    if(flagT == 1){
+//        T = (received_data<<8); 
+//        flagT = 2;
+//    }  
+//    if(flagT == 2){
+//        T = T+received_data; 
+//        flagT = 0;
+//    }    
+//    if(received_data == 0x1A){
+//        flagP = 1;
+//    }  
+//    if(flagP == 1){
+//        Kp = (received_data<<8); 
+//        flagP = 2;
+//    }  
+//    if(flagP == 2){
+//        Kp = Kp + received_data; 
+//        flagP = 0;
+//    }    
+//    if(received_data == 0x1B){
+//        flagI = 1;
+//    }  
+//    if(flagI == 1){
+//        Ki = (received_data<<8); 
+//        flagI = 2;
+//    }  
+//    if(flagI == 2){
+//        Ki = Ki + received_data; 
+//        flagI = 0;
+//    }  
+//    if(received_data == 0x1F){
+//        flagD = 1;
+//    }  
+//    if(flagD == 1){
+//        Kd = (received_data<<8); 
+//        flagD = 2;
+//    }  
+//    if(flagD == 2){
+//        Kd = Kd + received_data; 
+//        flagD = 0;
+//    }  
 }
 
 
@@ -235,7 +292,11 @@ void main(void)
 
 
     while (1)
-    {  
+    {   
+        if (packet_received) {
+            // Обработка принятого пакета
+            packet_received = 0;
+        }
     
         // result =A*datay[5];          
         //    if(time12>16128)time12 =0;

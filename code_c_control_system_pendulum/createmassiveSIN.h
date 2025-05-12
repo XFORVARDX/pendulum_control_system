@@ -6,6 +6,9 @@
 #define MI_P 3.14159265358979323846
 #define samls 256
 #define MAXugol 400
+
+
+
 int16_t fix16_sin[samls];
 int i = 0;
 float x = 0;

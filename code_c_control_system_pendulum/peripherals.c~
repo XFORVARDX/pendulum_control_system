@@ -93,8 +93,7 @@ void setEXT(void){
     PCICR=(0<<PCIE2) | (0<<PCIE1) | (0<<PCIE0);
 }
 
-void uartconfig(void){
-    
+void uartconfig(void){    
 
     // USART initialization
     // Communication Parameters: 8 Data, 1 Stop, No Parity
@@ -111,7 +110,21 @@ void uartconfig(void){
     UBRR0H = 0x00;  // Старший байт UBRR0
     UBRR0L = 0x10;  // Младший байт UBRR0 (для U2X0 = 1)
     // Включение приемника и передатчика
-    UCSR0B = (1 << RXEN0) | (1 << TXEN0);
+    UCSR0B = (1 << RXEN0) | (1 << TXEN0)| (1 << RXCIE0);;
     //// Включение прерывания по завершению приема данных (RX Complete)
-    //UCSR0B |= (1 << RXCIE0);
+    UCSR0B |= (1 << RXCIE0);
+}
+
+void send_byte(uint8_t byte){
+    while !(UCSR0A & (1 << UDRE0); // ждём готовности
+    UDR0 = byte;
+}
+// === Расчёт CRC8 ===
+uint8_t calculate_crc(uint8_t *data, uint8_t len) {
+    uint8_t crc = 0;     
+    int i;
+    for ( i = 0; i < len; i++) {
+        crc = data[i] ^ crc;
+    }
+    return crc;
 }
